@@ -41,7 +41,9 @@ class UserTest < ActiveSupport::TestCase
 
   test "should be able to check if connected with another user" do
     user = users(:one)
-    assert user.connected_with?(users(:two))
+    user2 = users(:two)
+    assert user.connected_with?(user2)
+    assert user2.connected_with?(user)
     assert_not user.connected_with?(users(:four))
   end
 
@@ -69,5 +71,17 @@ class UserTest < ActiveSupport::TestCase
   test "should be able to get the ratings for a user" do
     user = users(:one)
     assert_equal 2, user.ratings.size
+  end
+
+  test "should be able to get the contractors rated by user" do
+    user = users(:one)
+    assert_equal 2, user.rated_contractors.size
+  end
+
+  test "should be able to get the contractors rated by connections" do
+    user = users(:two)
+    assert user.connected_with?(users(:one))
+    rated_by_connection_count = users(:one).rated_contractors.size
+    assert_equal rated_by_connection_count, user.contractors_rated_by_connections.size
   end
 end

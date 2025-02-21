@@ -2,7 +2,7 @@
 
 rating_one:
   user: one
-  contractor: builder
+  contractor: c_builder
   review: "Shaun was fantastic, would highly recommend"
   overall_rating: 9.0
   value_rating: 9.0
@@ -13,7 +13,7 @@ rating_one:
 
 rating_two:
   user: one
-  contractor: electrician
+  contractor: c_electrician
   review: "Paul was great, would use again"
   overall_rating: 9.0
   value_rating: 9.0

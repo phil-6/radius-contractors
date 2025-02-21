@@ -9,12 +9,27 @@ class User < ApplicationRecord
 
   has_many :connections_as_a, class_name: "Connection", foreign_key: "user_a_id", dependent: :destroy
   has_many :connections_as_b, class_name: "Connection", foreign_key: "user_b_id", dependent: :destroy
-
-  # Single association that gets all connected users, no need to merge arrays
   has_many :connections, ->(user) { unscope(:where).where("user_a_id = ? OR user_b_id = ?", user.id, user.id) }, class_name: "Connection"
 
-  has_many :connected_users, through: :connections, source: :user_a
-  has_many :connected_users, through: :connections, source: :user_b
+  # Leaving some options here for future consideration
+  # def connected_users
+  #   user_a_ids = connections.select(:user_a_id)
+  #   user_b_ids = connections.select(:user_b_id)
+  #   User.where(id: user_a_ids).or(User.where(id: user_b_ids)).distinct
+  # end
+  def connected_users
+    User.joins("INNER JOIN (
+                SELECT user_a_id AS user_id FROM connections WHERE user_b_id = #{self.id}
+                UNION
+                SELECT user_b_id AS user_id FROM connections WHERE user_a_id = #{self.id}
+              ) AS user_connections ON users.id = user_connections.user_id")
+        .distinct
+  end
+  # def connected_users
+  #   user_ids = Connection.where("user_a_id = :id OR user_b_id = :id", id: self.id)
+  #                        .select("CASE WHEN user_a_id = #{self.id} THEN user_b_id ELSE user_a_id END AS user_id")
+  #   User.where(id: user_ids).distinct
+  # end
 
   def connected_with?(other_user)
     connected_users.exists?(other_user.id)
@@ -29,6 +44,27 @@ class User < ApplicationRecord
   has_many :added_contractors, foreign_key: "added_by_id", dependent: :nullify, class_name: "Contractor"
   has_many :ratings, dependent: :nullify
   has_many :rated_contractors, through: :ratings, source: :contractor
+
+  def contractors_rated_by_connections
+    Contractor.joins(:ratings).where(ratings: { user_id: connected_users.select(:id) }).distinct
+  end
+
+  # Maybe for Future
+  # def second_degree_connections
+  #   User.joins(:connections)
+  #       .where(connections: { user_a_id: connected_users.select(:id) })
+  #       .or(User.joins(:connections).where(connections: { user_b_id: connected_users.select(:id) }))
+  #       .distinct
+  # end
+  #
+  # def contractors_rated_by_connections
+  #   first_degree_ids = connected_users.select(:id)
+  #   second_degree_ids = second_degree_connections.select(:id)
+  #   all_ids = first_degree_ids.union(second_degree_ids)
+  #
+  #   Contractor.joins(:ratings).where(ratings: { user_id: all_ids }).distinct
+  # end
+
 
   def full_name
     "#{first_name} #{last_name}"

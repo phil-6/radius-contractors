@@ -22,7 +22,7 @@ Very Rough List of things to do:
 - Initial app setup ✅
 - Initial User Devise setup ✅
 - Initial Model scaffolding ✅
-- Create Seed Data 
+- Create Seed Data ✅
 - Create Landing Page
 - Update User Devise Page Designs
 - Test Sign Up and Sign In
@@ -35,7 +35,7 @@ Very Rough List of things to do:
 - Add a contractor
 - Add a job
 - Add a rating
-- Find a new contractor - view contractors connections have rated
+- Find a new contractor - view contractors connections have rated ✅
 - User Profile Page
 - Add a connection
 - Invite a user (automatic connection on signup)

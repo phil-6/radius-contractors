@@ -1,23 +1,23 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+rating_one:
   user: one
-  contractor: one
-  review: MyText
-  overall_rating: 8.0
-  value_rating: 8.0
-  communication_rating: 8.0
-  quality_rating: 8.0
-  tidiness_rating: 8.0
-  professionalism_rating: 8.0
+  contractor: builder
+  review: "Shaun was fantastic, would highly recommend"
+  overall_rating: 9.0
+  value_rating: 9.0
+  communication_rating: 9.0
+  quality_rating: 9.0
+  tidiness_rating: 9.0
+  professionalism_rating: 9.0
 
-two:
-  user: two
-  contractor: two
-  review: MyText
-  overall_rating: 8.0
-  value_rating: 8.0
-  communication_rating: 8.0
-  quality_rating: 8.0
-  tidiness_rating: 8.0
-  professionalism_rating: 8.0
+rating_two:
+  user: one
+  contractor: electrician
+  review: "Paul was great, would use again"
+  overall_rating: 9.0
+  value_rating: 9.0
+  communication_rating: 9.0
+  quality_rating: 9.0
+  tidiness_rating: 9.0
+  professionalism_rating: 9.0

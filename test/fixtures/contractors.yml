@@ -1,15 +1,23 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+c_builder:
+  name: c_builder
   number: 07111000111
   email: one@builder.email
-  town: MyString
+  town: Swansea
   added_by: one
 
-two:
+c_builder_2:
   name: MyString
   number: 07222000222
-  email: two@mybuilder.email
-  town: MyString
-  added_by: two
+  email: two@builder.email
+  town: Swansea
+  added_by: one
+
+c_electrician:
+  name: c_electrician
+  number: 07333000333
+  email: electrician@builder.email
+  town: Swansea
+  added_by: one
+

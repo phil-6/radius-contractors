@@ -55,4 +55,19 @@ class UserTest < ActiveSupport::TestCase
     user.create_connection_with(users(:five))
     assert user.connected_with?(users(:five))
   end
+
+  test "should be able to get the contractors added by a user" do
+    user = users(:one)
+    assert_equal 3, user.added_contractors.size
+  end
+
+  test "should be able to get the jobs for a user" do
+    user = users(:one)
+    assert_equal 5, user.jobs.size
+  end
+
+  test "should be able to get the ratings for a user" do
+    user = users(:one)
+    assert_equal 2, user.ratings.size
+  end
 end

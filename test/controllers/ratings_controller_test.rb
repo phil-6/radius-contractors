@@ -2,7 +2,7 @@ require "test_helper"
 
 class RatingsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @rating = ratings(:one)
+    @rating = ratings(:rating_one)
     sign_in users(:one)
   end
 

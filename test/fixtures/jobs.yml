@@ -1,21 +1,53 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
 one:
   user: one
-  contractor: one
-  description: MyText
-  state: MyString
-  start_date: 2025-02-21 14:58:11
-  end_date: 2025-02-21 14:58:11
+  contractor: c_builder
+  description: test
+  town: Swansea
+  start_date: 2024-05-01
+  end_date: 2024-10-01
   cost: 1000
-  review: MyText
+  status: completed
 
-two:
-  user: two
-  contractor: two
-  description: MyText
-  state: MyString
-  start_date: 2025-02-21 14:58:11
-  end_date: 2025-02-21 14:58:11
-  cost: 1000
-  review: MyText
+bathroom_renovation:
+  user: one
+  contractor: c_builder
+  description: Bathroom renovation
+  town: Swansea
+  start_date: 2024-05-01
+  end_date: 2024-10-01
+  cost: 5000
+  status: completed
+
+rewire_rear_half_of_house:
+  user: one
+  contractor: c_electrician
+  description: Rewire rear half of house
+  town: Swansea
+  start_date: 2024-05-01
+  end_date: 2024-10-01
+  cost: 3000
+  status: completed
+
+kitchen_renovation:
+  user: one
+  contractor: c_builder
+  description: Kitchen renovation
+  town: Swansea
+  start_date: 2024-05-01
+  end_date: 2024-10-01
+  cost: 20000
+  status: completed
+
+new_roof:
+  user: one
+  contractor: c_builder
+  description: New Roof
+  town: Swansea
+  start_date: 2024-05-01
+  end_date: 2024-10-01
+  cost: 10000
+  status: completed

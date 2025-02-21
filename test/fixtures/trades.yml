@@ -1,10 +1,42 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+building:
   name: Building
-
-two:
+plumbing:
   name: Plumbing
-
-three:
+electrical:
   name: Electrical
+carpentry:
+  name: Carpentry
+plumber:
+  name: Plumber
+electrician:
+  name: Electrician
+joiner:
+  name: Joiner
+plasterer:
+  name: Plasterer
+decorator:
+  name: Decorator
+builder:
+  name: Builder
+gardener:
+  name: Gardener
+fence:
+  name: Fence
+roofer:
+  name: Roofer
+tiler:
+  name: Tiler
+floorer:
+  name: Floorer
+kitchen_fitter:
+  name: Kitchen Fitter
+bathroom_fitter:
+  name: Bathroom Fitter
+window_fitter:
+  name: Window Fitter
+scaffolder:
+  name: Scaffolder
+rubbish_clearance:
+  name: Rubbish Clearance

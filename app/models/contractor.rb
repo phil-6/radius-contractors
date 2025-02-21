@@ -4,6 +4,6 @@ class Contractor < ApplicationRecord
   has_many :trades, through: :contractor_trades
 
   validates :added_by_id, :name, :number, :email, :town, presence: true
-  validates :number, uniqueness: true, format: { with: "^(((\+44\s?\d{4}|\(?0\d{4}\)?)\s?\d{3}\s?\d{3})|((\+44\s?\d{3}|\(?0\d{3}\)?)\s?\d{3}\s?\d{4})|((\+44\s?\d{2}|\(?0\d{2}\)?)\s?\d{4}\s?\d{4}))(\s?\#(\d{4}|\d{3}))?$" } # rubocop:disable Layout/LineLength
+  validates :number, uniqueness: true, format: { with: %r{\A(?:0|\+?44)(?:\d\s?){9,10}\z} }
   validates :email, uniqueness: true, format: { with: Devise.email_regexp }
 end

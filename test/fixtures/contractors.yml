@@ -2,14 +2,14 @@
 
 one:
   name: MyString
-  number: MyString
-  email: MyString
+  number: 07111000111
+  email: one@builder.email
   town: MyString
   added_by: one
 
 two:
   name: MyString
-  number: MyString
-  email: MyString
+  number: 07222000222
+  email: two@mybuilder.email
   town: MyString
   added_by: two

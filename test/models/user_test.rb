@@ -44,4 +44,9 @@ class UserTest < ActiveSupport::TestCase
     assert user.connected_with?(users(:two))
     assert_not user.connected_with?(users(:four))
   end
+
+  test "should be able to get the full name of a user" do
+    user = users(:one)
+    assert_equal "one test_user", user.full_name
+  end
 end

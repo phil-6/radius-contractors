@@ -19,5 +19,4 @@ class User < ApplicationRecord
   def connected_with?(other_user)
     connected_users.exists?(other_user.id)
   end
-
 end

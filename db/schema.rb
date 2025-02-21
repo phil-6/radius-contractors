@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 5) do
+ActiveRecord::Schema[8.0].define(version: 7) do
   create_table "connections", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_a_id", null: false
     t.bigint "user_b_id", null: false
@@ -41,6 +41,38 @@ ActiveRecord::Schema[8.0].define(version: 5) do
     t.index ["added_by_id"], name: "index_contractors_on_added_by_id"
     t.index ["email"], name: "index_contractors_on_email", unique: true
     t.index ["number"], name: "index_contractors_on_number", unique: true
+  end
+
+  create_table "jobs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "contractor_id", null: false
+    t.text "description"
+    t.string "state"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.float "cost"
+    t.text "review"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contractor_id"], name: "index_jobs_on_contractor_id"
+    t.index ["user_id"], name: "index_jobs_on_user_id"
+  end
+
+  create_table "ratings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "contractor_id", null: false
+    t.text "review"
+    t.float "overall_rating"
+    t.float "value_rating"
+    t.float "communication_rating"
+    t.float "quality_rating"
+    t.float "tidiness_rating"
+    t.float "professionalism_rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contractor_id"], name: "index_ratings_on_contractor_id"
+    t.index ["user_id", "contractor_id"], name: "index_ratings_on_user_id_and_contractor_id", unique: true
+    t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
   create_table "trades", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -80,4 +112,8 @@ ActiveRecord::Schema[8.0].define(version: 5) do
   add_foreign_key "contractor_trades", "contractors"
   add_foreign_key "contractor_trades", "trades"
   add_foreign_key "contractors", "users", column: "added_by_id"
+  add_foreign_key "jobs", "contractors"
+  add_foreign_key "jobs", "users"
+  add_foreign_key "ratings", "contractors"
+  add_foreign_key "ratings", "users"
 end

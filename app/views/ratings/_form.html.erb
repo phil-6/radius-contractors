@@ -1,0 +1,62 @@
+<%= form_with(model: rating) do |form| %>
+  <% if rating.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(rating.errors.count, "error") %> prohibited this rating from being saved:</h2>
+
+      <ul>
+        <% rating.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.label :contractor_id, style: "display: block" %>
+    <%= form.text_field :contractor_id %>
+  </div>
+
+  <div>
+    <%= form.label :review, style: "display: block" %>
+    <%= form.textarea :review %>
+  </div>
+
+  <div>
+    <%= form.label :overall_rating, style: "display: block" %>
+    <%= form.text_field :overall_rating %>
+  </div>
+
+  <div>
+    <%= form.label :value_rating, style: "display: block" %>
+    <%= form.text_field :value_rating %>
+  </div>
+
+  <div>
+    <%= form.label :communication_rating, style: "display: block" %>
+    <%= form.text_field :communication_rating %>
+  </div>
+
+  <div>
+    <%= form.label :quality_rating, style: "display: block" %>
+    <%= form.text_field :quality_rating %>
+  </div>
+
+  <div>
+    <%= form.label :tidiness_rating, style: "display: block" %>
+    <%= form.text_field :tidiness_rating %>
+  </div>
+
+  <div>
+    <%= form.label :professionalism_rating, style: "display: block" %>
+    <%= form.text_field :professionalism_rating %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

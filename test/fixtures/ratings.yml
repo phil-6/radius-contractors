@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  contractor: one
+  review: MyText
+  overall_rating: 8.0
+  value_rating: 8.0
+  communication_rating: 8.0
+  quality_rating: 8.0
+  tidiness_rating: 8.0
+  professionalism_rating: 8.0
+
+two:
+  user: two
+  contractor: two
+  review: MyText
+  overall_rating: 8.0
+  value_rating: 8.0
+  communication_rating: 8.0
+  quality_rating: 8.0
+  tidiness_rating: 8.0
+  professionalism_rating: 8.0

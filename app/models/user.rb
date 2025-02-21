@@ -20,6 +20,12 @@ class User < ApplicationRecord
     connected_users.exists?(other_user.id)
   end
 
+  has_many :jobs, dependent: :nullify
+  has_many :used_contractors, through: :jobs, source: :contractor
+  has_many :added_contractors, foreign_key: "added_by_id", dependent: :nullify, class_name: "Contractor"
+  has_many :ratings, dependent: :nullify
+  has_many :rated_contractors, through: :ratings, source: :contractor
+
   def full_name
     "#{first_name} #{last_name}"
   end

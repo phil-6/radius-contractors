@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  contractor: one
+  description: MyText
+  state: MyString
+  start_date: 2025-02-21 14:58:11
+  end_date: 2025-02-21 14:58:11
+  cost: 1000
+  review: MyText
+
+two:
+  user: two
+  contractor: two
+  description: MyText
+  state: MyString
+  start_date: 2025-02-21 14:58:11
+  end_date: 2025-02-21 14:58:11
+  cost: 1000
+  review: MyText

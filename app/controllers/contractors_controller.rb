@@ -47,16 +47,6 @@ class ContractorsController < ApplicationController
     end
   end
 
-  # DELETE /contractors/1 or /contractors/1.json
-  def destroy
-    @contractor.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to contractors_path, status: :see_other, notice: "Contractor was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contractor

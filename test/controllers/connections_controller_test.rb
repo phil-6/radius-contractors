@@ -3,6 +3,7 @@ require "test_helper"
 class ConnectionsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @connection = connections(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do

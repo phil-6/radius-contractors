@@ -7,7 +7,7 @@ class Contractor < ApplicationRecord
   has_many :customers, through: :jobs, source: :user
   has_many :ratings, dependent: :restrict_with_exception
 
-  validates :added_by_id, :name, :number, :email, :town, presence: true
+  validates :added_by_id, :name, :number, :town, presence: true
   validates :number, uniqueness: true, format: { with: %r{\A(?:0|\+?44)(?:\d\s?){9,10}\z} }
-  validates :email, uniqueness: true, format: { with: Devise.email_regexp }
+  validates :email, uniqueness: true, allow_nil: true, format: { with: Devise.email_regexp }
 end

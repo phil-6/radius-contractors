@@ -20,6 +20,10 @@ class User < ApplicationRecord
     connected_users.exists?(other_user.id)
   end
 
+  def create_connection_with(user_b)
+    connections_as_a.create!(user_b:)
+  end
+
   has_many :jobs, dependent: :nullify
   has_many :used_contractors, through: :jobs, source: :contractor
   has_many :added_contractors, foreign_key: "added_by_id", dependent: :nullify, class_name: "Contractor"

@@ -33,8 +33,9 @@ ActiveRecord::Schema[8.0].define(version: 7) do
   create_table "contractors", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "added_by_id", null: false
     t.string "name", null: false
+    t.string "company_name"
     t.string "number", null: false
-    t.string "email", null: false
+    t.string "email"
     t.string "town", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -47,9 +48,10 @@ ActiveRecord::Schema[8.0].define(version: 7) do
     t.bigint "user_id", null: false
     t.bigint "contractor_id", null: false
     t.text "description"
-    t.string "state"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.string "status"
+    t.string "town"
+    t.date "start_date"
+    t.date "end_date"
     t.float "cost"
     t.text "review"
     t.datetime "created_at", null: false

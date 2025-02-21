@@ -49,4 +49,10 @@ class UserTest < ActiveSupport::TestCase
     user = users(:one)
     assert_equal "one test_user", user.full_name
   end
+
+  test "should be able to connect with a user with the create_connection_with method" do
+    user = users(:one)
+    user.create_connection_with(users(:five))
+    assert user.connected_with?(users(:five))
+  end
 end

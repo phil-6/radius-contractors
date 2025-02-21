@@ -25,3 +25,10 @@ four:
   last_name: "test_user"
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= DateTime.current %>
+
+five:
+  email: "five@test.email"
+  first_name: "five"
+  last_name: "test_user"
+  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
+  confirmed_at: <%= DateTime.current %>

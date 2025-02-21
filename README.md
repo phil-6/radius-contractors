@@ -17,3 +17,29 @@ If you're a builder, do good work and get recommended. If you have any issues th
 ---
 
 This project is a big work in progress!
+
+Very Rough List of things to do:
+- Initial app setup ✅
+- Initial User Devise setup ✅
+- Initial Model scaffolding ✅
+- Create Seed Data 
+- Create Landing Page
+- Update User Devise Page Designs
+- Test Sign Up and Sign In
+- Email Setup with SendGrid
+- Automated Test for Sign Up and Sign In
+- User Dashboard Page
+- View previously used contactors
+- View jobs
+- View ratings
+- Add a contractor
+- Add a job
+- Add a rating
+- Find a new contractor - view contractors connections have rated
+- User Profile Page
+- Add a connection
+- Invite a user (automatic connection on signup)
+- Add some admin functionality
+- Allow second-degree connections to view ratings
+- Handle adding contractors that are not visible to users due to separation
+

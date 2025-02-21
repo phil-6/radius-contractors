@@ -1,24 +1,15 @@
-# README
+# Radius Contractors
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Find builders and tradespeople recommend by people you trust.
 
-Things you may want to cover:
+It's really challenging to find reliable builders. Check-a-trade and MyBuilder are commercial behemoths, focused on their bottom line rather than providing a good service to homeowners.
 
-* Ruby version
+Radius contractors takes a different approach, the builders you can see on here are only those that have been reviewed by people you have connected with.
 
-* System dependencies
+It was inspired by our group of friends who did this using a Google Doc!
 
-* Configuration
 
-* Database creation
 
-* Database initialization
+If you're a user who wants to share builders with their friends then sign up below.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+If you're a builder, do good work and get recommended. If you have any issues then you can reach out here

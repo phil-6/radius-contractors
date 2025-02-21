@@ -1,11 +1,27 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+one:
+  email: "one@test.email"
+  first_name: "one"
+  last_name: "test_user"
+  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
+  confirmed_at: <%= DateTime.current %>
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the "{}" from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+two:
+  email: "two@test.email"
+  first_name: "two"
+  last_name: "test_user"
+  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
+  confirmed_at: <%= DateTime.current %>
+
+three:
+  email: "three@test.email"
+  first_name: "three"
+  last_name: "test_user"
+  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
+  confirmed_at: <%= DateTime.current %>
+
+four:
+  email: "four@test.email"
+  first_name: "four"
+  last_name: "test_user"
+  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
+  confirmed_at: <%= DateTime.current %>

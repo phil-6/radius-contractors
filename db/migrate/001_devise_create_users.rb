@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class DeviseCreateUsers < ActiveRecord::Migration[8.0]
   def change
     create_table :users do |t|
@@ -33,9 +31,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[8.0]
       # t.datetime :locked_at
 
       ## User details
-      t.string :first_name
-      t.string :last_name
-      t.string :username
+      t.string :first_name, null: false
+      t.string :last_name, null: false
       t.string :town
 
       t.timestamps null: false
@@ -45,6 +42,5 @@ class DeviseCreateUsers < ActiveRecord::Migration[8.0]
     add_index :users, :reset_password_token, unique: true
     add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
-    add_index :users, :username,             unique: true
   end
 end

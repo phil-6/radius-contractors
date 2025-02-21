@@ -1,0 +1,27 @@
+<%= form_with(model: connection) do |form| %>
+  <% if connection.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(connection.errors.count, "error") %> prohibited this connection from being saved:</h2>
+
+      <ul>
+        <% connection.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :user_a_id, style: "display: block" %>
+    <%= form.text_field :user_a_id %>
+  </div>
+
+  <div>
+    <%= form.label :user_b_id, style: "display: block" %>
+    <%= form.text_field :user_b_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

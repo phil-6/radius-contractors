@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @connection %>
+
+<div>
+  <%= link_to "Edit this connection", edit_connection_path(@connection) %> |
+  <%= link_to "Back to connections", connections_path %>
+
+  <%= button_to "Destroy this connection", @connection, method: :delete %>
+</div>

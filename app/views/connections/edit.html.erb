@@ -1,0 +1,12 @@
+<% content_for :title, "Editing connection" %>
+
+<h1>Editing connection</h1>
+
+<%= render "form", connection: @connection %>
+
+<br>
+
+<div>
+  <%= link_to "Show this connection", @connection %> |
+  <%= link_to "Back to connections", connections_path %>
+</div>

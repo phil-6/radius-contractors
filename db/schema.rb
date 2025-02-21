@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 1) do
+ActiveRecord::Schema[8.0].define(version: 2) do
+  create_table "connections", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_a_id", null: false
+    t.bigint "user_b_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_a_id", "user_b_id"], name: "index_connections_on_user_a_id_and_user_b_id", unique: true
+    t.index ["user_a_id"], name: "index_connections_on_user_a_id"
+    t.index ["user_b_id"], name: "index_connections_on_user_b_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -26,15 +36,16 @@ ActiveRecord::Schema[8.0].define(version: 1) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "username"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
     t.string "town"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["username"], name: "index_users_on_username", unique: true
   end
+
+  add_foreign_key "connections", "users", column: "user_a_id"
+  add_foreign_key "connections", "users", column: "user_b_id"
 end

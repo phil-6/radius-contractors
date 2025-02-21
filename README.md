@@ -13,3 +13,7 @@ It was inspired by our group of friends who did this using a Google Doc!
 If you're a user who wants to share builders with their friends then sign up below.
 
 If you're a builder, do good work and get recommended. If you have any issues then you can reach out here
+
+---
+
+This project is a big work in progress!

@@ -12,5 +12,4 @@ class Rating < ApplicationRecord
       errors.add(:base, "You must add a job for this contactor before you can add a rating.")
     end
   end
-
 end

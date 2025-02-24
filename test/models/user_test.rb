@@ -39,6 +39,11 @@ class UserTest < ActiveSupport::TestCase
     assert_equal 2, user.connected_users.size
   end
 
+  test "should be able to get an array of connected user IDs and self" do
+    user = users(:one)
+    assert_equal [ users(:two).id, users(:three).id, user.id ].sort, user.connected_user_ids_and_self.sort
+  end
+
   test "should be able to check if connected with another user" do
     user = users(:one)
     user2 = users(:two)

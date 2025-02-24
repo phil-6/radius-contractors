@@ -1,27 +1,52 @@
-<div id="<%= dom_id contractor %>">
-  <p>
-    <strong>Name:</strong>
-    <%= contractor.name %>
-  </p>
+<div class="card" id="<%= dom_id contractor %>">
+  <div class="card-header">
+    <h3><%= contractor.name %> - <%= contractor.company_name %></h3>
+  </div>
 
-  <p>
-    <strong>Number:</strong>
-    <%= contractor.number %>
-  </p>
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <div class="trades">
+          <% contractor.trades.each do |trade| %>
+            <p class="btn btn-sm btn-<%= trade.name %>"><%= trade.name %></p>
+          <% end %>
+        </div>
+        <p>
+          Completed <%= pluralize(contractor.viewable_jobs(current_user).size, "job") %> for
+          <%= pluralize(contractor.viewable_customers(current_user).size, "customer") %>
+        </p>
+        <p>
+          Rated <%= contractor.average_rating(current_user) %> from
+          <%= pluralize(contractor.viewable_ratings(current_user).size, "rating") %>
+        </p>
+      </div>
 
-  <p>
-    <strong>Email:</strong>
-    <%= contractor.email %>
-  </p>
+      <div class="col">
+        <p>
+          <strong><i class="fa-solid fa-phone"></i></strong>
+          <%= contractor.number %>
+        </p>
 
-  <p>
-    <strong>Town:</strong>
-    <%= contractor.town %>
-  </p>
+        <p>
+          <strong><i class="fa-solid fa-envelope"></i></strong>
+          <%= contractor.email %>
+        </p>
 
-  <p>
-    <strong>Added by:</strong>
-    <%= contractor.added_by_id %>
-  </p>
+        <p>
+          <strong><i class="fa-solid fa-location-dot"></i></strong>
+          <%= contractor.town %>
+        </p>
 
+        <p>
+          <strong>Added by:</strong>
+          <%= contractor.added_by.full_name %>
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <%= link_to "See more details", contractor %>
+  </div>
 </div>

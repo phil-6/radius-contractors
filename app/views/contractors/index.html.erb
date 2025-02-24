@@ -1,16 +1,15 @@
-<p style="color: green"><%= notice %></p>
-
 <% content_for :title, "Contractors" %>
 
-<h1>Contractors</h1>
+<header class="container main-page">
+  <h1 class="page-title brand">Contractors in your Radius</h1>
+  <div class="text-center mb-2">
+    <%= link_to "New contractor", new_contractor_path, class: "btn btn-primary" %>
+  </div>
+</header>
 
-<div id="contractors">
+<main class="container" id="contractors">
   <% @contractors.each do |contractor| %>
     <%= render contractor %>
-    <p>
-      <%= link_to "Show this contractor", contractor %>
-    </p>
   <% end %>
-</div>
+</main>
 
-<%= link_to "New contractor", new_contractor_path %>

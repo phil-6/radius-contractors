@@ -2,7 +2,7 @@ class ContractorsController < ApplicationController
   before_action :set_contractor, only: %i[ show edit update ]
 
   def index
-    @contractors = Contractor.all
+    @contractors = current_user.viewable_contractors
   end
 
   def show
@@ -16,7 +16,7 @@ class ContractorsController < ApplicationController
   end
 
   def create
-    @contractor = Contractor.new(contractor_params)
+    @contractor = current_user.contractors.new(contractor_params)
 
     respond_to do |format|
       if @contractor.save
@@ -49,6 +49,6 @@ class ContractorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def contractor_params
-      params.expect(contractor: [ :name, :number, :email, :town, :added_by_id ])
+      params.expect(contractor: [ :name, :number, :email, :town, contractor_trades_attributes: [ :id, :trade_id, :_destroy ] ])
     end
 end

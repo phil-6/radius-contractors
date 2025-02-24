@@ -40,6 +40,10 @@ class User < ApplicationRecord
     connections_as_a.create!(user_b:)
   end
 
+  def connected_user_ids_and_self
+    connected_users.pluck(:id) + [ id ]
+  end
+
   has_many :jobs, dependent: :nullify
   has_many :used_contractors, through: :jobs, source: :contractor
   has_many :added_contractors, foreign_key: "added_by_id", dependent: :nullify, class_name: "Contractor"

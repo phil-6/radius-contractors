@@ -1,0 +1,20 @@
+#contractors {
+  .card {
+    margin-bottom: 1rem;
+    .card-header {
+      h3 {
+        font-weight: 700;
+      }
+
+    }
+    .card-body {
+      background: $dark-bg-grad;
+    }
+  }
+  .trades {
+    .btn {
+      background-color: $info;
+      color: $theme-dark;
+    }
+  }
+}

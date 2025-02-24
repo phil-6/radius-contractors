@@ -1,14 +1,18 @@
 header.main-page {
   max-width: 800px;
 
-  .page-title {
-    font-weight: 800;
-    text-align: center;
-    color: $primary;
-  }
-
   .page-subtitle {
     text-align: center;
     color: $primary;
+  }
+}
+
+.page-title.brand {
+  font-weight: 900;
+  text-align: center;
+  color: $primary;
+
+  a {
+    text-decoration: none;
   }
 }

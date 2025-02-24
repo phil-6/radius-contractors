@@ -18,7 +18,8 @@
     sign up and do the same thing, you'll be able to see the builders they have rated.</p>
   <p>It requires a bit of community effort, but it's that simple!</p>
   <% if current_user %>
-    User Logged In
+    <p>User Logged In</p>
+    <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
   <% else %>
     <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
     <%= link_to "Log In", new_user_session_path, class: "btn btn-primary" %>

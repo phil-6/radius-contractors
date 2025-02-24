@@ -25,6 +25,7 @@ class User < ApplicationRecord
               ) AS user_connections ON users.id = user_connections.user_id")
         .distinct
   end
+
   # def connected_users
   #   user_ids = Connection.where("user_a_id = :id OR user_b_id = :id", id: self.id)
   #                        .select("CASE WHEN user_a_id = #{self.id} THEN user_b_id ELSE user_a_id END AS user_id")
@@ -49,6 +50,12 @@ class User < ApplicationRecord
     Contractor.joins(:ratings).where(ratings: { user_id: connected_users.select(:id) }).distinct
   end
 
+  def viewable_contractors
+    Contractor.where(id: added_contractors.select(:id))
+              .or(Contractor.where(id: contractors_rated_by_connections.select(:id)))
+              .distinct
+  end
+
   # Maybe for Future
   # def second_degree_connections
   #   User.joins(:connections)
@@ -64,7 +71,6 @@ class User < ApplicationRecord
   #
   #   Contractor.joins(:ratings).where(ratings: { user_id: all_ids }).distinct
   # end
-
 
   def full_name
     "#{first_name} #{last_name}"

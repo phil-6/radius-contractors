@@ -1,25 +1,20 @@
 class ContractorsController < ApplicationController
-  before_action :set_contractor, only: %i[ show edit update destroy ]
+  before_action :set_contractor, only: %i[ show edit update ]
 
-  # GET /contractors or /contractors.json
   def index
     @contractors = Contractor.all
   end
 
-  # GET /contractors/1 or /contractors/1.json
   def show
   end
 
-  # GET /contractors/new
   def new
     @contractor = Contractor.new
   end
 
-  # GET /contractors/1/edit
   def edit
   end
 
-  # POST /contractors or /contractors.json
   def create
     @contractor = Contractor.new(contractor_params)
 
@@ -34,7 +29,6 @@ class ContractorsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /contractors/1 or /contractors/1.json
   def update
     respond_to do |format|
       if @contractor.update(contractor_params)

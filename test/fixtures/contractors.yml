@@ -8,15 +8,22 @@ c_builder:
   added_by: one
 
 c_builder_2:
-  name: MyString
+  name: c_builder_2
   number: 07222000222
   email: two@builder.email
   town: Swansea
   added_by: one
 
+c_builder_3:
+  name: c_builder_3
+  number: 07333000333
+  email: three@builder.email
+  town: Swansea
+  added_by: two
+
 c_electrician:
   name: c_electrician
-  number: 07333000333
+  number: 07000333000
   email: electrician@builder.email
   town: Swansea
   added_by: one

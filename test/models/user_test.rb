@@ -81,7 +81,15 @@ class UserTest < ActiveSupport::TestCase
   test "should be able to get the contractors rated by connections" do
     user = users(:two)
     assert user.connected_with?(users(:one))
-    rated_by_connection_count = users(:one).rated_contractors.size
+    rated_by_connection_count = users(:one).rated_contractors.size + users(:three).rated_contractors.size
     assert_equal rated_by_connection_count, user.contractors_rated_by_connections.size
+  end
+
+  test "should be able to see contractors that user has added or have been rated by connections" do
+    user = users(:two)
+    rated_by_connection_count = users(:one).rated_contractors.size + users(:three).rated_contractors.size
+    added_count = user.added_contractors.size
+    expected_viewable_count = rated_by_connection_count + added_count
+    assert_equal expected_viewable_count, user.viewable_contractors.size
   end
 end

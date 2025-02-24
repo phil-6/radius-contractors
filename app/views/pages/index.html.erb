@@ -17,24 +17,12 @@
     <h2>Welcome Back <%= current_user.first_name %></h2>
     <p>What would you like to do today?</p>
     <div class="row g-2 front-page-buttons">
-      <div class="col-4">
-        <%= link_to "Add a contractor", new_contractor_path, class: "btn btn-builder" %>
-      </div>
-      <div class="col-4">
-        <%= link_to "Add a job", new_job_path, class: "btn btn-job" %>
-      </div>
-      <div class="col-4">
-        <%= link_to "Add a rating", new_job_path, class: "btn btn-rating" %>
-      </div>
-      <div class="col-4">
-        <%= link_to "Find a new contractor", contractors_path, class: "btn btn-builder" %>
-      </div>
-      <div class="col-4">
-        <%= link_to "View or edit something you added previously", root_path, class: "btn btn-secondary" %>
-      </div>
-      <div class="col-4">
-        <%= link_to "Edit your account", edit_user_registration_path, class: "btn btn-primary" %>
-      </div>
+      <div class="col-4"><%= link_to "Add a contractor", new_contractor_path, class: "btn btn-builder" %></div>
+      <div class="col-4"><%= link_to "Add a job", new_job_path, class: "btn btn-job" %></div>
+      <div class="col-4"><%= link_to "Add a rating", new_job_path, class: "btn btn-rating" %></div>
+      <div class="col-4"><%= link_to "Find a new contractor", contractors_path, class: "btn btn-builder" %></div>
+      <div class="col-4"><%= link_to "View or edit something you added previously", root_path, class: "btn btn-secondary" %></div>
+      <div class="col-4"><%= link_to "Edit your account", edit_user_registration_path, class: "btn btn-primary" %></div>
     </div>
   <% else %>
     <h2>Getting Started</h2>

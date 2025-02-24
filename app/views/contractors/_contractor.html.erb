@@ -47,6 +47,10 @@
   </div>
 
   <div class="card-footer">
-    <%= link_to "See more details", contractor %>
+    <% if controller_name == "contractors" && action_name == "index" %>
+      <%= link_to "See more details", contractor %>
+    <% else %>
+      <p>Not Index</p>
+    <% end %>
   </div>
 </div>

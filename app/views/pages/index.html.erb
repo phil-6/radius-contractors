@@ -1,27 +1,90 @@
 <header class="container main-page">
   <h1 class="page-title brand">Radius Contractors</h1>
   <h2 class="page-subtitle">Find builders recommended by people you trust</h2>
-  <p class="lead">It's really challenging to find reliable builders. Check-a-trade and MyBuilder are commercial behemoths, focused on their bottom line
-    rather than providing a good service to homeowners.</p>
-  <p class="lead">Radius contractors takes a different approach, the builders you can see on here are only those that have been reviewed by people you
-    have
-    connected with.</p>
+  <p class="lead">
+    It's really challenging to find reliable builders. Check-a-trade and MyBuilder are commercial behemoths, focused on their bottom line
+    rather than providing a good service to homeowners.
+  </p>
+  <p class="lead">
+    Radius contractors takes a different approach, the builders you can see on here are only those that have been reviewed by people you
+    have connected with.
+  </p>
   <hr>
 </header>
 
 <main class="container">
-  <h2>Getting Started</h2>
-  <p>For this app to be useful, you need to sign up with at least one other friend, so you can both see each other's recommended
-    builders.</p>
-  <p>You can sign up from the link below, then you can generate a personalised link invite your friends.</p>
-  <p>Once you've signed up, you can add builders you've used, the jobs they've worked or quoted for and give them a rating. When you friends
-    sign up and do the same thing, you'll be able to see the builders they have rated.</p>
-  <p>It requires a bit of community effort, but it's that simple!</p>
-  <% if current_user %>
-    <p>User Logged In</p>
-    <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+  <% if current_user && !current_user.ratings.size.zero? %>
+    <h2>Welcome Back <%= current_user.first_name %></h2>
+    <p>What would you like to do today?</p>
+    <div class="row g-2 front-page-buttons">
+      <div class="col-4">
+        <%= link_to "Add a contractor", new_contractor_path, class: "btn btn-builder" %>
+      </div>
+      <div class="col-4">
+        <%= link_to "Add a job", new_job_path, class: "btn btn-job" %>
+      </div>
+      <div class="col-4">
+        <%= link_to "Add a rating", new_job_path, class: "btn btn-rating" %>
+      </div>
+      <div class="col-4">
+        <%= link_to "Find a new contractor", contractors_path, class: "btn btn-builder" %>
+      </div>
+      <div class="col-4">
+        <%= link_to "View or edit something you added previously", root_path, class: "btn btn-secondary" %>
+      </div>
+      <div class="col-4">
+        <%= link_to "Edit your account", edit_user_registration_path, class: "btn btn-primary" %>
+      </div>
+    </div>
   <% else %>
-    <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
-    <%= link_to "Log In", new_user_session_path, class: "btn btn-primary" %>
+    <h2>Getting Started</h2>
+    <p>For this app to be useful, you need to sign up with at least one other friend, so you can both see each other's recommended
+      builders.</p>
+    <p>You can sign up from the link below, then you can generate a personalised link invite your friends.</p>
+    <p>Once you've signed up, you can add builders you've used, the jobs they've worked or quoted for and give them a rating. When you
+      friends
+      sign up and do the same thing, you'll be able to see the builders they have rated.</p>
+    <p>It requires a bit of community effort, but it's that simple!</p>
+
+    <div class="getting-started-checklist">
+      <h3>Your Checklist</h3>
+      <ol>
+        <li>
+          Sign Up and Log In<%= " ✅" if current_user %>
+        </li>
+        <li>
+          Invite a friend and make a connection<%= " ✅" unless current_user&.connections&.size&.zero? %>
+        </li>
+        <li>
+          Add a builder you've used, the job they did and give them a rating
+        </li>
+      </ol>
+
+      <h3>What's Next?</h3>
+      <% unless current_user %>
+        <h5>Sign Up and Log In</h5>
+        <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
+        <%= link_to "Log In", new_user_session_path, class: "btn btn-primary" %>
+      <% else %>
+        <% if current_user.connections.size.zero? %>
+          <h5>Invite a Friend</h5>
+          <%# TODO: Process for generating invite links %>
+          <p>Coming Soon</p>
+        <% else %>
+          <% if current_user.ratings.size.zero? %>
+            <h5>Add a builder, a job and a rating.</h5>
+            <%= link_to "Add a builder", new_contractor_path, class: "btn btn-builder" %>
+            <%= link_to "Add a job", new_job_path, class: "btn btn-job" %>
+            <%= link_to "Add a rating", new_job_path, class: "btn btn-rating" %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if current_user %>
+    <div class="bottom-0 start-0 m-5">
+      <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+    </div>
   <% end %>
 </main>

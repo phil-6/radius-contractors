@@ -1,6 +1,6 @@
 # Radius Contractors
 
-## Find builders and tradespeople recommend by people you trust.
+## Find builders and tradespeople recommended by people you trust.
 
 It's really challenging to find reliable builders. Check-a-trade and MyBuilder are commercial behemoths, focused on their bottom line rather than providing a good service to homeowners.
 

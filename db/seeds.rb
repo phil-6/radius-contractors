@@ -14,6 +14,7 @@ tom = User.create!(email: "tomfostephens@gmail.com", first_name: "Tom", last_nam
 ciaran = User.create!(email: "ciaraen_browning@hotmail.co.uk", first_name: "Ciaran", last_name: "Browning", password: "test1234", password_confirmation: "test1234", confirmed_at: Time.now)
 jon = User.create!(email: "Jon.r.twig@gmail.com", first_name: "Jon", last_name: "Twigg", password: "test1234", password_confirmation: "test1234", confirmed_at: Time.now)
 suz = User.create!(email: "s-ka-t@hotmail.co.uk", first_name: "Suzanne", last_name: "Thomas", password: "test1234", password_confirmation: "test1234", confirmed_at: Time.now)
+unconnected_test = User.create!(email: "unconnected@purplriver.dev", first_name: "Unconnected", last_name: "Test", password: "test1234", password_confirmation: "test1234", confirmed_at: Time.now)
 
 phil.create_connection_with(calum)
 phil.create_connection_with(tom)

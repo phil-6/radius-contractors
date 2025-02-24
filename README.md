@@ -36,13 +36,13 @@ Very Rough List of things to do:
 - Initial Model scaffolding ✅
 - Create Seed Data ✅
 - Create Landing Page ✅
-- Update User Devise Page Designs
-- Test Sign Up and Sign In
+- Update User Devise Page Designs ✅
+- Test Sign Up and Sign In ✅
 - Email Setup with SendGrid
 - Automated Test for Sign Up and Sign In
 - Invite a user (automatic connection on signup)
-- User Dashboard Page
-- View previously used contactors
+- User Dashboard Page ✅
+- View previously used contactors ✅
 - View jobs
 - View ratings
 - Add a contractor

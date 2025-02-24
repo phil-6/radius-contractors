@@ -1,2 +1,26 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<header class="container main-page">
+  <h1 class="page-title">Radius Contractors</h1>
+  <h2 class="page-subtitle">Find builders recommend by people you trust</h2>
+  <p class="lead">It's really challenging to find reliable builders. Check-a-trade and MyBuilder are commercial behemoths, focused on their bottom line
+    rather than providing a good service to homeowners.</p>
+  <p class="lead">Radius contractors takes a different approach, the builders you can see on here are only those that have been reviewed by people you
+    have
+    connected with.</p>
+  <hr>
+</header>
+
+<main class="container">
+  <h2>Getting Started</h2>
+  <p>For this app to be useful, you need to sign up with at least one other friend, so you can both see each other's recommended
+    builders.</p>
+  <p>You can sign up from the link below, then you can generate a personalised link invite your friends.</p>
+  <p>Once you've signed up, you can add builders you've used, the jobs they've worked or quoted for and give them a rating. When you friends
+    sign up and do the same thing, you'll be able to see the builders they have rated.</p>
+  <p>It requires a bit of community effort, but it's that simple!</p>
+  <% if current_user %>
+    User Logged In
+  <% else %>
+    <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
+    <%= link_to "Log In", new_user_session_path, class: "btn btn-primary" %>
+  <% end %>
+</main>

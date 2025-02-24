@@ -1,0 +1,14 @@
+header.main-page {
+  max-width: 800px;
+
+  .page-title {
+    font-weight: 800;
+    text-align: center;
+    color: $primary;
+  }
+
+  .page-subtitle {
+    text-align: center;
+    color: $primary;
+  }
+}

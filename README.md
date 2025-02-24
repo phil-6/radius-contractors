@@ -16,6 +16,18 @@ If you're a builder, do good work and get recommended. If you have any issues th
 
 ---
 
+## Getting Started (as an end user)
+
+For this app to be useful, you need to sign up with at least one other friend, so you can both see each other's recommended builders.
+
+You can sign up from the link below, then you can generate a personalised link invite your friends.
+
+Once you've signed up, you can add builders you've used, the jobs they've worked or quoted for and give them a rating. When you friends sign up and do the same thing, you'll be able to see the builders they have used and rated.
+
+It requires a bit of community effort, but it's that simple!
+
+---
+
 This project is a big work in progress!
 
 Very Rough List of things to do:
@@ -23,11 +35,12 @@ Very Rough List of things to do:
 - Initial User Devise setup ✅
 - Initial Model scaffolding ✅
 - Create Seed Data ✅
-- Create Landing Page
+- Create Landing Page ✅
 - Update User Devise Page Designs
 - Test Sign Up and Sign In
 - Email Setup with SendGrid
 - Automated Test for Sign Up and Sign In
+- Invite a user (automatic connection on signup)
 - User Dashboard Page
 - View previously used contactors
 - View jobs
@@ -38,7 +51,6 @@ Very Rough List of things to do:
 - Find a new contractor - view contractors connections have rated ✅
 - User Profile Page
 - Add a connection
-- Invite a user (automatic connection on signup)
 - Add some admin functionality
 - Allow second-degree connections to view ratings
 - Handle adding contractors that are not visible to users due to separation

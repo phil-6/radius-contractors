@@ -1,0 +1,26 @@
+$primary: #76beea;
+$body-bg-dark: #071e2c;
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: local(''),
+  url("Montserrat-VF.woff2") format("woff2"),      /* Super Modern Browsers */
+  url("Montserrat-VariableFont_wght.ttf") format("truetype");     /* Safari, Android, iOS */
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: local(''),
+  url("Montserrat-Italic-VF.woff2") format("woff2"),    /* Super Modern Browsers */
+  url("Montserrat-Italic-VariableFont_wght.ttf") format("truetype");   /* Safari, Android, iOS */
+}
+
+$font: 'Montserrat', sans-serif;
+html, body {
+  font-family: $font !important;
+}

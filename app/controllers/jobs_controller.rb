@@ -1,7 +1,9 @@
 class JobsController < ApplicationController
+  before_action :set_contractor
   before_action :set_job, only: %i[ show edit update destroy ]
 
   # GET /jobs or /jobs.json
+  # TODO: Consider whether this is needed
   def index
     @jobs = Job.all
   end
@@ -12,7 +14,7 @@ class JobsController < ApplicationController
 
   # GET /jobs/new
   def new
-    @job = Job.new
+    @job = @contractor.jobs.new
   end
 
   # GET /jobs/1/edit
@@ -21,11 +23,12 @@ class JobsController < ApplicationController
 
   # POST /jobs or /jobs.json
   def create
-    @job = Job.new(job_params)
+    @job = @contractor.jobs.new(job_params)
+    @job.user = current_user
 
     respond_to do |format|
       if @job.save
-        format.html { redirect_to @job, notice: "Job was successfully created." }
+        format.html { redirect_to @contractor, notice: "Job was successfully created." }
         format.json { render :show, status: :created, location: @job }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +41,7 @@ class JobsController < ApplicationController
   def update
     respond_to do |format|
       if @job.update(job_params)
-        format.html { redirect_to @job, notice: "Job was successfully updated." }
+        format.html { redirect_to @contractor, notice: "Job was successfully updated." }
         format.json { render :show, status: :ok, location: @job }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +55,23 @@ class JobsController < ApplicationController
     @job.destroy!
 
     respond_to do |format|
-      format.html { redirect_to jobs_path, status: :see_other, notice: "Job was successfully destroyed." }
+      format.html { redirect_to contractor_path(@contractor), status: :see_other, notice: "Job was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_job
-      @job = Job.find(params.expect(:id))
-    end
 
-    # Only allow a list of trusted parameters through.
-    def job_params
-      params.expect(job: [ :user_id, :contractor_id, :description, :state, :start_date, :end_date, :review ])
-    end
+  def set_contractor
+    @contractor = Contractor.find(params.expect(:contractor_id))
+  end
+
+  def set_job
+    @job = @contractor.jobs.find(params.expect(:id))
+  end
+
+  # Only allow a list of trusted parameters through.
+  def job_params
+    params.expect(job: [ :description, :state, :start_date, :end_date, :review ])
+  end
 end

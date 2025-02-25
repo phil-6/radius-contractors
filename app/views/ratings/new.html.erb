@@ -1,11 +1,13 @@
 <% content_for :title, "New rating" %>
 
-<h1>New rating</h1>
+<div class="card form-card">
+  <h1>What did you think of <%= @contractor.name %>?</h1>
 
-<%= render "form", rating: @rating %>
+  <%= render "form", rating: @rating %>
+</div>
 
-<br>
+<hr>
 
 <div>
-  <%= link_to "Back to ratings", ratings_path %>
+  <%= link_to "Back to ratings", contractor_path(@contractor) %>
 </div>

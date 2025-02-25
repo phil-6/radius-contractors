@@ -7,4 +7,14 @@
   .form-floating {
     margin-bottom: 0.5rem;
   }
+  .form-range-row {
+    .form-range::-moz-range-track {
+      background-color: darkcyan;
+    }
+  }
+}
+
+.rating-display {
+  font-size: 1.2rem;
+  font-weight: 700;
 }

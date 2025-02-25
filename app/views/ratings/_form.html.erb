@@ -1,4 +1,4 @@
-<%= form_with(model: rating) do |form| %>
+<%= form_with(model: [@contractor, rating], data: { controller: "rating-form" }) do |form| %>
   <% if rating.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(rating.errors.count, "error") %> prohibited this rating from being saved:</h2>
@@ -11,52 +11,103 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+  <div class="row">
+    <div class="col-8">
+      <div class="form-floating">
+        <%= form.textarea :review, placeholder: "Review", class: "form-control" %>
+        <%= form.label :review, class: "form-label" %>
+      </div>
+    </div>
+    <div class="col-4">
+      <p>What do you think about <%= @contractor.name %>?</p>
+    </div>
+  </div>
+
+  <div class="row form-range-row">
+    <div class="col-2">
+      <%= form.label :value_rating, "Value", class: "form-label" %>
+    </div>
+    <div class="col-8">
+      <%= form.range_field :value_rating, in: 0..10, step: 1, class: "form-range",
+                           data: { rating_form_target: "valueRatingField",
+                                   action: "change->rating-form#changeRating" } %>
+    </div>
+    <div class="col-2">
+      <p class="rating-display" data-rating-form-target="valueRatingDisplay"></p>
+    </div>
+  </div>
+
+  <div class="row form-range-row">
+    <div class="col-2">
+      <%= form.label :quality_rating, "Quality", class: "form-label" %>
+    </div>
+    <div class="col-8">
+      <%= form.range_field :quality_rating, in: 0..10, step: 1, class: "form-range",
+                           data: { rating_form_target: "qualityRatingField",
+                                   action: "change->rating-form#changeRating" } %>
+    </div>
+    <div class="col-2">
+      <p class="rating-display" data-rating-form-target="qualityRatingDisplay"></p>
+    </div>
+  </div>
+
+  <div class="row form-range-row">
+    <div class="col-2">
+      <%= form.label :tidiness_rating, "Tidiness", class: "form-label" %>
+    </div>
+    <div class="col-8">
+      <%= form.range_field :tidiness_rating, in: 0..10, step: 1, class: "form-range",
+                           data: { rating_form_target: "tidinessRatingField",
+                                   action: "change->rating-form#changeRating" } %>
+    </div>
+    <div class="col-2">
+      <p class="rating-display" data-rating-form-target="tidinessRatingDisplay"></p>
+    </div>
+  </div>
+
+  <div class="row form-range-row">
+    <div class="col-2">
+      <%= form.label :communication_rating, "Communication", class: "form-label" %>
+    </div>
+    <div class="col-8">
+      <%= form.range_field :communication_rating, in: 0..10, step: 1, class: "form-range",
+                           data: { rating_form_target: "communicationRatingField",
+                                   action: "change->rating-form#changeRating" } %>
+    </div>
+    <div class="col-2">
+      <p class="rating-display" data-rating-form-target="communicationRatingDisplay"></p>
+    </div>
+  </div>
+
+  <div class="row form-range-row">
+    <div class="col-2">
+      <%= form.label :professionalism_rating, "Professionalism", class: "form-label" %>
+    </div>
+    <div class="col-8">
+      <%= form.range_field :professionalism_rating, in: 0..10, step: 1, class: "form-range",
+                           data: { rating_form_target: "professionalismRatingField",
+                                   action: "change->rating-form#changeRating" } %>
+    </div>
+    <div class="col-2">
+      <p class="rating-display" data-rating-form-target="professionalismRatingDisplay"></p>
+    </div>
+  </div>
+
+  <div class="row form-range-row">
+    <div class="col-2">
+      <%= form.label :overall_rating, class: "form-label" %>
+    </div>
+    <div class="col-8">
+      <%= form.range_field :overall_rating, in: 0..10, step: 1, class: "form-range",
+                           data: { rating_form_target: "overallRatingField",
+                                   action: "change->rating-form#changeRating" } %>
+    </div>
+    <div class="col-2">
+      <p class="rating-display" data-rating-form-target="overallRatingDisplay"></p>
+    </div>
   </div>
 
   <div>
-    <%= form.label :contractor_id, style: "display: block" %>
-    <%= form.text_field :contractor_id %>
-  </div>
-
-  <div>
-    <%= form.label :review, style: "display: block" %>
-    <%= form.textarea :review %>
-  </div>
-
-  <div>
-    <%= form.label :overall_rating, style: "display: block" %>
-    <%= form.text_field :overall_rating %>
-  </div>
-
-  <div>
-    <%= form.label :value_rating, style: "display: block" %>
-    <%= form.text_field :value_rating %>
-  </div>
-
-  <div>
-    <%= form.label :communication_rating, style: "display: block" %>
-    <%= form.text_field :communication_rating %>
-  </div>
-
-  <div>
-    <%= form.label :quality_rating, style: "display: block" %>
-    <%= form.text_field :quality_rating %>
-  </div>
-
-  <div>
-    <%= form.label :tidiness_rating, style: "display: block" %>
-    <%= form.text_field :tidiness_rating %>
-  </div>
-
-  <div>
-    <%= form.label :professionalism_rating, style: "display: block" %>
-    <%= form.text_field :professionalism_rating %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-success" %>
   </div>
 <% end %>

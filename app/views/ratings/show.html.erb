@@ -1,10 +1,8 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @rating %>
 
 <div>
-  <%= link_to "Edit this rating", edit_rating_path(@rating) %> |
-  <%= link_to "Back to ratings", ratings_path %>
+  <%= link_to "Edit this rating", edit_contractor_rating_path(@contractor, @rating) %> |
+  <%= link_to "Back to contractor", contractors_path(@contractor) %>
 
-  <%= button_to "Destroy this rating", @rating, method: :delete %>
+  <%= button_to "Destroy this rating", contractor_rating_path(@contractor, @rating), method: :delete %>
 </div>

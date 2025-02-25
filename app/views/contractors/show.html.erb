@@ -1,30 +1,39 @@
 <main id="contractor">
-  <%= render @contractor %>
+  <div class="container">
+    <%= render @contractor %>
+  </div>
 
   <%# TODO: Style all of these %>
   <% if @user_rating.present? %>
-    <%= render @user_rating %>
+    <div class="container">
+      <h2>Your Rating</h2>
+      <%= render @user_rating %>
+    </div>
   <% end %>
 
   <% if @user_jobs.present? %>
-    <div>
-      <h2>Jobs <%= @contractor.name %> has done for you</h2>
-      <% @user_jobs.each do |job| %>
-        <%= render job %>
-      <% end %>
+    <div class="container">
+      <div class="row">
+        <h2>Jobs <%= @contractor.name %> has done for you</h2>
+        <% @user_jobs.each do |job| %>
+          <%= render job %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 
   <% if @viewable_ratings.present? %>
-    <div>
-      <h2>Ratings <%= @contractor.name %> has received</h2>
-      <% @viewable_ratings.each do |rating| %>
-        <%= render rating %>
-      <% end %>
+    <div class="container">
+      <div class="row">
+        <h2>Ratings <%= @contractor.name %> has received</h2>
+        <% @viewable_ratings.each do |rating| %>
+          <%= render rating %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 
-  <div>
+  <div class="container">
     <%= link_to "Edit this contractor", edit_contractor_path(@contractor) %> |
     <%= link_to "Back to contractors", contractors_path %>
   </div>

@@ -1,44 +1,47 @@
-<div id="<%= dom_id rating %>" class="card">
-  <div class="card-body">
+<div class="col">
+  <div id="<%= dom_id rating %>" class="card h-100">
+    <div class="card-header h-100">
 
-    <p class="lead">
-      <strong>Overall rating:</strong>
-      <%= rating.overall_rating %>
-    </p>
+      <p class="lead">
+        <strong>Overall rating:</strong>
+        <%= rating.overall_rating %>
+      </p>
 
-    <p>
-      <strong>Review:</strong>
-      <%= rating.review %>
-    </p>
+      <p>
+        <strong>Review:</strong>
+        <%= rating.review %>
+      </p>
+    </div>
+    <div class="card-body">
+      <p>
+        <strong>Value:</strong>
+        <%= rating.value_rating %>
+      </p>
 
-    <p>
-      <strong>Value:</strong>
-      <%= rating.value_rating %>
-    </p>
+      <p>
+        <strong>Communication:</strong>
+        <%= rating.communication_rating %>
+      </p>
 
-    <p>
-      <strong>Communication:</strong>
-      <%= rating.communication_rating %>
-    </p>
+      <p>
+        <strong>Quality:</strong>
+        <%= rating.quality_rating %>
+      </p>
 
-    <p>
-      <strong>Quality:</strong>
-      <%= rating.quality_rating %>
-    </p>
+      <p>
+        <strong>Tidiness:</strong>
+        <%= rating.tidiness_rating %>
+      </p>
 
-    <p>
-      <strong>Tidiness:</strong>
-      <%= rating.tidiness_rating %>
-    </p>
-
-    <p>
-      <strong>Professionalism:</strong>
-      <%= rating.professionalism_rating %>
-    </p>
-
-    <p>
-      Rated by:
-      <%= rating.user.first_name %>
-    </p>
+      <p>
+        <strong>Professionalism:</strong>
+        <%= rating.professionalism_rating %>
+      </p>
+    </div>
+    <div class="card-footer">
+      <p>
+        Rated by: <%= rating.user.first_name %>, <%= time_ago_in_words(rating.updated_at) %> ago
+      </p>
+    </div>
   </div>
 </div>

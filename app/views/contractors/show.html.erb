@@ -1,10 +1,19 @@
 <main id="contractor">
   <%= render @contractor %>
 
+  <%# TODO: Style all of these %>
+  <% if @user_rating.present? %>
+    <%= render @user_rating %>
+  <% end %>
+
+  <% if @user_jobs.present? %>
+    <% @user_jobs.each do |job| %>
+      <%= render job %>
+    <% end %>
+  <% end %>
+
   <div>
     <%= link_to "Edit this contractor", edit_contractor_path(@contractor) %> |
     <%= link_to "Back to contractors", contractors_path %>
-
-    <%= button_to "Destroy this contractor", @contractor, method: :delete %>
   </div>
 </main>

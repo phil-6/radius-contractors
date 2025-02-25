@@ -50,7 +50,19 @@
     <% if controller_name == "contractors" && action_name == "index" %>
       <%= link_to "See more details", contractor %>
     <% else %>
-      <p>Not Index</p>
+      <% if @user_is_customer %>
+        <% if @user_rating.present? %>
+          <p>Your Rating: <%= @user_rating.overall_rating %></p>
+        <% else %>
+          <p>You've added a job, do you want to give <%= contractor.name %> a rating?</p>
+          <%# TODO: Finish this link %>
+          <%= link_to "Add a Rating", new_rating_path, class: "btn btn-success" %>
+        <% end %>
+      <% else %>
+        <p> Has <%= contractor.name %> done a job for you? </p>
+        <%# TODO: Finish this link %>
+        <%= link_to "Add a Job", new_job_path, class: "btn btn-success" %>
+      <% end %>
     <% end %>
   </div>
 </div>

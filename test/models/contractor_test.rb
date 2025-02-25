@@ -22,7 +22,7 @@ class ContractorTest < ActiveSupport::TestCase
   test "should be able to get the customers that a contractor has worked for" do
     assert_equal 1, @contractor.customers.size
   end
-  
+
   test "should be able to get the ratings that a contractor has received" do
     assert_equal 1, @contractor.ratings.size
   end

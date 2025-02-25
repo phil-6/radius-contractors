@@ -59,7 +59,7 @@
         <div class="col-6">
           <p class="mb-0">Current Password to confirm changes</p>
           <div class="form-floating">
-            <%= f.password_field :current_password, placeholder: "current password", autocomplete: "current-password", class: "form-control" %>
+            <%= f.password_field :current_password, placeholder: "current password", autocomplete: "current-password", class: "form-control", required: true %>
             <%= f.label :current_password, class: "form-label" %>
           </div>
         </div>

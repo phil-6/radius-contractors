@@ -7,9 +7,21 @@
   <% end %>
 
   <% if @user_jobs.present? %>
-    <% @user_jobs.each do |job| %>
-      <%= render job %>
-    <% end %>
+    <div>
+      <h2>Jobs <%= @contractor.name %> has done for you</h2>
+      <% @user_jobs.each do |job| %>
+        <%= render job %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if @viewable_ratings.present? %>
+    <div>
+      <h2>Ratings <%= @contractor.name %> has received</h2>
+      <% @viewable_ratings.each do |rating| %>
+        <%= render rating %>
+      <% end %>
+    </div>
   <% end %>
 
   <div>

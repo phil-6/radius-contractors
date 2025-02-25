@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :connections
 
-  resources :ratings
-  resources :jobs
-  resources :contractors
+  resources :contractors do
+    resources :jobs
+    resources :ratings
+  end
 end

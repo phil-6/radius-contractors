@@ -52,16 +52,18 @@
     <% else %>
       <% if @user_is_customer %>
         <% if @user_rating.present? %>
-          <p>Your Rating: <%= @user_rating.overall_rating %></p>
-        <% else %>
+          <p>Your Rating: <%= @user_rating.overall_rating %>/10</p>
+          <%= link_to "Add another Job", new_contractor_job_path(contractor), class: "btn btn-success" %>
+          <%= link_to "Update Rating", edit_contractor_rating_path(contractor), class: "btn btn-secondary" %>
+  <% else %>
           <p>You've added a job, do you want to give <%= contractor.name %> a rating?</p>
           <%# TODO: Finish this link %>
-          <%= link_to "Add a Rating", new_rating_path, class: "btn btn-success" %>
+          <%= link_to "Add a Rating", new_contractor_rating_path(contractor), class: "btn btn-success" %>
         <% end %>
       <% else %>
         <p> Has <%= contractor.name %> done a job for you? </p>
         <%# TODO: Finish this link %>
-        <%= link_to "Add a Job", new_job_path, class: "btn btn-success" %>
+        <%= link_to "Add a Job", new_contractor_job_path(contractor), class: "btn btn-success" %>
       <% end %>
     <% end %>
   </div>

@@ -1,8 +1,10 @@
-<%= render @rating %>
+<main class="container">
+  <%= render @rating %>
 
-<div>
-  <%= link_to "Edit this rating", edit_contractor_rating_path(@contractor, @rating) %> |
-  <%= link_to "Back to contractor", contractors_path(@contractor) %>
+  <div>
+    <%= link_to "Edit this rating", edit_contractor_rating_path(@contractor, @rating) %> |
+    <%= link_to "Back to contractor", contractors_path(@contractor) %>
 
-  <%= button_to "Destroy this rating", contractor_rating_path(@contractor, @rating), method: :delete %>
-</div>
+    <%= button_to "Destroy this rating", contractor_rating_path(@contractor, @rating), method: :delete %>
+  </div>
+</main>

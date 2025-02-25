@@ -1,12 +1,14 @@
 <% content_for :title, "Editing rating" %>
 
-<div class="card form-card">
-  <h1>Editing your rating for <%= @contractor.name %> </h1>
+<main class="container">
+  <div class="card form-card">
+    <h1>Editing your rating for <%= @contractor.name %> </h1>
 
-  <%= render "form", rating: @rating %>
-</div>
-<br>
+    <%= render "form", rating: @rating %>
+  </div>
+  <br>
 
-<div>
-  <%= link_to "Back to contractor", contractor_path(@contractor) %>
-</div>
+  <div>
+    <%= link_to "Back to contractor", contractor_path(@contractor) %>
+  </div>
+</main>

@@ -1,13 +1,14 @@
 <% content_for :title, "New job" %>
+<main class="container">
+  <div class="card form-card">
+    <h1>What did <%= @contractor.name %> do for you?</h1>
 
-<div class="card form-card">
-  <h1>What did <%= @contractor.name %> do for you?</h1>
+    <%= render "form", job: @job %>
+  </div>
 
-  <%= render "form", job: @job %>
-</div>
+  <hr>
 
-<hr>
-
-<div>
-  <%= link_to "Back to contractor", contractor_path(@contractor) %>
-</div>
+  <div>
+    <%= link_to "Back to contractor", contractor_path(@contractor) %>
+  </div>
+</main>

@@ -50,7 +50,7 @@ ActiveRecord::Schema[8.0].define(version: 7) do
     t.bigint "user_id", null: false
     t.bigint "contractor_id", null: false
     t.text "description"
-    t.string "status"
+    t.string "state"
     t.string "town"
     t.date "start_date"
     t.date "end_date"

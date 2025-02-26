@@ -28,10 +28,10 @@ class RatingsController < ApplicationController
 
     respond_to do |format|
       if @rating.save
-        format.html { redirect_to @contractor, notice: "Rating was successfully created." }
+        format.html { redirect_to @contractor, success: "Rating was successfully created." }
         format.json { render :show, status: :created, location: @rating }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_entity, error: "Something went wrong creating your rating." }
         format.json { render json: @rating.errors, status: :unprocessable_entity }
       end
     end
@@ -41,10 +41,10 @@ class RatingsController < ApplicationController
   def update
     respond_to do |format|
       if @rating.update(rating_params)
-        format.html { redirect_to @contractor, notice: "Rating was successfully updated." }
+        format.html { redirect_to @contractor, success: "Rating was successfully updated." }
         format.json { render :show, status: :ok, location: @rating }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit, status: :unprocessable_entity, error: "Something went wrong updating your rating." }
         format.json { render json: @rating.errors, status: :unprocessable_entity }
       end
     end

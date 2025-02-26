@@ -59,28 +59,28 @@ c_james.trades << Trade.find_by(name: "Plasterer")
 
 phil.jobs.create!(contractor: c_shaun, description: "Bathroom renovation", town: "Swansea",
                   start_date: Date.new(2024, 5, 1), end_date: Date.new(2024, 10, 1),
-                  cost: 5000, status: "completed")
+                  cost: 5000, state: "completed")
 phil.jobs.create!(contractor: c_paul, description: "Rewire rear half of house", town: "Swansea",
                   start_date: Date.new(2024, 5, 1), end_date: Date.new(2024, 10, 1),
-                  cost: 3000, status: "completed")
+                  cost: 3000, state: "completed")
 phil.jobs.create!(contractor: c_shaun, description: "Kitchen renovation", town: "Swansea",
                   start_date: Date.new(2024, 5, 1), end_date: Date.new(2024, 10, 1),
-                  cost: 20000, status: "completed")
+                  cost: 20000, state: "completed")
 phil.jobs.create!(contractor: c_shaun, description: "New Roof", town: "Swansea",
                   start_date: Date.new(2024, 5, 1), end_date: Date.new(2024, 10, 1),
-                  cost: 10000, status: "completed")
+                  cost: 10000, state: "completed")
 calum.jobs.create!(contractor: c_abbas, description: "Plastering", town: "Swansea",
                    start_date: Date.new(2023, 5, 1), end_date: Date.new(2024, 5, 10),
-                   cost: 500, status: "completed")
+                   cost: 500, state: "completed")
 bryony.jobs.create!(contractor: c_abbas, description: "Plastering", town: "Swansea",
                     start_date: Date.new(2023, 5, 10), end_date: Date.new(2023, 5, 20),
-                    cost: 500, status: "completed")
+                    cost: 500, state: "completed")
 phil.jobs.create!(contractor: c_james, description: "Plastering", town: "Swansea",
                   start_date: Date.new(2023, 2, 1), end_date: Date.new(2023, 2, 10),
-                  cost: 500, status: "completed")
+                  cost: 500, state: "completed")
 bryony.jobs.create!(contractor: c_james, description: "Plastering", town: "Swansea",
                     start_date: Date.new(2023, 2, 10), end_date: Date.new(2023, 2, 20),
-                    cost: 500, status: "completed")
+                    cost: 500, state: "completed")
 
 phil.ratings.create!(contractor: c_shaun, overall_rating: 9, review: "Shaun was fantastic, would highly recommend")
 phil.ratings.create!(contractor: c_paul, overall_rating: 9, review: "Paul was great, would use again")

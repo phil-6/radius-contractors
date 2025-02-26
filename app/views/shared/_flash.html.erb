@@ -1,0 +1,18 @@
+<% flash.each do |type, msg| %>
+    <% unless type == 'timedout' %>
+      <div class="flash" type="<%= type %>" data-controller="alerts" data-action="click->alerts#dismiss">
+        <% case type %>
+        <% when "notice", "info" %>
+          <i class="fa-solid fa-circle-info"></i>
+        <% when "warning", "alert" %>
+          <i class="fa-solid fa-circle-exclamation"></i>
+        <% when "danger", "error" %>
+          <i class="fa-solid fa-triangle-exclamation"></i>
+        <% when "success" %>
+          <i class="fa-solid fa-circle-check"></i>
+        <% end %>
+        <%= msg %>
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+    <% end %>
+<% end %>

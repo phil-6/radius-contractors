@@ -1,8 +1,27 @@
 $primary: #75C4EA;
+$primary-bridge: #0CB0FF;
+$primary-darker: #005C89;
+$primary-darkest: #00476A;
+$primary-light: #77D3FF;
+$primary-lightest: #A8E3FF;
+
 $theme-dark: #071e2c;
 $body-bg-dark: $theme-dark;
 //$body-bg-dark: #10072c;
 $dark-bg-grad: linear-gradient(to bottom right, #0e3c58 0%, #0d2f3f 100%);
+
+$warning: #F07D27;
+$warning-light: #FFB479;
+$warning-lightest: #fff0dc;
+$warning-dark: #DE6402;
+$danger: #CD0000;
+$danger-light: #DF6768;
+$danger-lightest: #F4CCCD;
+$danger-dark: #A30000;
+$success: #128812;
+$success-light: #69C06A;
+$success-lightest: #E6F7E6;
+$success-dark: #006600;
 
 @font-face {
   font-family: "Montserrat";

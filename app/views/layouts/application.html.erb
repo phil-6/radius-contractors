@@ -24,8 +24,9 @@
   </head>
 
   <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <%= turbo_frame_tag "flash" do %>
+    <%= render 'shared/flash' %>
+  <% end %>
 
   <%= yield %>
   </body>

@@ -1,0 +1,137 @@
+/* Default alerts and alerts in News Feed article editor */
+/* Flash container (the turbo-frame) */
+#flash {
+  position: fixed;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 1.5rem;
+  align-items: center;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 102;
+
+
+  /* Individual flash */
+  .flash {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2.5rem 1rem 1.5rem;
+    border-radius: 0.25rem;
+    z-index: 100;
+    font-weight: 600;
+
+    /* Retain animation values applied by the last keyframe */
+    animation-fill-mode: both !important;
+    will-change: transform;
+    animation: fade-in .3s ease,
+    slide-in .3s ease;
+
+    a {
+      text-decoration: underline;
+    }
+
+    &.center {
+      display: block;
+      text-align: center;
+    }
+
+    &.right {
+      display: block;
+      text-align: right;
+    }
+
+    /* Flash types */
+
+    &:is([type="info"], [type="notice"]) {
+      background: $primary-lightest;
+      box-shadow: 0 0.1rem 0.25rem $primary-darker;
+      color: $primary-darker;
+
+      .flash__icon {
+        fill: $primary-darker;
+      }
+
+      .flash__close-btn {
+        fill: $primary-darker;
+      }
+    }
+
+    &:is([type="success"]) {
+      background-color: $success-lightest;
+      box-shadow: 0 0.1rem 0.25rem $success-dark;
+      color: $success-dark;
+
+      .flash__icon {
+        fill: $success-dark;
+      }
+
+      .flash__close-btn {
+        fill: $success-dark;
+      }
+    }
+
+    &:is([type="warning"], [type="alert"]) {
+      background-color: $warning-lightest;
+      box-shadow: 0 0.1rem 0.25rem $warning-dark;
+      color: $warning-dark;
+
+      .flash__icon {
+        fill: $warning-dark;
+      }
+
+      .flash__close-btn {
+        fill: $warning-dark;
+      }
+    }
+
+    &:is([type="danger"], [type="error"]) {
+      background-color: $danger-lightest;
+      box-shadow: 0 0.1rem 0.25rem $danger-dark;
+      color: $danger-dark;
+
+      .flash__icon {
+        fill: $danger-dark;
+      }
+
+      .flash__close-btn {
+        fill: $danger-dark;
+      }
+    }
+
+    &:is([type="light"]) {
+      background-color: #fff;
+      border: 1px solid #edf2f7;
+      color: #1a202c;
+    }
+
+    &:is([type="dark"]) {
+      background-color: #2d3748;
+      border: 1px solid #1a202c;
+      color: #d3d3d3;
+    }
+  }
+}
+
+
+/* Animation keyframes */
+@keyframes fade-in {
+  from {
+    opacity: 0
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(-5vh)
+  }
+}

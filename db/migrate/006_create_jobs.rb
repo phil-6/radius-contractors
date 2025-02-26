@@ -4,7 +4,7 @@ class CreateJobs < ActiveRecord::Migration[8.0]
       t.references :user, null: false, foreign_key: true
       t.references :contractor, null: false, foreign_key: true
       t.text :description
-      t.string :status
+      t.string :state
       t.string :town
       t.date :start_date
       t.date :end_date

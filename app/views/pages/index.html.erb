@@ -41,7 +41,7 @@
           Sign Up and Log In<%= " ✅" if current_user %>
         </li>
         <li>
-          Invite a friend and make a connection<%= " ✅" unless current_user&.connections&.size&.zero? %>
+          Invite a friend and make a connection<%= " ✅" if current_user && !current_user&.connections&.size&.zero? %>
         </li>
         <li>
           Add a builder you've used, the job they did and give them a rating

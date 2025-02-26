@@ -77,7 +77,7 @@
         Unhappy?
       </summary>
       <div class="py-3">
-        <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %>
+        <%= button_to "Cancel my account", registration_path(resource_name), data: { turbo_confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %>
       </div>
     </details>
   </div>

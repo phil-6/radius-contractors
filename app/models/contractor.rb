@@ -20,6 +20,10 @@ class Contractor < ApplicationRecord
     customers.where(id: user.connected_user_ids_and_self)
   end
 
+  def jobs_for_customer(user)
+    jobs.where(user_id: user.id)
+  end
+
   def viewable_ratings(user)
     ratings.where(user_id: user.connected_user_ids_and_self)
   end

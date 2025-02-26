@@ -32,6 +32,11 @@ class ContractorTest < ActiveSupport::TestCase
     assert_equal 0, @contractor.viewable_jobs(users(:four)).size
   end
 
+  test "should be able to get the jobs that a contractor has worked for a user" do
+    assert_equal 4, @contractor.jobs_for_customer(@user).size
+    assert_equal 0, @contractor.jobs_for_customer(users(:two)).size
+  end
+
   test "should be able to get a contractors viewable customers given a user" do
     assert_equal 1, @contractor.viewable_customers(users(:two)).size
     assert_equal 0, @contractor.viewable_customers(users(:four)).size

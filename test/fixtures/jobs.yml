@@ -10,7 +10,7 @@ one:
   start_date: 2024-05-01
   end_date: 2024-10-01
   cost: 1000
-  status: completed
+  state: completed
 
 bathroom_renovation:
   user: one
@@ -20,7 +20,7 @@ bathroom_renovation:
   start_date: 2024-05-01
   end_date: 2024-10-01
   cost: 5000
-  status: completed
+  state: completed
 
 rewire_rear_half_of_house:
   user: one
@@ -30,7 +30,7 @@ rewire_rear_half_of_house:
   start_date: 2024-05-01
   end_date: 2024-10-01
   cost: 3000
-  status: completed
+  state: completed
 
 kitchen_renovation:
   user: one
@@ -40,7 +40,7 @@ kitchen_renovation:
   start_date: 2024-05-01
   end_date: 2024-10-01
   cost: 20000
-  status: completed
+  state: completed
 
 new_roof:
   user: one
@@ -50,4 +50,4 @@ new_roof:
   start_date: 2024-05-01
   end_date: 2024-10-01
   cost: 10000
-  status: completed
+  state: completed

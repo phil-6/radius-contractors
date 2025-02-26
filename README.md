@@ -42,6 +42,7 @@ Very Rough List of things to do:
 - Automated Test for Sign Up and Sign In
 - Invite a user (automatic connection on signup)
 - Add a connection
+- Remove a connection
 - ~~User Dashboard Page~~ ✅
 - ~~View previously used contactors~~ ✅
 - ~~View jobs~~ ✅

@@ -34,6 +34,9 @@ class ContractorsController < ApplicationController
   end
 
   def update
+    @contractor.assign_attributes(contractor_params)
+    @contractor.updated_by_id = current_user.id
+
     respond_to do |format|
       if @contractor.update(contractor_params)
         format.html { redirect_to @contractor, notice: "Contractor was successfully updated." }

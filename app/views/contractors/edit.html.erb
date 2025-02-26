@@ -1,10 +1,12 @@
 <% content_for :title, "Editing contractor" %>
 <main class="container">
-  <h1>Editing contractor</h1>
+  <div class="card form-card">
+    <h1>Editing <%= @contractor.name %></h1>
 
-  <%= render "form", contractor: @contractor %>
+    <%= render "form", contractor: @contractor %>
+  </div>
 
-  <br>
+  <hr>
 
   <div>
     <%= link_to "Show this contractor", @contractor %> |

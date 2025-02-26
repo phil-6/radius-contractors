@@ -32,6 +32,7 @@ ActiveRecord::Schema[8.0].define(version: 7) do
 
   create_table "contractors", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "added_by_id", null: false
+    t.bigint "updated_by_id"
     t.string "name", null: false
     t.string "company_name"
     t.string "number", null: false
@@ -42,6 +43,7 @@ ActiveRecord::Schema[8.0].define(version: 7) do
     t.index ["added_by_id"], name: "index_contractors_on_added_by_id"
     t.index ["email"], name: "index_contractors_on_email", unique: true
     t.index ["number"], name: "index_contractors_on_number", unique: true
+    t.index ["updated_by_id"], name: "index_contractors_on_updated_by_id"
   end
 
   create_table "jobs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -114,6 +116,7 @@ ActiveRecord::Schema[8.0].define(version: 7) do
   add_foreign_key "contractor_trades", "contractors"
   add_foreign_key "contractor_trades", "trades"
   add_foreign_key "contractors", "users", column: "added_by_id"
+  add_foreign_key "contractors", "users", column: "updated_by_id"
   add_foreign_key "jobs", "contractors"
   add_foreign_key "jobs", "users"
   add_foreign_key "ratings", "contractors"

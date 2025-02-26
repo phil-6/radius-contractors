@@ -11,32 +11,54 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="row">
+    <div class="col">
+      <div class="form-floating">
+        <%= form.text_field :name, placeholder: "E.G. Bob Plumber", class: "form-control", required: true %>
+        <%= form.label :name, class: "form-label" %>
+      </div>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :number, style: "display: block" %>
-    <%= form.text_field :number %>
+  <div class="row">
+    <div class="col">
+      <div class="form-floating">
+        <%= form.text_field :company_name, placeholder: "Bob's Plumber LTD", class: "form-control" %>
+        <%= form.label :company_name, class: "form-label" %>
+      </div>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
+  <div class="row">
+    <div class="col">
+      <div class="form-floating">
+        <%= form.text_field :number, placeholder: "07696234890", class: "form-control", required: true %>
+        <%= form.label :number, class: "form-label" %>
+      </div>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :town, style: "display: block" %>
-    <%= form.text_field :town %>
+  <div class="row">
+    <div class="col">
+      <div class="form-floating">
+        <%= form.text_field :email, placeholder: "bob@plumbing.job", class: "form-control" %>
+        <%= form.label :email, class: "form-label" %>
+      </div>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :added_by_id, style: "display: block" %>
-    <%= form.text_field :added_by_id %>
+  <div class="row">
+    <div class="col">
+      <div class="form-floating">
+        <%= form.text_field :town, placeholder: "Swansea", class: "form-control" %>
+        <%= form.label :town, class: "form-label" %>
+      </div>
+    </div>
   </div>
 
+  <%# TODO: Allow Trades to be added here %>
+
   <div>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-success"%>
   </div>
 <% end %>

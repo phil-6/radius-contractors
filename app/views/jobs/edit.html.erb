@@ -1,11 +1,12 @@
 <% content_for :title, "Editing job" %>
-
 <main class="container">
-  <h1>Edit Job</h1>
+  <div class="card form-card">
+    <h1>Edit Job</h1>
 
-  <%= render "form", job: @job %>
+    <%= render "form", job: @job %>
+  </div>
 
-  <br>
+  <hr>
 
   <div>
     <%= link_to "Back to contractor", contractor_path(@contractor) %>

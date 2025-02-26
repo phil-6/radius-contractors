@@ -1,6 +1,13 @@
-<h1 class="page-title brand"><%= contractor.name %> - <%= contractor.company_name %></h1>
+<% if action_name == "show" %>
+  <h1 class="page-title brand"><%= contractor.name %> - <%= contractor.company_name %></h1>
+<% end %>
 
 <div class="card" id="<%= dom_id contractor %>">
+  <% unless action_name == "show" %>
+    <div class="card-header">
+      <h3><%= contractor.name %> - <%= contractor.company_name %></h3>
+    </div>
+  <% end %>
   <div class="card-body">
     <div class="row">
       <div class="col">

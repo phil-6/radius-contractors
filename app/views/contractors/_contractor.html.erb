@@ -66,17 +66,14 @@
               <%= link_to "Update Rating", edit_contractor_rating_path(contractor, @user_rating), class: "btn btn-secondary" %>
             <% else %>
               <p>You've added a job, do you want to give <%= contractor.name %> a rating?</p>
-              <%# TODO: Finish this link %>
               <%= link_to "Add a Rating", new_contractor_rating_path(contractor), class: "btn btn-success" %>
             <% end %>
           <% else %>
             <p> Has <%= contractor.name %> done a job for you? </p>
-            <%# TODO: Finish this link %>
             <%= link_to "Add a Job", new_contractor_job_path(contractor), class: "btn btn-success" %>
           <% end %>
         </div>
         <div class="align-self-end">
-
           <%= link_to "Edit Details", edit_contractor_path(contractor), class: "btn btn-warning" %>
         </div>
       </div>

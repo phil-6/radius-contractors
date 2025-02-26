@@ -41,17 +41,20 @@ Very Rough List of things to do:
 - Email Setup with SendGrid
 - Automated Test for Sign Up and Sign In
 - Invite a user (automatic connection on signup)
+- Add a connection
 - User Dashboard Page ✅
 - View previously used contactors ✅
-- View jobs
-- View ratings
-- Add a contractor
-- Add a job
-- Add a rating
+- View jobs ✅
+- View ratings ✅
+- Add a contractor ✅
+- Allow trades to be added and updated with contractor
+- Add a job ✅
+- Add a rating ✅
 - Find a new contractor - view contractors connections have rated ✅
-- User Profile Page
-- Add a connection
-- Add some admin functionality
+- Remove unused partials, pages and controller actions
 - Allow second-degree connections to view ratings
-- Handle adding contractors that are not visible to users due to separation
-
+- Handle adding existing contractors that are not visible to users due to separation
+- Improve navigation
+- Improve styling
+- User Profile Page
+- Add some admin functionality

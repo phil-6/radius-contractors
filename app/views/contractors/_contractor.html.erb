@@ -39,8 +39,15 @@
 
         <p>
           <strong>Added by:</strong>
-          <%= contractor.added_by.full_name %>
+          <%= contractor.added_by.full_name %>, <%= time_ago_in_words(contractor.created_at) %> ago
         </p>
+
+        <% if contractor.updated_by_id.present? %>
+          <p>
+            <strong>Last Updated by:</strong>
+            <%= contractor.updated_by.full_name %>, <%= time_ago_in_words(contractor.updated_at) %> ago
+          </p>
+        <% end %>
       </div>
 
     </div>
@@ -50,21 +57,29 @@
     <% if controller_name == "contractors" && action_name == "index" %>
       <%= link_to "See more details", contractor %>
     <% else %>
-      <% if @user_is_customer %>
-        <% if @user_rating.present? %>
-          <p>Your Rating: <%= @user_rating.overall_rating %>/10</p>
-          <%= link_to "Add another Job", new_contractor_job_path(contractor), class: "btn btn-success" %>
-          <%= link_to "Update Rating", edit_contractor_rating_path(contractor, @user_rating), class: "btn btn-secondary" %>
-  <% else %>
-          <p>You've added a job, do you want to give <%= contractor.name %> a rating?</p>
-          <%# TODO: Finish this link %>
-          <%= link_to "Add a Rating", new_contractor_rating_path(contractor), class: "btn btn-success" %>
-        <% end %>
-      <% else %>
-        <p> Has <%= contractor.name %> done a job for you? </p>
-        <%# TODO: Finish this link %>
-        <%= link_to "Add a Job", new_contractor_job_path(contractor), class: "btn btn-success" %>
-      <% end %>
+      <div class="d-flex">
+        <div class="me-auto">
+          <% if @user_is_customer %>
+            <% if @user_rating.present? %>
+              <p>Your Rating: <%= @user_rating.overall_rating %>/10</p>
+              <%= link_to "Add another Job", new_contractor_job_path(contractor), class: "btn btn-success" %>
+              <%= link_to "Update Rating", edit_contractor_rating_path(contractor, @user_rating), class: "btn btn-secondary" %>
+            <% else %>
+              <p>You've added a job, do you want to give <%= contractor.name %> a rating?</p>
+              <%# TODO: Finish this link %>
+              <%= link_to "Add a Rating", new_contractor_rating_path(contractor), class: "btn btn-success" %>
+            <% end %>
+          <% else %>
+            <p> Has <%= contractor.name %> done a job for you? </p>
+            <%# TODO: Finish this link %>
+            <%= link_to "Add a Job", new_contractor_job_path(contractor), class: "btn btn-success" %>
+          <% end %>
+        </div>
+        <div class="align-self-end">
+
+          <%= link_to "Edit Details", edit_contractor_path(contractor), class: "btn btn-warning" %>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>

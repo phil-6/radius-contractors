@@ -1,5 +1,6 @@
 class Contractor < ApplicationRecord
   belongs_to :added_by, class_name: "User"
+  belongs_to :updated_by, class_name: "User"
   has_many :contractor_trades, dependent: :destroy
   has_many :trades, through: :contractor_trades
   accepts_nested_attributes_for :contractor_trades, allow_destroy: true

@@ -31,26 +31,26 @@ It requires a bit of community effort, but it's that simple!
 This project is a big work in progress!
 
 Very Rough List of things to do:
-- Initial app setup ✅
-- Initial User Devise setup ✅
-- Initial Model scaffolding ✅
-- Create Seed Data ✅
-- Create Landing Page ✅
-- Update User Devise Page Designs ✅
-- Test Sign Up and Sign In ✅
+- ~~Initial app setup~~ ✅
+- ~~Initial User Devise setup~~ ✅
+- ~~Initial Model scaffolding~~ ✅
+- ~~Create Seed Data~~ ✅
+- ~~Create Landing Page~~ ✅
+- ~~Update User Devise Page Designs~~ ✅
+- ~~Test Sign Up and Sign In~~ ✅
 - Email Setup with SendGrid
 - Automated Test for Sign Up and Sign In
 - Invite a user (automatic connection on signup)
 - Add a connection
-- User Dashboard Page ✅
-- View previously used contactors ✅
-- View jobs ✅
-- View ratings ✅
-- Add a contractor ✅
+- ~~User Dashboard Page~~ ✅
+- ~~View previously used contactors~~ ✅
+- ~~View jobs~~ ✅
+- ~~View ratings~~ ✅
+- ~~Add a contractor~~ ✅
 - Allow trades to be added and updated with contractor
-- Add a job ✅
-- Add a rating ✅
-- Find a new contractor - view contractors connections have rated ✅
+- ~~Add a job~~ ✅
+- ~~Add a rating~~ ✅
+- ~~Find a new contractor - view contractors connections have rated~~ ✅
 - Remove unused partials, pages and controller actions
 - Allow second-degree connections to view ratings
 - Handle adding existing contractors that are not visible to users due to separation

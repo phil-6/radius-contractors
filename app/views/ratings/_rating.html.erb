@@ -2,6 +2,14 @@
   <div id="<%= dom_id rating %>" class="card h-100">
     <div class="card-header h-100">
 
+      <% if rating.user == current_user %>
+        <div class="controls">
+          <%= link_to edit_contractor_rating_path(rating.contractor, rating), class: "icon-link link-primary" do %>
+            <i class="fa-solid fa-pencil"></i>
+          <% end %>
+        </div>
+      <% end %>
+
       <p class="lead">
         <strong>Overall rating:</strong>
         <%= rating.overall_rating %>

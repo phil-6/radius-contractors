@@ -1,3 +1,8 @@
+html, body {
+  height: 100vh;
+  width: 100vw;
+}
+
 main {
   margin-top: 1.5rem;
 }
@@ -50,7 +55,7 @@ a.home-link {
 // Color Source: https://paletton.com/#uid=63s0u0kgPTP4O+jbuXClnOypAGD
 .btn {
   font-weight: 700;
-  &-builder, &-job, &-rating {
+  &-builder, &-connection, &-rating {
     color: $theme-dark;
     transition: all 0.3s ease-in-out;
   }
@@ -64,7 +69,7 @@ a.home-link {
     }
   }
 
-  &-job {
+  &-connection {
     background-color: #71EFA8;
     //background: linear-gradient(to bottom right, #71EFA8 0%, #9FF7C5 100%);
 

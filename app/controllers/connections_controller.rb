@@ -1,9 +1,10 @@
 class ConnectionsController < ApplicationController
+  before_action :set_user_a, only: %i[ new create]
   before_action :set_connection, only: %i[ show edit update destroy ]
 
   # GET /connections or /connections.json
   def index
-    @connections = Connection.all
+    @connections = current_user.connections
   end
 
   # GET /connections/1 or /connections/1.json
@@ -12,7 +13,6 @@ class ConnectionsController < ApplicationController
 
   # GET /connections/new
   def new
-    @connection = Connection.new
   end
 
   # GET /connections/1/edit
@@ -21,11 +21,9 @@ class ConnectionsController < ApplicationController
 
   # POST /connections or /connections.json
   def create
-    @connection = Connection.new(connection_params)
-
     respond_to do |format|
-      if @connection.save
-        format.html { redirect_to @connection, notice: "Connection was successfully created." }
+      if current_user.create_connection_with(@user_a)
+        format.html { redirect_to root_path, success: "Successfully connected with #{@user_a.first_name}" }
         format.json { render :show, status: :created, location: @connection }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -58,13 +56,16 @@ class ConnectionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    def set_user_a
+      @user_a = User.find_by_id(params[:user_a_id])
+    end
+
     def set_connection
-      @connection = Connection.find(params.expect(:id))
+      @connection = current_user.connections.find(params.expect(:id))
     end
 
     # Only allow a list of trusted parameters through.
     def connection_params
-      params.expect(connection: [ :user_a_id, :user_b_id ])
+      params.expect(connection: [ :user_a_id ])
     end
 end

@@ -1,11 +1,39 @@
-<% content_for :title, "New connection" %>
+<% content_for :title, "Add a Connection" %>
 
-<h1>New connection</h1>
+<main class="new-connection">
+  <div class="new-connection-container">
+    <div>
+      <% if @user_a.present? %>
+        <% if current_user.connected_with?(@user_a) %>
+          <h2>You're already connected with <%= @user_a.first_name %></h2>
+          <div class="btn-center">
+            <%= link_to "Go Back", root_path, class: "btn btn-primary" %>
+          </div>
+        <% elsif current_user == @user_a %>
+          <h2>You can't connect to yourself!</h2>
+          <p class="lead">Send that link to someone you know.</p>
+          <div class="btn-center">
+            <%= link_to "Go Back", root_path, class: "btn btn-primary" %>
+          </div>
+        <% else %>
+          <h2>Are you sure you want to connect with <%= @user_a.full_name %> from <%= @user_a.town %>?</h2>
+          <div class="btn-center">
+            <%= link_to "Connect", connections_path(user_a_id: @user_a.id),
+                        data: { turbo_method: :post },
+                        class: "btn btn-primary btn-lg" %>
+            <%= link_to "Cancel", root_path, class: "btn btn-warning" %>
+          </div>
+        <% end %>
 
-<%= render "form", connection: @connection %>
-
-<br>
-
-<div>
-  <%= link_to "Back to connections", connections_path %>
-</div>
+      <% else %>
+        <h2>No user found to connect with.</h2>
+        <p class="lead">Check the link you were sent. You can only connect with another user via their link.</p>
+        <% share_link = root_url + "/connections/new?user_a_id=" + current_user.id.to_s %>
+        <p>Your link to share is: <%= link_to "#{share_link}", share_link %></p>
+        <div class="btn-center">
+          <%= link_to "Go Back", root_path, class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</main>

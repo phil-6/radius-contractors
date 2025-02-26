@@ -36,8 +36,8 @@ class User < ApplicationRecord
     connected_users.exists?(other_user.id)
   end
 
-  def create_connection_with(user_b)
-    connections_as_a.create!(user_b:)
+  def create_connection_with(user_a)
+    connections_as_b.create!(user_a:)
   end
 
   def connected_user_ids_and_self

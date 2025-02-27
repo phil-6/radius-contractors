@@ -43,9 +43,10 @@ Very Rough List of things to do:
 - Automated Test for Sign Up and Sign In
 - Invite a user (automatic connection on signup)
 - ~~Add a connection~~ ✅
-- See All Connections
-- Remove a connection
-- Require user town on sign up
+- ~~See All Connections~~ ✅
+- ~~Remove a connection~~ ✅
+- Email other user when someone connects with them
+- ~~Require user town on sign up~~ ✅
 - ~~User Dashboard Page~~ ✅
 - ~~View previously used contactors~~ ✅
 - ~~View jobs~~ ✅
@@ -62,6 +63,8 @@ Very Rough List of things to do:
   - Burger Menu for quick access links from anywhere
 - Improve styling
   - Contractor's index to smaller cards
+- On connection index, show number of connections for each user
+- On connection index, show number of connections outside current user's network
 - User Profile Page
   - Show User's Connections
   - Show User's Contractors

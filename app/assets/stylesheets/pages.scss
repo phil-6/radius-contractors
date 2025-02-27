@@ -28,3 +28,61 @@
     justify-content: center;
   }
 }
+
+aside.main-page{
+  .bmc-btn-container {
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem 0;
+
+    .bmc-btn {
+      min-width: 210px;
+      color: $ink-dark;
+      background-color: $primary;
+      height: 60px;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      font-weight: Bold;
+      border: none;
+      padding: 0 24px;
+      line-height: 27px;
+      text-decoration: none;
+      display: inline-flex !important;
+      align-items: center;
+      -webkit-box-sizing: border-box !important;
+      box-sizing: border-box !important;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background-color: #FFDD00;
+      }
+    }
+
+    .bmc-btn svg {
+      height: 32px !important;
+      margin-bottom: 0 !important;
+      box-shadow: none !important;
+      border: none !important;
+      vertical-align: middle !important;
+      transform: scale(0.9);
+      flex-shrink: 0;
+    }
+
+    .bmc-btn:hover, .bmc-btn:active, .bmc-btn:focus {
+      text-decoration: none !important;
+      cursor: pointer;
+    }
+
+    .bmc-btn-text {
+      display: inline-block;
+      line-height: 0;
+      width: 100%;
+      flex-shrink: 0;
+    }
+  }
+
+  ul {
+    list-style: wrench;
+  }
+
+}

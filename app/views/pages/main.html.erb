@@ -68,21 +68,52 @@
             <h5>Add a builder, a job and a rating.</h5>
             <%= link_to "Add a builder", new_contractor_path, class: "btn btn-builder" %>
             <% unless current_user.viewable_contractors.size.zero? %>
-              <p class="mt-2 mb-1">It looks as though your connections have already added some builders, you can add a job and a rating if you've used one of
+              <p class="mt-2 mb-1">It looks as though your connections have already added some builders, you can add a job and a rating if
+                you've used one of
                 those tradies.</p>
               <div class="col-4">
                 <%= link_to "Show builders", contractors_path, class: "btn btn-builder" %>
               </div>
               <% if !current_user.jobs.size.zero? && current_user.ratings.size.zero? %>
-                  <p>It looks as though you've added a job, but not rated that builder.</p>
-                  <%= link_to "Add a rating", new_contractor_rating_path(current_user.jobs.first.contractor), class: "btn btn-rating" %>
+                <p>It looks as though you've added a job, but not rated that builder.</p>
+                <%= link_to "Add a rating", new_contractor_rating_path(current_user.jobs.first.contractor), class: "btn btn-rating" %>
               <% end %>
             <% end %>
           <% end %>
         <% end %>
       <% end %>
+      <hr>
     </div>
   <% end %>
+
+  <aside class="container main-page">
+    <h3>What's this all about?</h3>
+    <p>Radius Contractors is a community-driven platform for finding reliable builders.</p>
+    <p>Instead of being able to see reviews from anyone, you can only see reviews from people you know. This means that you can trust
+      the reviews you see, as they're from people you trust.</p>
+    <p>It's a bit like asking your friends for a recommendation, but on a larger scale.</p>
+    <p>It's free to use, <a href="https://github.com/phil-6/radius-contractors">open source</a>, with no advertising and limited tracking
+      and will stay that way for as long as it can.</p>
+    <p>The current costs are around £15 per month, if you want to contribute to the running you can buy me a coffee.</p>
+    <%= render partial: 'pages/bmc_button' %>
+    <p>The project is still a work in progress, so if you have any feedback,
+      please <a href="mailto:contractors@purpleriver.dev">let us know.</a></p>
+    <ul>What's in the plan:
+      <li>User Profile Page
+        <ul>
+          <li>Show User's Connections</li>
+          <li>Show User's Contractors</li>
+        </ul>
+      </li>
+      <li>Improve navigation
+        <ul>
+          <li>Burger Menu for quick access links from anywhere</li>
+        </ul>
+      </li>
+      <li>Show contractors and reviews from 2nd order connections (Friends of friends).</li>
+      <li>Allow photos to be added to jobs.</li>
+    </ul>
+  </aside>
 
   <% if current_user %>
     <div class="bottom-0 start-0 m-5">

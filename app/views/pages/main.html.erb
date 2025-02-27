@@ -68,12 +68,14 @@
             <h5>Add a builder, a job and a rating.</h5>
             <%= link_to "Add a builder", new_contractor_path, class: "btn btn-builder" %>
             <% unless current_user.viewable_contractors.size.zero? %>
-              <p>It looks as though your connections have already added some builders, you can add a job and a rating if you've used one of
+              <p class="mt-2 mb-1">It looks as though your connections have already added some builders, you can add a job and a rating if you've used one of
                 those tradies.</p>
-              <%= link_to "Add a job", new_job_path, class: "btn btn-job" %>
+              <div class="col-4">
+                <%= link_to "Show builders", contractors_path, class: "btn btn-builder" %>
+              </div>
               <% if !current_user.jobs.size.zero? && current_user.ratings.size.zero? %>
-                <p>It looks as though you've added a job, but not rated that builder.</p>
-                <%= link_to "Add a rating", new_rating_path, class: "btn btn-rating" %>
+                  <p>It looks as though you've added a job, but not rated that builder.</p>
+                  <%= link_to "Add a rating", new_contractor_rating_path(current_user.jobs.first.contractor), class: "btn btn-rating" %>
               <% end %>
             <% end %>
           <% end %>

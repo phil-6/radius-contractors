@@ -1,5 +1,5 @@
 $primary: #75C4EA;
-$primary-bridge: #0CB0FF;
+$primary-bright: #0CB0FF;
 $primary-darker: #005C89;
 $primary-darkest: #00476A;
 $primary-light: #77D3FF;
@@ -10,6 +10,7 @@ $body-bg-dark: $theme-dark;
 $body-bg-dark-transparent: #071e2cbb;
 //$body-bg-dark: #10072c;
 $dark-bg-grad: linear-gradient(to bottom right, #0e3c58 0%, #0d2f3f 100%);
+$light-primary-bg-grad: linear-gradient(to top right, $primary-light 0%, $primary-bright 100%);
 $ink-dark: #05171f;
 $ink-light: #dcf0f9;
 

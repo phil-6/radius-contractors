@@ -1,12 +1,18 @@
-<div id="<%= dom_id connection %>">
-  <p>
-    <strong>User a:</strong>
-    <%= connection.user_a_id %>
-  </p>
+<% other_user = connection.other_user(current_user) %>
 
-  <p>
-    <strong>User b:</strong>
-    <%= connection.user_b_id %>
-  </p>
-
+<div class="card columns connection" id="<%= dom_id connection %>">
+  <div class="card-body">
+    <h3><%= other_user.full_name %></h3>
+    <p class="mb-1">
+      <i class="fa-solid fa-location-dot"></i>&nbsp;<%= other_user.town.humanize %>
+    </p>
+    <p class="mb-0">
+      <%= pluralize(other_user.jobs.size, "job")%> by
+      <%= pluralize(other_user.used_contractors.size, "contractor") %>
+    </p>
+    <p class="mb-0">
+      <%= pluralize(other_user.ratings.size, "rating")%> for
+      <%= pluralize(other_user.rated_contractors.size, "contractor") %>
+    </p>
+  </div>
 </div>

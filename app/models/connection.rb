@@ -9,6 +9,10 @@ class Connection < ApplicationRecord
   # Custom validation to prevent self-referential connections
   validate :not_self_referential
 
+  def other_user(user)
+    user == user_a ? user_b : user_a
+  end
+
   private
 
   def order_users

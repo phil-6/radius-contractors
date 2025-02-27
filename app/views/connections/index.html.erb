@@ -1,16 +1,13 @@
-<p style="color: green"><%= notice %></p>
+<% content_for :title, "Your Connections" %>
+<header class="container">
+  <h1 class="page-title brand">Connections</h1>
+  <div class="btn btn-primary">
+    Copy your connection link
+  </div>
+</header>
 
-<% content_for :title, "Connections" %>
-
-<h1>Connections</h1>
-
-<div id="connections">
+<main class="container" id="connections">
   <% @connections.each do |connection| %>
     <%= render connection %>
-    <p>
-      <%= link_to "Show this connection", connection %>
-    </p>
   <% end %>
-</div>
-
-<%= link_to "New connection", new_connection_path %>
+</main>

@@ -1,0 +1,9 @@
+#connections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  .connection.card {
+    background: $light-primary-bg-grad;
+    color: $ink-dark;
+  }
+}

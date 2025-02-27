@@ -9,6 +9,8 @@ class Connection < ApplicationRecord
   # Custom validation to prevent self-referential connections
   validate :not_self_referential
 
+  after_create :send_new_connection_email
+
   def other_user(user)
     user == user_a ? user_b : user_a
   end
@@ -24,5 +26,9 @@ class Connection < ApplicationRecord
 
   def not_self_referential
     errors.add(:base, "Users cannot connect to themselves") if user_a_id == user_b_id
+  end
+
+  def send_new_connection_email
+    ApplicationMailer.with(user: user_a, other_user: user_b).new_connection_email.deliver
   end
 end

@@ -40,3 +40,5 @@
 
 # Ignore intellij files
 .idea
+sendgrid.env
+sendgrid.env

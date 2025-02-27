@@ -63,6 +63,7 @@ Very Rough List of things to do:
   - Burger Menu for quick access links from anywhere
 - Improve styling
   - Contractor's index to smaller cards
+  - increase size of buttons on sign up page
 - On connection index, show number of connections for each user
 - On connection index, show number of connections outside current user's network
 - User Profile Page

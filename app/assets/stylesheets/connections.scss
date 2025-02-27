@@ -1,7 +1,18 @@
+header.connections-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  button.btn {
+    margin: 0 auto;
+  }
+}
+
 #connections {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+
   .connection.card {
     background: $light-primary-bg-grad;
     color: $ink-dark;

@@ -63,6 +63,11 @@ class UserTest < ActiveSupport::TestCase
     assert user.connected_with?(users(:five))
   end
 
+  test "should be able to get the connection link for a user" do
+    user = users(:one)
+    assert_equal "http://www.example.com/connections/new?user_a_id=#{user.id}", user.connection_link("www.example.com")
+  end
+
   test "should be able to get the contractors added by a user" do
     user = users(:one)
     assert_equal 3, user.added_contractors.size

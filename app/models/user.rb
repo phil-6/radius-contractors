@@ -44,6 +44,12 @@ class User < ApplicationRecord
     connected_users.pluck(:id) + [ id ]
   end
 
+  def connection_link(host, port = nil)
+    Rails.application.routes.default_url_options[:host] ||= host
+    Rails.application.routes.default_url_options[:port] ||= port
+    Rails.application.routes.url_helpers.new_connection_url(user_a_id: id)
+  end
+
   has_many :jobs, dependent: :nullify
   has_many :used_contractors, through: :jobs, source: :contractor
   has_many :added_contractors, foreign_key: "added_by_id", dependent: :nullify, class_name: "Contractor"

@@ -2,54 +2,55 @@
   <h1 class="page-title brand"><%= contractor.name %> - <%= contractor.company_name %></h1>
 <% end %>
 
-<div class="card" id="<%= dom_id contractor %>">
+<div class="card <%= "columns" if action_name == "index" %>" id="<%= dom_id contractor %>">
   <% unless action_name == "show" %>
-    <div class="card-header">
-      <h3><%= contractor.name %> - <%= contractor.company_name %></h3>
-    </div>
+    <%= link_to contractor, class: "" do %>
+      <div class="card-header">
+        <h3><%= contractor.name %> <br/> <%= contractor.company_name %></h3>
+      </div>
+    <% end %>
   <% end %>
   <div class="card-body">
     <div class="row">
+      <div class="trades">
+        <% contractor.trades.each do |trade| %>
+          <p class="btn btn-sm btn-<%= trade.name %>"><%= trade.name %></p>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
       <div class="col">
-        <div class="trades">
-          <% contractor.trades.each do |trade| %>
-            <p class="btn btn-sm btn-<%= trade.name %>"><%= trade.name %></p>
-          <% end %>
-        </div>
         <p>
-          Completed <%= pluralize(contractor.viewable_jobs(current_user).size, "job") %> for
-          <%= pluralize(contractor.viewable_customers(current_user).size, "customer") %>
-        </p>
-        <p>
-          Rated <%= contractor.average_rating(current_user) %> from
+          <i class="fa-solid fa-star-half-stroke"></i>&nbsp;Rated <%= contractor.average_rating(current_user) %> from
           <%= pluralize(contractor.viewable_ratings(current_user).size, "rating") %>
         </p>
-      </div>
-
-      <div class="col">
         <p>
-          <strong><i class="fa-solid fa-phone"></i></strong>
-          <%= contractor.number %>
+          <i class="fa-solid fa-hammer"></i>&nbsp;<%= pluralize(contractor.viewable_jobs(current_user).size, "job") %>
+          for&nbsp;<%= pluralize(contractor.viewable_customers(current_user).size, "customer") %>
         </p>
 
         <p>
-          <strong><i class="fa-solid fa-envelope"></i></strong>
-          <%= contractor.email %>
+          <i class="fa-solid fa-phone"></i>&nbsp;<%= contractor.number %>
+        </p>
+
+        <% if contractor.email.present? %>
+          <p>
+            <i class="fa-solid fa-envelope"></i>&nbsp;<%= contractor.email %>
+          </p>
+        <% end %>
+
+        <p>
+          <i class="fa-solid fa-location-dot"></i>&nbsp;<%= contractor.town %>
         </p>
 
         <p>
-          <strong><i class="fa-solid fa-location-dot"></i></strong>
-          <%= contractor.town %>
-        </p>
-
-        <p>
-          <strong>Added by:</strong>
+          Added by:
           <%= contractor.added_by.full_name %>, <%= time_ago_in_words(contractor.created_at) %> ago
         </p>
 
         <% if contractor.updated_by_id.present? %>
           <p>
-            <strong>Last Updated by:</strong>
+            Last Updated by:
             <%= contractor.updated_by.full_name %>, <%= time_ago_in_words(contractor.updated_at) %> ago
           </p>
         <% end %>

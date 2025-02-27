@@ -69,3 +69,4 @@ Very Rough List of things to do:
   - List Users
   - Edit Users
   - List All Contractors
+- on create Job, set state to be a drop-down: "Quoted", "Planned", "In Progress", "Complete"

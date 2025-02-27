@@ -40,8 +40,8 @@ jon.create_connection_with(bryony)
 suz.create_connection_with(bryony)
 
 trade_names = [
-  "Plumber", "Electrician", "Carpenter", "Joiner", "Plasterer", "Decorator", "Builder", "Gardener", "Fence", "Roofer",
-  "Tiler", "Floorer", "Kitchen Fitter", "Bathroom Fitter", "Window Fitter", "Scaffolder", "Rubbish Clearance"
+  "Plumber", "Electrician", "Carpenter", "Joiner", "Plasterer", "Decorator", "Painter", "Builder", "Gardener", "Fence", "Roofer",
+  "Tiler", "Floorer", "Kitchen Fitter", "Bathroom Fitter", "Window Fitter", "Scaffolder", "Rubbish Clearance", "Skip", "Bricklayer"
 ]
 Trade.create(trade_names.map { |name| { name: name } })
 
@@ -49,6 +49,7 @@ c_shaun = phil.added_contractors.create!(name: "Shaun Reed", company_name: "Reed
 c_paul = phil.added_contractors.create!(name: "Paul Swinford", company_name: "Swinford Sparks", number: "07123000124", town: "Swansea", email: "swinfordsparks@gmail.com")
 c_abbas = calum.added_contractors.create!(name: "Abbas", company_name: "RAM Plastering", number: "07458171780", town: "Swansea")
 c_james = phil.added_contractors.create!(name: "James", company_name: "Supreme Plastering", number: "07760102335", town: "Swansea")
+c_chris = phil.added_contractors.create!(name: "Chris Walters", company_name: "Chris Walters Plumbing & Heating", number: "07846214934", town: "Swansea", email: "Chriswaltersplumbing@gmail.com")
 
 [ "Plumber", "Plasterer", "Bathroom Fitter", "Kitchen Fitter", "Builder", "Tiler" ].each do |trade_name|
   c_shaun.trades << Trade.find_by(name: trade_name)
@@ -56,6 +57,7 @@ end
 c_paul.trades << Trade.find_by(name: "Electrician")
 c_abbas.trades << Trade.find_by(name: "Plasterer")
 c_james.trades << Trade.find_by(name: "Plasterer")
+c_chris.trades << Trade.find_by(name: "Plumber")
 
 phil.jobs.create!(contractor: c_shaun, description: "Bathroom renovation", town: "Swansea",
                   start_date: Date.new(2024, 5, 1), end_date: Date.new(2024, 10, 1),
@@ -81,6 +83,9 @@ phil.jobs.create!(contractor: c_james, description: "Plastering", town: "Swansea
 bryony.jobs.create!(contractor: c_james, description: "Plastering", town: "Swansea",
                     start_date: Date.new(2023, 2, 10), end_date: Date.new(2023, 2, 20),
                     cost: 500, state: "completed")
+phil.jobs.create!(contractor: c_chris, description: "Plumbing", town: "Swansea",
+                  start_date: Date.new(2023, 2, 1),
+                  cost: 500, state: "quoted")
 
 phil.ratings.create!(contractor: c_shaun, overall_rating: 9, review: "Shaun was fantastic, would highly recommend")
 phil.ratings.create!(contractor: c_paul, overall_rating: 9, review: "Paul was great, would use again")
@@ -88,3 +93,4 @@ calum.ratings.create!(contractor: c_abbas, overall_rating: 8, review: "Abbas was
 bryony.ratings.create!(contractor: c_abbas, overall_rating: 8, review: "Abbas was good, would recommend")
 phil.ratings.create!(contractor: c_james, overall_rating: 8, review: "James was good, would recommend")
 bryony.ratings.create!(contractor: c_james, overall_rating: 3, review: "Had some difficulty with the awkward bits, wouldn't use again")
+phil.ratings.create!(contractor: c_chris, overall_rating: 9, review: "Chris' quote was great, starts work soon")

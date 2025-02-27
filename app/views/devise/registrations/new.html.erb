@@ -7,10 +7,16 @@
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="row">
-        <div class="col-6">
+        <div class="col">
           <div class="form-floating">
             <%= f.email_field :email, autofocus: true, placeholder: "Email", autocomplete: "email", class: "form-control", required: true %>
             <%= f.label :email, class: "form-label" %>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <%= f.text_field :town, placeholder: "Your Town or City", class: "form-control", required: true %>
+            <%= f.label :town, class: "form-label" %>
           </div>
         </div>
       </div>
@@ -18,14 +24,14 @@
       <div class="row g-3">
         <div class="col">
           <div class="form-floating">
-            <%= f.email_field :first_name, placeholder: "First Name", class: "form-control", required: true %>
+            <%= f.text_field :first_name, placeholder: "First Name", class: "form-control", required: true %>
             <%= f.label :first_name, class: "form-label" %>
           </div>
         </div>
 
         <div class="col">
           <div class="form-floating">
-            <%= f.email_field :last_name, placeholder: "Last Name", class: "form-control", required: true %>
+            <%= f.text_field :last_name, placeholder: "Last Name", class: "form-control", required: true %>
             <%= f.label :last_name, class: "form-label" %>
           </div>
         </div>

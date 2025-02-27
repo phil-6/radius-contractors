@@ -2,17 +2,20 @@
   <h1 class="page-title brand">Radius Contractors</h1>
   <h2 class="page-subtitle">Find builders recommended by people you trust</h2>
   <p class="lead">
-    It's really challenging to find reliable builders. Check-a-trade and MyBuilder are commercial behemoths, focused on their bottom line
+    It's really challenging to find reliable builders.
+  </p>
+  <p class="lead">
+    Check-a-trade and MyBuilder are commercial behemoths, focused on their bottom line
     rather than providing a good service to homeowners.
   </p>
   <p class="lead">
-    Radius contractors takes a different approach, the builders you can see on here are only those that have been reviewed by people you
+    We take a different approach, the builders you can see here are only those that have been reviewed by people you
     have connected with.
   </p>
   <hr>
 </header>
 
-<main class="container">
+<main class="container main-page">
   <% if current_user && !current_user.ratings.size.zero? %>
     <h2>Welcome Back <%= current_user.first_name %></h2>
     <p>What would you like to do today?</p>
@@ -30,9 +33,11 @@
       builders.</p>
     <p>You can sign up from the link below, then you can generate a personalised link invite your friends.</p>
     <p>Once you've signed up, you can add builders you've used, the jobs they've worked or quoted for and give them a rating. When you
-      friends
-      sign up and do the same thing, you'll be able to see the builders they have rated.</p>
+      friends sign up and do the same thing, you'll be able to see the builders they have rated.</p>
     <p>It requires a bit of community effort, but it's that simple!</p>
+    <p>If you're a builder, do good work and get recommended! If you have any issues then you can reach out
+      <a href="mailto:contractors@purpleriver.dev">here</a>.</p>
+    <hr>
 
     <div class="getting-started-checklist">
       <h3>Your Checklist</h3>

@@ -2,6 +2,7 @@ one:
   email: "one@test.email"
   first_name: "one"
   last_name: "test_user"
+  town: "test_town"
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= DateTime.current %>
 
@@ -9,6 +10,7 @@ two:
   email: "two@test.email"
   first_name: "two"
   last_name: "test_user"
+  town: "test_town"
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= DateTime.current %>
 
@@ -16,6 +18,7 @@ three:
   email: "three@test.email"
   first_name: "three"
   last_name: "test_user"
+  town: "test_town"
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= DateTime.current %>
 
@@ -23,6 +26,7 @@ four:
   email: "four@test.email"
   first_name: "four"
   last_name: "test_user"
+  town: "test_town"
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= DateTime.current %>
 
@@ -30,5 +34,6 @@ five:
   email: "five@test.email"
   first_name: "five"
   last_name: "test_user"
+  town: "test_town"
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= DateTime.current %>

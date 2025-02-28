@@ -62,7 +62,7 @@ Rails.application.configure do
 
   # Specify outgoing SMTP server. Remember to add smtp/* credentials via rails credentials:edit.
   config.action_mailer.smtp_settings = {
-    user_name: 'apikey',
+    user_name: "apikey",
     password: Rails.application.credentials.dig(:sendgrid, :api_key),
     domain: "radius-contractors.purpleriver.dev",
     address: "smtp.sendgrid.net",

@@ -22,8 +22,8 @@ class ConnectionsController < ApplicationController
   # POST /connections or /connections.json
   def create
     respond_to do |format|
-      if current_user.create_connection_with(@user_a)
-        format.html { redirect_to root_path, success: "Successfully connected with #{@user_a.first_name}" }
+      if (@connection = current_user.create_connection_with(@user_a))
+        format.html { redirect_to connections_path, success: "Successfully connected with #{@user_a.first_name}" }
         format.json { render :show, status: :created, location: @connection }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -57,7 +57,7 @@ class ConnectionsController < ApplicationController
 
   private
     def set_user_a
-      @user_a = User.find_by_id(params[:user_a_id])
+      @user_a = User.find_by_id(connection_params)
     end
 
     def set_connection
@@ -66,6 +66,6 @@ class ConnectionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def connection_params
-      params.expect(connection: [ :user_a_id ])
+      params.expect([ :user_a_id ])
     end
 end

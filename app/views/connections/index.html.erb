@@ -1,10 +1,11 @@
 <% content_for :title, "Your Connections" %>
-<header class="container connections-header" data-controller="clipboard">
+<header class="container connections-header">
   <h1 class="page-title brand">Connections</h1>
   <button class="btn btn-primary"
-       data-clipboard-target="source"
-       data-action="clipboard#copy"
-       value="<%= current_user.connection_link(request.host, request.port) %>">
+          data-controller="clipboard"
+          data-clipboard-target="source"
+          data-action="clipboard#copy"
+          value="<%= current_user.connection_link(request.host, request.port) %>">
     Copy your connection link <i class="fa-solid fa-copy"></i>
   </button>
 </header>

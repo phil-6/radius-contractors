@@ -64,13 +64,7 @@
           <h5>Invite a Friend</h5>
           <p class="mb-0">Copy your connection link using the button below and send it to a friend.</p>
           <p>You'll get an email when they've connected with you!</p>
-          <button class="btn btn-primary"
-                  data-controller="clipboard"
-                  data-clipboard-target="source"
-                  data-action="clipboard#copy"
-                  value="<%= current_user.connection_link(request.host, request.port) %>">
-            Copy your connection link <i class="fa-solid fa-copy"></i>
-          </button>
+          <%= render partial: "shared/copy_connection_link_button" %>
         <% else %>
           <% if current_user.ratings.size.zero? %>
             <h5>Add a builder, a job and a rating.</h5>

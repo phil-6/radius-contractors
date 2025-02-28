@@ -29,11 +29,18 @@
   }
 }
 
-main.main-page .getting-started-checklist{
+main.main-page .getting-started-checklist {
+  .col {
+    min-width: 400px;
+  }
 
+  li {
+    font-weight: 600;
+    line-height: 2;
+  }
 }
 
-aside.main-page{
+aside.main-page {
   .bmc-btn-container {
     display: flex;
     justify-content: center;

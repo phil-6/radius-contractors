@@ -38,51 +38,53 @@
     <p>It requires a bit of community effort, but it's that simple!</p>
     <p>If you're a builder, do good work and get recommended! If you have any issues then you can reach out
       <a href="mailto:contractors@purpleriver.dev">here</a>.</p>
-    <hr>
 
-    <div class="getting-started-checklist">
-      <h3>Your Checklist</h3>
-      <ol>
-        <li>
-          Sign Up and Log In<%= " ✅" if current_user %>
-        </li>
-        <li>
-          Invite a friend and make a connection<%= " ✅" if current_user && !current_user&.connections&.size&.zero? %>
-        </li>
-        <li>
-          Add a builder you've used, the job they did and give them a rating
-        </li>
-      </ol>
-
-      <h3>What's Next?</h3>
-      <% unless current_user %>
-        <h5>Sign Up and Log In</h5>
-        <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
-        <%= link_to "Log In", new_user_session_path, class: "btn btn-primary" %>
-      <% else %>
-        <% if current_user.connections.size.zero? %>
-          <h5>Invite a Friend</h5>
-          <p class="mb-0">Copy your connection link using the button below and send it to a friend.</p>
-          <p>You'll get an email when they've connected with you!</p>
-          <%= render partial: "shared/copy_connection_link_button" %>
+    <div class="row getting-started-checklist">
+      <div class="col">
+        <h3>Your Checklist</h3>
+        <ol>
+          <li>
+            Sign Up and Log In<%= " ✅" if current_user %>
+          </li>
+          <li>
+            Invite a friend and make a connection<%= " ✅" if current_user && !current_user&.connections&.size&.zero? %>
+          </li>
+          <li>
+            Add a builder you've used, the job they did and give them a rating
+          </li>
+        </ol>
+      </div>
+      <div class="col">
+        <h3>What's Next?</h3>
+        <% unless current_user %>
+          <h5>Sign Up and Log In</h5>
+          <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+          <%= link_to "Log In", new_user_session_path, class: "btn btn-lg btn-primary" %>
         <% else %>
-          <% if current_user.ratings.size.zero? %>
-            <h5>Add a builder, a job and a rating.</h5>
-            <%= link_to "Add a builder", new_contractor_path, class: "btn btn-builder" %>
-            <% unless current_user.viewable_contractors.size.zero? %>
-              <p class="mt-2 mb-1">It looks as though your connections have already added some builders, you can add a job and a rating if
-                you've used one of those tradies.</p>
-              <div class="col-4">
-                <%= link_to "Show builders", contractors_path, class: "btn btn-builder" %>
-              </div>
-              <% if !current_user.jobs.size.zero? && current_user.ratings.size.zero? %>
-                <p>It looks as though you've added a job, but not rated that builder.</p>
-                <%= link_to "Add a rating", new_contractor_rating_path(current_user.jobs.first.contractor), class: "btn btn-rating" %>
+          <% if current_user.connections.size.zero? %>
+            <h5>Invite a Friend</h5>
+            <p class="mb-0">Copy your connection link using the button below and send it to a friend.</p>
+            <p>You'll get an email when they've connected with you!</p>
+            <%= render partial: "shared/copy_connection_link_button" %>
+          <% else %>
+            <% if current_user.ratings.size.zero? %>
+              <h5>Add a builder, a job and a rating.</h5>
+              <%= link_to "Add a builder", new_contractor_path, class: "btn btn-builder" %>
+              <% unless current_user.viewable_contractors.size.zero? %>
+                <p class="mt-2 mb-1">It looks as though your connections have already added some builders, you can add a job and a rating if
+                  you've used one of those tradies.</p>
+                <div class="col-4">
+                  <%= link_to "Show builders", contractors_path, class: "btn btn-builder" %>
+                </div>
+                <% if !current_user.jobs.size.zero? && current_user.ratings.size.zero? %>
+                  <p>It looks as though you've added a job, but not rated that builder.</p>
+                  <%= link_to "Add a rating", new_contractor_rating_path(current_user.jobs.first.contractor), class: "btn btn-rating" %>
+                <% end %>
               <% end %>
             <% end %>
           <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   <% end %>
 </main>
@@ -108,14 +110,15 @@
     <li>Allow trades to be added when creating a contractor</li>
     <li>User Profile Page
       <ul>
-        <li>Show User's Connections</li>
-        <li>Show User's Contractors</li>
+        <li>Show Your Connections</li>
+        <li>Show Your Contractors</li>
       </ul>
     </li>
     <li>Improve UI in various places
       <ul>
         <li>Increase size of secondary buttons on account forms</li>
         <li>Navigation: Burger Menu for quick access links from anywhere</li>
+        <li>Improve getting started process</li>
       </ul>
     </li>
     <li>Show contractors and reviews from 2nd order connections (Friends of friends).</li>

@@ -39,13 +39,12 @@ Very Rough List of things to do:
 - ~~Create Landing Page~~ ✅
 - ~~Update User Devise Page Designs~~ ✅
 - ~~Test Sign Up and Sign In~~ ✅
-- Email Setup with SendGrid
-- Automated Test for Sign Up and Sign In
-- Invite a user (automatic connection on signup)
+- ~~Email Setup with SendGrid~~ ✅
+- ~~Invite a user (automatic connection on signup)~~ ✅
 - ~~Add a connection~~ ✅
 - ~~See All Connections~~ ✅
 - ~~Remove a connection~~ ✅
-- Email other user when someone connects with them
+- ~~Email other user when someone connects with them~~ ✅
 - ~~Require user town on sign up~~ ✅
 - ~~User Dashboard Page~~ ✅
 - ~~View previously used contactors~~ ✅
@@ -53,17 +52,25 @@ Very Rough List of things to do:
 - ~~View ratings~~ ✅
 - ~~Add a contractor~~ ✅
 - Allow trades to be added and updated with contractor
+- Handle adding existing contractors that are not visible to users due to separation
+- Contractors index, add pagination and filtering
 - ~~Add a job~~ ✅
 - ~~Add a rating~~ ✅
 - ~~Find a new contractor - view contractors connections have rated~~ ✅
 - Remove unused partials, pages and controller actions
-- Allow second-degree connections to view ratings
-- Handle adding existing contractors that are not visible to users due to separation
-- Improve navigation
-  - Burger Menu for quick access links from anywhere
+- System Tests
+  - for Sign Up and Sign In
+  - Add a connection
+  - view contactors
+  - view contractor
+  - add a connection (multiple states)
+- UI Improvements
+  - Navigation Burger Menu for quick access links from anywhere
+  - Increase size of secondary buttons on user account forms
 - Improve styling
-  - Contractor's index to smaller cards
+  - ~~Contractor's index to smaller cards~~ ✅
   - increase size of buttons on sign up page
+  - add about page and move some info
 - On connection index, show number of connections for each user
 - On connection index, show number of connections outside current user's network
 - User Profile Page
@@ -74,3 +81,4 @@ Very Rough List of things to do:
   - Edit Users
   - List All Contractors
 - on create Job, set state to be a drop-down: "Quoted", "Planned", "In Progress", "Complete"
+- Allow second-degree connections to view ratings

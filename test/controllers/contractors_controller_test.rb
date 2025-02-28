@@ -27,6 +27,16 @@ class ContractorsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to contractor_url(Contractor.last)
   end
 
+  test "should be able to create contractor with trades" do
+    assert_difference("Contractor.count") do
+      post contractors_url, params: { contractor: {
+        email: "test@email.com", name: @contractor.name,
+        company_name: @contractor.company_name,
+        number: "07123000123", town: @contractor.town,
+        trade_ids: [ trades(:building).id, trades(:plumbing).id, trades(:electrical).id ] } }
+    end
+  end
+
   test "should redirect to existing contractor if number is the same" do
     number = "07111000111"
     assert Contractor.exists?(number: number)

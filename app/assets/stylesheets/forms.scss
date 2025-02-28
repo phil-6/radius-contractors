@@ -51,3 +51,67 @@ main.new-connection {
     }
   }
 }
+
+.ss-main {
+  background-color: var(--bs-body-bg) !important;
+  border: var(--bs-border-width) solid var(--bs-border-color) !important;
+  border-radius: var(--bs-border-radius);
+
+
+  .ss-multi-selected {
+    min-height: calc(1.5em + 0.75rem + 2px);
+    border-radius: 0.5rem;
+
+    .ss-add {
+      margin: 13px 12px 0 5px;
+    }
+
+    .ss-values .ss-value {
+      padding: 6px 10px;
+
+    }
+  }
+
+  .ss-values .ss-value {
+    background-color: var(--bs-primary) !important;
+
+    .ss-value-text {
+      color: $ink-dark !important;
+      font-weight: 600 !important;
+    }
+
+    .ss-value-delete {
+      padding-left: 3px !important;
+
+      svg path {
+        stroke: #BC3C35 !important;
+
+        &:hover {
+          stroke: $danger !important;
+        }
+      }
+    }
+  }
+}
+
+.ss-content{
+  &.ss-open-below {
+    background-color: var(--bs-body-bg) !important;
+
+    .ss-list .ss-option {
+      color: var(--bs-body-color) !important;
+
+      &:hover, &.ss-selected, &.ss-highlighted {
+        background-color: var(--bs-primary) !important;
+        color: $ink-dark !important;
+      }
+
+      &.ss-selected {
+        font-weight: 600 !important;
+      }
+    }
+  }
+  .ss-search input {
+    color: $ink-dark !important;
+  }
+}

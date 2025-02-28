@@ -1,5 +1,6 @@
 class ContractorsController < ApplicationController
   before_action :set_contractor, only: %i[ show edit update ]
+  before_action :set_trades, only: %i[ new edit update ]
 
   def index
     @contractors = current_user.viewable_contractors
@@ -17,6 +18,7 @@ class ContractorsController < ApplicationController
   end
 
   def edit
+    @contractor_trades = @contractor.contractor_trades
   end
 
   def create
@@ -29,6 +31,7 @@ class ContractorsController < ApplicationController
         format.html { redirect_to @contractor, notice: "Contractor was successfully created." }
         format.json { render :show, status: :created, location: @contractor }
       else
+        @trades = Trade.all
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @contractor.errors, status: :unprocessable_entity }
       end
@@ -37,6 +40,7 @@ class ContractorsController < ApplicationController
 
   def update
     @contractor.assign_attributes(contractor_params)
+    @contractor.trade_ids = contractor_params[:trade_ids]
     @contractor.updated_by_id = current_user.id
 
     respond_to do |format|
@@ -52,13 +56,16 @@ class ContractorsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_contractor
     @contractor = Contractor.find(params.expect(:id))
   end
 
+  def set_trades
+    @trades = Trade.all
+  end
+
   # Only allow a list of trusted parameters through.
   def contractor_params
-    params.expect(contractor: [ :name, :number, :email, :town, contractor_trades_attributes: [ :id, :trade_id, :_destroy ] ])
+    params.expect(contractor: [ :name, :number, :email, :town, trade_ids: [] ])
   end
 end

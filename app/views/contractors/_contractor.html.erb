@@ -21,12 +21,22 @@
     <div class="row">
       <div class="col">
         <p>
-          <i class="fa-solid fa-star-half-stroke"></i>&nbsp;Rated <%= contractor.average_rating(current_user) %> from
-          <%= pluralize(contractor.viewable_ratings(current_user).size, "rating") %>
+          <i class="fa-solid fa-star-half-stroke"></i>&nbsp;
+          <% if contractor.viewable_ratings(current_user).present? %>
+            Rated <%= contractor.average_rating(current_user) %> from
+            <%= pluralize(contractor.viewable_ratings(current_user).size, "rating") %>
+          <% else %>
+            Not rated by anyone in your network
+          <% end %>
         </p>
         <p>
-          <i class="fa-solid fa-hammer"></i>&nbsp;<%= pluralize(contractor.viewable_jobs(current_user).size, "job") %>
-          for&nbsp;<%= pluralize(contractor.viewable_customers(current_user).size, "customer") %>
+          <i class="fa-solid fa-hammer"></i>&nbsp;
+          <% if contractor.viewable_jobs(current_user).present? %>
+            <%= pluralize(contractor.viewable_jobs(current_user).size, "job") %> for
+            <%= pluralize(contractor.viewable_customers(current_user).size, "customer") %>
+        <% else %>
+            No jobs added by anyone in your network
+          <% end %>
         </p>
 
         <p>

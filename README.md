@@ -52,12 +52,12 @@ Very Rough List of things to do:
 - ~~View ratings~~ ✅
 - ~~Add a contractor~~ ✅
 - Allow trades to be added and updated with contractor
-- Handle adding existing contractors that are not visible to users due to separation
+- ~~Handle adding existing contractors that are not visible to users due to separation~~ ✅
 - Contractors index, add pagination and filtering
 - ~~Add a job~~ ✅
 - ~~Add a rating~~ ✅
 - ~~Find a new contractor - view contractors connections have rated~~ ✅
-- Remove unused partials, pages and controller actions
+- ~~Remove unused partials, pages and controller actions~~ ✅
 - System Tests
   - for Sign Up and Sign In
   - Add a connection

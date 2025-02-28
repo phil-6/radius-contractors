@@ -25,11 +25,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
-    margin-bottom: 0.5rem;
+    gap: 0.5rem;
 
     .btn {
       background-color: $info;
       color: $theme-dark;
+      cursor: auto;
     }
   }
 }

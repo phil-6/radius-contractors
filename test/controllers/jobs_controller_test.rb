@@ -7,12 +7,6 @@ class JobsControllerTest < ActionDispatch::IntegrationTest
     sign_in users(:two)
   end
 
-  # TODO: Remove this probably
-  # test "should get index" do
-  #   get jobs_url
-  #   assert_response :success
-  # end
-
   test "should get new" do
     get new_contractor_job_url(@contractor)
     assert_response :success
@@ -24,11 +18,6 @@ class JobsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to contractor_url(@contractor)
-  end
-
-  test "should show job" do
-    get contractor_job_url(@contractor, @job)
-    assert_response :success
   end
 
   test "should get edit" do

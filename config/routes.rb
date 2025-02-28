@@ -13,10 +13,10 @@ Rails.application.routes.draw do
   root "pages#index"
 
   devise_for :users
-  resources :connections
+  resources :connections, only: %i[ index new create destroy ]
 
   resources :contractors do
-    resources :jobs
-    resources :ratings
+    resources :jobs, only: %i[ new create edit update destroy ]
+    resources :ratings, only: %i[ new create edit update ]
   end
 end

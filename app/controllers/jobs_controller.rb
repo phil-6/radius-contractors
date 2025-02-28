@@ -1,16 +1,6 @@
 class JobsController < ApplicationController
   before_action :set_contractor
-  before_action :set_job, only: %i[ show edit update destroy ]
-
-  # GET /jobs or /jobs.json
-  # TODO: Consider whether this is needed
-  def index
-    @jobs = Job.all
-  end
-
-  # GET /jobs/1 or /jobs/1.json
-  def show
-  end
+  before_action :set_job, only: %i[ edit update destroy ]
 
   # GET /jobs/new
   def new

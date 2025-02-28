@@ -1,22 +1,14 @@
 class ConnectionsController < ApplicationController
   before_action :set_user_a, only: %i[ new create]
-  before_action :set_connection, only: %i[ show edit update destroy ]
+  before_action :set_connection, only: %i[ destroy ]
 
   # GET /connections or /connections.json
   def index
     @connections = current_user.connections
   end
 
-  # GET /connections/1 or /connections/1.json
-  def show
-  end
-
   # GET /connections/new
   def new
-  end
-
-  # GET /connections/1/edit
-  def edit
   end
 
   # POST /connections or /connections.json
@@ -27,19 +19,6 @@ class ConnectionsController < ApplicationController
         format.json { render :show, status: :created, location: @connection }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @connection.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /connections/1 or /connections/1.json
-  def update
-    respond_to do |format|
-      if @connection.update(connection_params)
-        format.html { redirect_to @connection, notice: "Connection was successfully updated." }
-        format.json { render :show, status: :ok, location: @connection }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @connection.errors, status: :unprocessable_entity }
       end
     end

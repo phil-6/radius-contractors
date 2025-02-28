@@ -1,9 +1,0 @@
-
-<%= render @job %>
-
-<div>
-  <%= link_to "Edit this job", edit_contractor_job_path(@contractor, @job) %> |
-  <%= link_to "Back to contractor", contractors_path(@contractor) %>
-
-  <%= button_to "Destroy this job", contractor_job_path(@contractor, @job), method: :delete %>
-</div>

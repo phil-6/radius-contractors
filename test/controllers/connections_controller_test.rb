@@ -24,21 +24,6 @@ class ConnectionsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to connections_url
   end
 
-  test "should show connection" do
-    get connection_url(@connection)
-    assert_response :success
-  end
-
-  # test "should get edit" do
-  #   get edit_connection_url(@connection)
-  #   assert_response :success
-  # end
-
-  # test "should update connection" do
-  #   patch connection_url(@connection), params: { connection: { user_a_id: @connection.user_a_id, user_b_id: @connection.user_b_id } }
-  #   assert_redirected_to connection_url(@connection)
-  # end
-
   test "should destroy connection" do
     assert_difference("Connection.count", -1) do
       delete connection_url(@connection)

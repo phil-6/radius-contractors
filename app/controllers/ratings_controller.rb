@@ -1,16 +1,6 @@
 class RatingsController < ApplicationController
   before_action :set_contractor
-  before_action :set_rating, only: %i[ show edit update destroy ]
-
-  # GET /ratings or /ratings.json
-  # TODO: Consider whether this is needed
-  def index
-    @ratings = Rating.all
-  end
-
-  # GET /ratings/1 or /ratings/1.json
-  def show
-  end
+  before_action :set_rating, only: %i[ edit update ]
 
   # GET /ratings/new
   def new
@@ -47,16 +37,6 @@ class RatingsController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity, error: "Something went wrong updating your rating." }
         format.json { render json: @rating.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /ratings/1 or /ratings/1.json
-  def destroy
-    @rating.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to contractor_path(@contractor), status: :see_other, notice: "Rating was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 

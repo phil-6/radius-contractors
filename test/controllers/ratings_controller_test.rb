@@ -7,12 +7,6 @@ class RatingsControllerTest < ActionDispatch::IntegrationTest
     sign_in users(:one)
   end
 
-  # TODO: Remove this probably
-  # test "should get index" do
-  #   get ratings_url
-  #   assert_response :success
-  # end
-
   test "should get new" do
     get new_contractor_rating_url(@contractor)
     assert_response :success
@@ -26,11 +20,6 @@ class RatingsControllerTest < ActionDispatch::IntegrationTest
   #   assert_redirected_to rating_url(Rating.last)
   # end
 
-  test "should show rating" do
-    get contractor_rating_url(@contractor, @rating)
-    assert_response :success
-  end
-
   test "should get edit" do
     get edit_contractor_rating_url(@contractor, @rating)
     assert_response :success
@@ -40,13 +29,4 @@ class RatingsControllerTest < ActionDispatch::IntegrationTest
   #   patch rating_url(@rating), params: { rating: { communication_rating: @rating.communication_rating, overall_rating: @rating.overall_rating, professionalism_rating: @rating.professionalism_rating, quality_rating: @rating.quality_rating, review: @rating.review, tidiness_rating: @rating.tidiness_rating, value_rating: @rating.value_rating } }
   #   assert_redirected_to rating_url(@rating)
   # end
-
-  # TODO: Do we need delete, or just edit?
-  test "should destroy rating" do
-    assert_difference("Rating.count", -1) do
-      delete contractor_rating_url(@contractor, @rating)
-    end
-
-    assert_redirected_to contractor_path(@contractor)
-  end
 end

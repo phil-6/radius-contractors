@@ -58,7 +58,7 @@ Very Rough List of things to do:
 - ~~Add a rating~~ ✅
 - ~~Find a new contractor - view contractors connections have rated~~ ✅
 - ~~Remove unused partials, pages and controller actions~~ ✅
-- extend Seed for production
+- ~~extend Seed for production~~ ✅
 - System Tests
   - for Sign Up and Sign In
   - Add a connection

@@ -1,5 +1,5 @@
 class ConnectionsController < ApplicationController
-  before_action :set_user_a, only: %i[ new create]
+  before_action :set_user_a, only: %i[ new create ]
   before_action :set_connection, only: %i[ destroy ]
 
   # GET /connections or /connections.json
@@ -35,16 +35,17 @@ class ConnectionsController < ApplicationController
   end
 
   private
-    def set_user_a
-      @user_a = User.find_by_id(connection_params)
-    end
 
-    def set_connection
-      @connection = current_user.connections.find(params.expect(:id))
-    end
+  def set_user_a
+    @user_a = User.find_by_id(connection_params[:user_a_id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def connection_params
-      params.expect([ :user_a_id ])
-    end
+  def set_connection
+    @connection = current_user.connections.find(params.expect(:id))
+  end
+
+  # Only allow a list of trusted parameters through.
+  def connection_params
+    params.permit([ :user_a_id ])
+  end
 end

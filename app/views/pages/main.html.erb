@@ -91,40 +91,43 @@
 
 <aside class="container main-page" id="about">
   <hr>
-  <h3>What's this all about?</h3>
-  <p>Radius Contractors is a community-driven platform for finding reliable builders.</p>
-  <p>Instead of being able to see reviews from anyone, you can only see reviews from people you know. This means that you can trust
-    the reviews you see, as they're from people you trust.</p>
-  <p>It's a bit like asking your friends for a recommendation, but on a larger scale.</p>
-  <p>It's free to use, <a href="https://github.com/phil-6/radius-contractors">open source</a>, with no advertising and limited tracking
-    and will stay that way for as long as it can.</p>
-  <p>The current costs are around £15 per month, if you want to contribute to the running you can buy me a coffee.</p>
-  <%= render partial: 'pages/bmc_button' %>
-  <p>The project is still a work in progress, so if you have any feedback,
-    please <a href="mailto:contractors@purpleriver.dev">let us know.</a></p>
-  <ul>What's in the plan:
-    <li>Connect with another user using their link ✅</li>
-    <li>View your connections ✅</li>
-    <li>Remove connections ✅</li>
-    <li>Email user when someone connects with them ✅</li>
-    <li>Allow trades to be added when creating a contractor ✅</li>
-    <li>User Profile Page
-      <ul>
-        <li>Show Your Connections</li>
-        <li>Show Your Contractors</li>
-      </ul>
-    </li>
-    <li>Improve UI in various places
-      <ul>
-        <li>Increase size of secondary buttons on account forms</li>
-        <li>Navigation: Burger Menu for quick access links from anywhere</li>
-        <li>Improve getting started process</li>
-      </ul>
-    </li>
-    <li>Show contractors and reviews from 2nd order connections (Friends of friends).</li>
-    <li>Allow contractors to be filtered by trades.</li>
-    <li>Allow photos to be added to jobs.</li>
-  </ul>
+  <details>
+    <summary>What's this all about?</summary>
+    <h3>What's this all about?</h3>
+    <p>Radius Contractors is a community-driven platform for finding reliable builders.</p>
+    <p>Instead of being able to see reviews from anyone, you can only see reviews from people you know. This means that you can trust
+      the reviews you see, as they're from people you trust.</p>
+    <p>It's a bit like asking your friends for a recommendation, but on a larger scale.</p>
+    <p>It's free to use, <a href="https://github.com/phil-6/radius-contractors">open source</a>, with no advertising and limited tracking
+      and will stay that way for as long as it can.</p>
+    <p>The current costs are around £15 per month, if you want to contribute to the running you can buy me a coffee.</p>
+    <%= render partial: 'pages/bmc_button' %>
+    <p>The project is still a work in progress, so if you have any feedback,
+      please <a href="mailto:contractors@purpleriver.dev">let us know.</a></p>
+    <ul>What's in the plan:
+      <li>Connect with another user using their link ✅</li>
+      <li>View your connections ✅</li>
+      <li>Remove connections ✅</li>
+      <li>Email user when someone connects with them ✅</li>
+      <li>Allow trades to be added when creating a contractor ✅</li>
+      <li>User Profile Page
+        <ul>
+          <li>Show Your Connections</li>
+          <li>Show Your Contractors</li>
+        </ul>
+      </li>
+      <li>Improve UI in various places
+        <ul>
+          <li>Increase size of secondary buttons on account forms</li>
+          <li>Navigation: Burger Menu for quick access links from anywhere</li>
+          <li>Improve getting started process</li>
+        </ul>
+      </li>
+      <li>Show contractors and reviews from 2nd order connections (Friends of friends).</li>
+      <li>Allow contractors to be filtered by trades.</li>
+      <li>Allow photos to be added to jobs.</li>
+    </ul>
+  </details>
 </aside>
 
 <% if current_user %>

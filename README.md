@@ -58,12 +58,13 @@ Very Rough List of things to do:
 - ~~Add a rating~~ ✅
 - ~~Find a new contractor - view contractors connections have rated~~ ✅
 - ~~Remove unused partials, pages and controller actions~~ ✅
+- extend Seed for production
 - System Tests
   - for Sign Up and Sign In
   - Add a connection
   - view contactors
   - view contractor
-  - add a connection (multiple states)
+  - add a connection page and process (multiple states)
 - UI Improvements
   - Navigation Burger Menu for quick access links from anywhere
   - Increase size of secondary buttons on user account forms
@@ -80,5 +81,5 @@ Very Rough List of things to do:
   - List Users
   - Edit Users
   - List All Contractors
-- on create Job, set state to be a drop-down: "Quoted", "Planned", "In Progress", "Complete"
+- ~~on create Job, set state to be a drop-down: "Quoted", "Planned", "In Progress", "Complete"~~ ✅
 - Allow second-degree connections to view ratings

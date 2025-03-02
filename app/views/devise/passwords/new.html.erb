@@ -1,14 +1,14 @@
 <main class="container account-form">
   <h1 class="page-title brand"><a href="/">Radius Contractors</a></h1>
   <div class="card form-card">
-    <div class="mx-5">
+    <div class="mx-md-5">
       <h2>Forgot your password?</h2>
 
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="row">
-          <div class="col-6">
+          <div class="col-sm-12 col-md-6">
             <div class="form-floating">
               <%= f.email_field :email, autofocus: true, placeholder: "Email", autocomplete: "email", class: "form-control" %>
               <%= f.label :email, class: "form-label" %>

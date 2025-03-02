@@ -11,7 +11,10 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[8.0].define(version: 7) do
-  create_table "connections", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_catalog.plpgsql"
+
+  create_table "connections", force: :cascade do |t|
     t.bigint "user_a_id", null: false
     t.bigint "user_b_id", null: false
     t.datetime "created_at", null: false
@@ -21,7 +24,7 @@ ActiveRecord::Schema[8.0].define(version: 7) do
     t.index ["user_b_id"], name: "index_connections_on_user_b_id"
   end
 
-  create_table "contractor_trades", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "contractor_trades", force: :cascade do |t|
     t.bigint "contractor_id", null: false
     t.bigint "trade_id", null: false
     t.datetime "created_at", null: false
@@ -30,7 +33,7 @@ ActiveRecord::Schema[8.0].define(version: 7) do
     t.index ["trade_id"], name: "index_contractor_trades_on_trade_id"
   end
 
-  create_table "contractors", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "contractors", force: :cascade do |t|
     t.bigint "added_by_id", null: false
     t.bigint "updated_by_id"
     t.string "name", null: false
@@ -46,7 +49,7 @@ ActiveRecord::Schema[8.0].define(version: 7) do
     t.index ["updated_by_id"], name: "index_contractors_on_updated_by_id"
   end
 
-  create_table "jobs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "jobs", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "contractor_id", null: false
     t.text "description"
@@ -62,7 +65,7 @@ ActiveRecord::Schema[8.0].define(version: 7) do
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
-  create_table "ratings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "ratings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "contractor_id", null: false
     t.text "review"
@@ -79,14 +82,14 @@ ActiveRecord::Schema[8.0].define(version: 7) do
     t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
-  create_table "trades", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "trades", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_trades_on_name", unique: true
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

@@ -67,7 +67,7 @@ Very Rough List of things to do:
   - add a connection page and process (multiple states)
 - UI Improvements
   - Navigation Burger Menu for quick access links from anywhere
-  - Increase size of secondary buttons on user account forms
+  - ~~Increase size of secondary buttons on user account forms~~ ✅
 - Improve styling
   - ~~Contractor's index to smaller cards~~ ✅
   - increase size of buttons on sign up page

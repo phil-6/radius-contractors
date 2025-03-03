@@ -9,6 +9,8 @@ class Contractor < ApplicationRecord
   has_many :customers, -> { distinct }, through: :jobs, source: :user
   has_many :ratings, dependent: :restrict_with_exception
 
+  before_validation :normalize_blank_values
+
   validates :added_by_id, :name, :number, :town, presence: true
   validates :number, uniqueness: true, format: { with: %r{\A(?:0|\+?44)(?:\d\s?){9,10}\z} }
   validates :email, uniqueness: true, allow_nil: true, format: { with: Devise.email_regexp }
@@ -31,5 +33,13 @@ class Contractor < ApplicationRecord
 
   def average_rating(user)
     viewable_ratings(user).average(:overall_rating)
+  end
+
+  private
+
+  def normalize_blank_values
+    attributes.each do |column, value|
+      self[column] = nil if value.blank?
+    end
   end
 end

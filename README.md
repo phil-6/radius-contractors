@@ -68,9 +68,10 @@ Very Rough List of things to do:
 - UI Improvements
   - Navigation Burger Menu for quick access links from anywhere
   - ~~Increase size of secondary buttons on user account forms~~ ✅
+  - Improve forms for mobile
 - Improve styling
   - ~~Contractor's index to smaller cards~~ ✅
-  - increase size of buttons on sign up page
+  - ~~increase size of buttons on sign up page~~ ✅
   - add about page and move some info
 - On connection index, show number of connections for each user
 - On connection index, show number of connections outside current user's network

@@ -1,7 +1,7 @@
 <% content_for :title, "Add a Connection" %>
 
 <main class="new-connection">
-  <div class="new-connection-container">
+  <div class="new-connection-container container">
     <div>
       <% if @user_a.present? %>
         <% if current_user.connected_with?(@user_a) %>
@@ -26,10 +26,16 @@
         <% end %>
 
       <% else %>
-        <h2>No user found to connect with.</h2>
-        <p class="lead">Check the link you were sent. You can only connect with another user via their link.</p>
-        <p>Your link to share is: <%= link_to new_connection_url(user_a_id: current_user), new_connection_url(user_a_id: current_user) %></p>
+        <h1>Welcome to the new connection page!</h1>
+        <p class="lead">Your link to share
+          is: <%= link_to new_connection_url(user_a_id: current_user), new_connection_url(user_a_id: current_user) %>
+          you can copy it easily by clicking the button below.</p>
+        <% if params[:user_a_id].present? %>
+          <p>If you were sent here by a friend, we couldn't find them, so check the link you were sent as you can only connect
+            with another user by using their link.</p>
+        <% end %>
         <div class="btn-center">
+          <%= render partial: "shared/copy_connection_link_button" %>
           <%= link_to "Go Back", root_path, class: "btn btn-primary" %>
         </div>
       <% end %>

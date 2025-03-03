@@ -18,6 +18,18 @@
 
     .card-body {
       background: $dark-bg-grad;
+
+      .contractor-details {
+        p {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+
+    .card-footer .btn:not(:last-child) {
+      @media (max-width: 768px) {
+        margin-bottom: 0.5rem;
+      }
     }
   }
 
@@ -73,4 +85,16 @@
   //    background: none;
   //  }
   //}
+}
+
+#own-rating {
+  .card-footer {
+    display: none;
+  }
+}
+
+.rating-card {
+  .card-body p.sub-rating {
+    margin-bottom: 0.2rem;
+  }
 }

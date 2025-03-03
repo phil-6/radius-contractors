@@ -4,7 +4,7 @@
   </div>
 
   <% if @user_rating.present? %>
-    <div class="container">
+    <div class="container" id="own-rating">
       <h2>Your Rating</h2>
       <%= render @user_rating %>
     </div>
@@ -12,7 +12,7 @@
 
   <% if @user_jobs.present? %>
     <div class="container">
-      <div class="row">
+      <div class="row g-2">
         <h2>Jobs <%= @contractor.name %> has done for you</h2>
         <% @user_jobs.each do |job| %>
           <%= render job %>

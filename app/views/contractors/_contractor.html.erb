@@ -18,7 +18,7 @@
         <% end %>
       </div>
     </div>
-    <div class="row">
+    <div class="row contractor-details">
       <div class="col">
         <p>
           <i class="fa-solid fa-star-half-stroke"></i>&nbsp;
@@ -34,7 +34,7 @@
           <% if contractor.viewable_jobs(current_user).present? %>
             <%= pluralize(contractor.viewable_jobs(current_user).size, "job") %> for
             <%= pluralize(contractor.viewable_customers(current_user).size, "customer") %>
-        <% else %>
+          <% else %>
             No jobs added by anyone in your network
           <% end %>
         </p>

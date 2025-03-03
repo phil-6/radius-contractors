@@ -1,5 +1,5 @@
 <div class="col">
-  <div id="<%= dom_id rating %>" class="card h-100">
+  <div id="<%= dom_id rating %>" class="card h-100 rating-card">
     <div class="card-header h-100">
 
       <% if rating.user == current_user %>
@@ -22,27 +22,27 @@
     </div>
 
     <div class="card-body">
-      <p>
+      <p class="sub-rating">
         <strong>Value:</strong>
         <%= rating.value_rating %>
       </p>
 
-      <p>
+      <p class="sub-rating">
         <strong>Communication:</strong>
         <%= rating.communication_rating %>
       </p>
 
-      <p>
+      <p class="sub-rating">
         <strong>Quality:</strong>
         <%= rating.quality_rating %>
       </p>
 
-      <p>
+      <p class="sub-rating">
         <strong>Tidiness:</strong>
         <%= rating.tidiness_rating %>
       </p>
 
-      <p>
+      <p class="sub-rating">
         <strong>Professionalism:</strong>
         <%= rating.professionalism_rating %>
       </p>

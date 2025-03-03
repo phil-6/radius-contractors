@@ -51,19 +51,19 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+}
 
-  .card.columns {
-    .trades .btn-sm {
-      font-size: 0.8rem;
-      margin: 0.1rem;
-    }
+.contractor.card {
+  .trades .btn-sm {
+    font-size: 0.8rem;
+    margin: 0.1rem;
+  }
 
-    @media (min-width: 1000px) {
-      flex: 1 1 40%;
-    }
-    @media (max-width: 1000px) {
-      flex: 0 1 100%;
-    }
+  @media (min-width: 1000px) {
+    flex: 1 1 40%;
+  }
+  @media (max-width: 1000px) {
+    flex: 0 1 100%;
   }
 }
 

@@ -2,7 +2,7 @@
   <h1 class="page-title brand"><%= contractor.name %> - <%= contractor.company_name %></h1>
 <% end %>
 
-<div class="card <%= "columns" if action_name == "index" %>" id="<%= dom_id contractor %>">
+<div class="contractor card<%= " columns" if action_name == "index" %>" id="<%= dom_id contractor %>">
   <% unless action_name == "show" %>
     <%= link_to contractor, class: "" do %>
       <div class="card-header">

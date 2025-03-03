@@ -19,4 +19,9 @@ Rails.application.routes.draw do
     resources :jobs, only: %i[ new create edit update destroy ]
     resources :ratings, only: %i[ new create edit update ]
   end
+
+  namespace :admin do
+    get "users" => "admin#users"
+    get "contractors" => "admin#contractors"
+  end
 end

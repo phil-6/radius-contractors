@@ -1,0 +1,34 @@
+<table class="table table-dark table-hover table-sm">
+  <thead>
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Name</th>
+    <th scope="col">Town</th>
+    <th scope="col">Sign Ins</th>
+    <th scope="col">Created At</th>
+    <th scope="col">Current Sign In</th>
+    <th scope="col" title="Connected Users"><i class="fa-solid fa-people-arrows"></i></th>
+    <th scope="col" title="Viewable Contractors"><i class="fa-solid fa-users-viewfinder"></i></th>
+    <th scope="col" title="Added Contractors"><i class="fa-solid fa-user-plus"></i></th>
+    <th scope="col" title="Used Contractors"><i class="fa-solid fa-person-digging"></i></th>
+    <th scope="col" title="Ratings"><i class="fa-solid fa-star-half-stroke"></i></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <th scope="row"><%= user.id %></th>
+      <td><%= user.full_name %></td>
+      <td><%= user.town %></td>
+      <td><%= user.sign_in_count %></td>
+      <td><%= user.created_at&.strftime('%b %d, %Y') %></td>
+      <td><%= user.current_sign_in_at&.strftime('%b %d, %Y') %></td>
+      <td><%= user.connected_users.size %></td>
+      <td><%= user.viewable_contractors.size %></td>
+      <td><%= user.added_contractors.size %></td>
+      <td><%= user.used_contractors.size %></td>
+      <td><%= user.ratings.size %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

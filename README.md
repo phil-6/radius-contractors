@@ -78,9 +78,8 @@ Very Rough List of things to do:
 - User Profile Page
   - Show User's Connections
   - Show User's Contractors
-- Add some admin functionality
-  - List Users
-  - Edit Users
-  - List All Contractors
+- ~~Add some admin functionality~~ ✅
+  - ~~List Users~~ ✅
+  - ~~List All Contractors~~ ✅
 - ~~on create Job, set state to be a drop-down: "Quoted", "Planned", "In Progress", "Complete"~~ ✅
 - Allow second-degree connections to view ratings

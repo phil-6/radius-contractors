@@ -1,4 +1,5 @@
 class Contractor < ApplicationRecord
+  include PgSearch::Model
   belongs_to :added_by, class_name: "User"
   belongs_to :updated_by, class_name: "User", optional: true
   has_many :contractor_trades, dependent: :destroy
@@ -14,6 +15,13 @@ class Contractor < ApplicationRecord
   validates :added_by_id, :name, :number, :town, presence: true
   validates :number, uniqueness: true, format: { with: %r{\A(?:0|\+?44)(?:\d\s?){9,10}\z} }
   validates :email, uniqueness: true, allow_nil: true, format: { with: Devise.email_regexp }
+
+  pg_search_scope :search,
+                  against: [ :name, :company_name, :number, :email ],
+                  using: {
+                    tsearch: { prefix: true },
+                    trigram: { only: :email, threshold: 0.2 }
+                  }
 
   def viewable_jobs(user)
     jobs.where(user_id: user.connected_user_ids_and_self)

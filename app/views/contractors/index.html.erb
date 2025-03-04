@@ -7,15 +7,35 @@
   </div>
 
   <div class="trade-filters">
-    <h5>Filter by Trade</h5>
+    <h3>Filter by Trade</h3>
     <div class="filter-buttons">
-      <%= link_to "Clear Filter", contractors_path,
+      <%= link_to "Clear Filter", contractors_path(search: params[:search]),
                   class: "trade-filter btn btn-#{params[:trade_id].blank? ? "secondary" : "primary"}" %>
       <% @trades.each do |trade| %>
-        <%= link_to trade.name, contractors_path(trade_id: trade.id),
+        <%= link_to trade.name, contractors_path(trade_id: trade.id, search: params[:search]),
                     class: "trade-filter btn btn-#{params[:trade_id] == trade.id.to_s ? "secondary" : "primary"}" %>
       <% end %>
     </div>
+  </div>
+
+  <div class="search">
+    <h3 class="mb-0 mb-sm-auto mt-1 mt-sm-auto">Search</h3>
+    <%= form_with url: contractors_path, method: :get, class: "row" do |form| %>
+      <div class="col-sm-4">
+        <%= form.label :search, "By name, company name, number or email", class: "col-form-label" %>
+      </div>
+      <div class="col-sm-6">
+        <%= form.search_field :search, placeholder: "Search by name, number or email",
+                              class: "form-control",
+                              value: params[:search].present? ? params[:search] : "" %>
+        <%= form.hidden_field :trade_id, value: params[:trade_id] if params[:trade_id].present? %>
+      </div>
+
+      <div class="col-sm-2 pt-1 pt-sm-0">
+        <%= form.submit "Search", class: "btn btn-success" %>
+        <%= link_to "Clear Search", contractors_path(trade_id: params[:trade_id]), class: "btn btn-sm btn-warning mt-1" if params[:search].present?  %>
+      </div>
+    <% end %>
   </div>
 </header>
 

@@ -27,7 +27,7 @@ c_builder_4:
   added_by: two
 
 c_builder_5:
-  name: c_builder_5
+  name: worker five
   number: "0755500555"
   email: five@builder.email
   town: Swansea
@@ -35,7 +35,8 @@ c_builder_5:
 
 c_electrician:
   name: c_electrician
+  company_name: test electrics
   number: "07000333000"
-  email: electrician@builder.email
+  email: electrician@zappy.email
   town: Swansea
   added_by: one

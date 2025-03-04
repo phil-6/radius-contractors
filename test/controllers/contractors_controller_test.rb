@@ -22,6 +22,27 @@ class ContractorsControllerTest < ActionDispatch::IntegrationTest
     assert_equal 1, (assigns(:contractors).size)
   end
 
+  test "should be able to search for contractors" do
+    get contractors_url, params: { search: "builder" }
+    assert_response :success
+    assert_equal 5, (assigns(:contractors).size)
+
+    get contractors_url, params: { search: "electrician" }
+    assert_equal 1, (assigns(:contractors).size)
+
+    get contractors_url, params: { search: "zappy" }
+    assert_equal 1, (assigns(:contractors).size)
+
+    get contractors_url, params: { search: "0744400" }
+    assert_equal 1, (assigns(:contractors).size)
+
+    get contractors_url, params: { search: "worker" }
+    assert_equal 1, (assigns(:contractors).size)
+
+    get contractors_url, params: { search: "test elect" }
+    assert_equal 1, (assigns(:contractors).size)
+  end
+
   test "should get new" do
     get new_contractor_url
     assert_response :success

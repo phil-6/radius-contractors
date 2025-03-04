@@ -8,8 +8,8 @@ class Rating < ApplicationRecord
   private
 
   def job_exists_between_user_and_contractor
-    unless Job.exists?(user_id: user_id, contractor_id: contractor_id)
-      errors.add(:base, "You must add a job for this contactor before you can add a rating.")
-    end
+    return if Job.exists?(user_id: user_id, contractor_id: contractor_id)
+
+    errors.add(:base, "You must add a job for this contactor before you can add a rating.")
   end
 end

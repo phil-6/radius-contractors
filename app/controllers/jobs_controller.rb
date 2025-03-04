@@ -8,8 +8,7 @@ class JobsController < ApplicationController
   end
 
   # GET /jobs/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /jobs or /jobs.json
   def create
@@ -62,6 +61,6 @@ class JobsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def job_params
-    params.expect(job: [ :description, :state, :start_date, :end_date, :review ])
+    params.expect(job: %i[description state start_date end_date review])
   end
 end

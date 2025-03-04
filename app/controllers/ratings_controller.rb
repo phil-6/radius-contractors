@@ -8,8 +8,7 @@ class RatingsController < ApplicationController
   end
 
   # GET /ratings/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /ratings or /ratings.json
   def create
@@ -52,6 +51,6 @@ class RatingsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def rating_params
-    params.expect(rating: [ :review, :overall_rating, :value_rating, :communication_rating, :quality_rating, :tidiness_rating, :professionalism_rating ])
+    params.expect(rating: %i[review overall_rating value_rating communication_rating quality_rating tidiness_rating professionalism_rating])
   end
 end

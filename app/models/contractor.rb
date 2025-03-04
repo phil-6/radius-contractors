@@ -12,12 +12,12 @@ class Contractor < ApplicationRecord
 
   before_validation :normalize_blank_values
 
-  validates :added_by_id, :name, :number, :town, presence: true
-  validates :number, uniqueness: true, format: { with: %r{\A(?:0|\+?44)(?:\d\s?){9,10}\z} }
+  validates :name, :number, :town, presence: true
+  validates :number, uniqueness: true, format: { with: /\A(?:0|\+?44)(?:\d\s?){9,10}\z/ }
   validates :email, uniqueness: true, allow_nil: true, format: { with: Devise.email_regexp }
 
   pg_search_scope :search,
-                  against: [ :name, :company_name, :number, :email ],
+                  against: %i[name company_name number email],
                   using: {
                     tsearch: { prefix: true },
                     trigram: { only: :email, threshold: 0.2 }

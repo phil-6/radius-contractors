@@ -7,9 +7,9 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :email, presence: true
   normalizes :email, with: ->(email) { email.downcase.strip }
 
-  has_many :connections_as_a, class_name: "Connection", foreign_key: "user_a_id", dependent: :destroy
-  has_many :connections_as_b, class_name: "Connection", foreign_key: "user_b_id", dependent: :destroy
-  has_many :connections, ->(user) { unscope(:where).where("user_a_id = ? OR user_b_id = ?", user.id, user.id) }, class_name: "Connection"
+  has_many :connections_as_a, class_name: "Connection", foreign_key: "user_a_id", dependent: :destroy, inverse_of: :user_a
+  has_many :connections_as_b, class_name: "Connection", foreign_key: "user_b_id", dependent: :destroy, inverse_of: :user_b
+  has_many :connections, ->(user) { unscope(:where).where("user_a_id = ? OR user_b_id = ?", user.id, user.id) }, class_name: "Connection" # rubocop:disable Rails/InverseOf, Rails/HasManyOrHasOneDependent
 
   # Leaving some options here for future consideration
   # def connected_users
@@ -19,9 +19,9 @@ class User < ApplicationRecord
   # end
   def connected_users
     User.joins("INNER JOIN (
-                SELECT user_a_id AS user_id FROM connections WHERE user_b_id = #{self.id}
+                SELECT user_a_id AS user_id FROM connections WHERE user_b_id = #{id}
                 UNION
-                SELECT user_b_id AS user_id FROM connections WHERE user_a_id = #{self.id}
+                SELECT user_b_id AS user_id FROM connections WHERE user_a_id = #{id}
               ) AS user_connections ON users.id = user_connections.user_id")
         .distinct
   end
@@ -52,7 +52,7 @@ class User < ApplicationRecord
 
   has_many :jobs, dependent: :nullify
   has_many :used_contractors, through: :jobs, source: :contractor
-  has_many :added_contractors, foreign_key: "added_by_id", dependent: :nullify, class_name: "Contractor"
+  has_many :added_contractors, foreign_key: "added_by_id", dependent: :nullify, class_name: "Contractor", inverse_of: :added_by
   has_many :ratings, dependent: :nullify
   has_many :rated_contractors, through: :ratings, source: :contractor
 

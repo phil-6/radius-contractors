@@ -8,8 +8,7 @@ class ConnectionsController < ApplicationController
   end
 
   # GET /connections/new
-  def new
-  end
+  def new; end
 
   # POST /connections or /connections.json
   def create
@@ -37,7 +36,7 @@ class ConnectionsController < ApplicationController
   private
 
   def set_user_a
-    @user_a = User.find_by_id(connection_params[:user_a_id])
+    @user_a = User.find_by(id: connection_params[:user_a_id])
   end
 
   def set_connection

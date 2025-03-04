@@ -9,38 +9,38 @@ class ContractorsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get contractors_url
     assert_response :success
-    assert_equal 6, (assigns(:contractors).size)
+    assert_equal 6, assigns(:contractors).size
   end
 
   test "should be able to filter contractors" do
     get contractors_url, params: { trade_id: trades(:builder).id }
     assert_response :success
-    assert_equal 5, (assigns(:contractors).size)
+    assert_equal 5, assigns(:contractors).size
 
     get contractors_url, params: { trade_id: trades(:electrician).id }
     assert_response :success
-    assert_equal 1, (assigns(:contractors).size)
+    assert_equal 1, assigns(:contractors).size
   end
 
   test "should be able to search for contractors" do
     get contractors_url, params: { search: "builder" }
     assert_response :success
-    assert_equal 5, (assigns(:contractors).size)
+    assert_equal 5, assigns(:contractors).size
 
     get contractors_url, params: { search: "electrician" }
-    assert_equal 1, (assigns(:contractors).size)
+    assert_equal 1, assigns(:contractors).size
 
     get contractors_url, params: { search: "zappy" }
-    assert_equal 1, (assigns(:contractors).size)
+    assert_equal 1, assigns(:contractors).size
 
     get contractors_url, params: { search: "0744400" }
-    assert_equal 1, (assigns(:contractors).size)
+    assert_equal 1, assigns(:contractors).size
 
     get contractors_url, params: { search: "worker" }
-    assert_equal 1, (assigns(:contractors).size)
+    assert_equal 1, assigns(:contractors).size
 
     get contractors_url, params: { search: "test elect" }
-    assert_equal 1, (assigns(:contractors).size)
+    assert_equal 1, assigns(:contractors).size
   end
 
   test "should get new" do
@@ -53,7 +53,8 @@ class ContractorsControllerTest < ActionDispatch::IntegrationTest
       post contractors_url, params: { contractor: {
         email: "test@email.com", name: @contractor.name,
         company_name: @contractor.company_name,
-        number: "07123000123", town: @contractor.town } }
+        number: "07123000123", town: @contractor.town
+      } }
     end
 
     assert_redirected_to contractor_url(Contractor.last)
@@ -65,7 +66,8 @@ class ContractorsControllerTest < ActionDispatch::IntegrationTest
         email: "test@email.com", name: @contractor.name,
         company_name: @contractor.company_name,
         number: "07123000123", town: @contractor.town,
-        trade_ids: [ trades(:building).id, trades(:plumbing).id, trades(:electrical).id ] } }
+        trade_ids: [ trades(:building).id, trades(:plumbing).id, trades(:electrical).id ]
+      } }
     end
   end
 
@@ -76,7 +78,8 @@ class ContractorsControllerTest < ActionDispatch::IntegrationTest
       post contractors_url, params: { contractor: {
         email: "test@email.com", name: @contractor.name,
         company_name: @contractor.company_name,
-        number: "07111000111", town: @contractor.town } }
+        number: "07111000111", town: @contractor.town
+      } }
     end
 
     assert_redirected_to contractor_url(@contractor)
@@ -87,7 +90,8 @@ class ContractorsControllerTest < ActionDispatch::IntegrationTest
       post contractors_url, params: { contractor: {
         email: @contractor.email, name: @contractor.name,
         company_name: @contractor.company_name,
-        number: "07123000123", town: @contractor.town } }
+        number: "07123000123", town: @contractor.town
+      } }
     end
 
     assert_redirected_to contractor_url(@contractor)
@@ -107,7 +111,8 @@ class ContractorsControllerTest < ActionDispatch::IntegrationTest
     patch contractor_url(@contractor), params: { contractor: {
       email: @contractor.email, name: @contractor.name,
       company_name: @contractor.company_name,
-      number: "07111000112", town: @contractor.town } }
+      number: "07111000112", town: @contractor.town
+    } }
     assert_redirected_to contractor_url(@contractor)
   end
 end

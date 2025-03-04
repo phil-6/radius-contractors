@@ -3,7 +3,7 @@ class Admin::AdminController < ApplicationController
 
   # As this grows, these actions could be extracted to other controllers that extend this one.
   def users
-    @users = User.all.order(:created_at)
+    @users = User.order(:created_at)
     render template: "admin/users"
   end
 

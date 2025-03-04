@@ -15,7 +15,10 @@ class RatingsControllerTest < ActionDispatch::IntegrationTest
   # TODO: Test that a rating can be created after a job has been added
   # test "should create rating" do
   #   assert_difference("Rating.count") do
-  #     post ratings_url, params: { rating: { communication_rating: @rating.communication_rating, overall_rating: @rating.overall_rating, professionalism_rating: @rating.professionalism_rating, quality_rating: @rating.quality_rating, review: @rating.review, tidiness_rating: @rating.tidiness_rating, value_rating: @rating.value_rating } }
+  # post ratings_url,
+  #      params: { rating: { communication_rating: @rating.communication_rating, overall_rating: @rating.overall_rating,
+  #                          professionalism_rating: @rating.professionalism_rating, quality_rating: @rating.quality_rating,
+  #                          review: @rating.review, tidiness_rating: @rating.tidiness_rating, value_rating: @rating.value_rating } }
   #   end
   #   assert_redirected_to rating_url(Rating.last)
   # end
@@ -26,7 +29,10 @@ class RatingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   # test "should update rating" do
-  #   patch rating_url(@rating), params: { rating: { communication_rating: @rating.communication_rating, overall_rating: @rating.overall_rating, professionalism_rating: @rating.professionalism_rating, quality_rating: @rating.quality_rating, review: @rating.review, tidiness_rating: @rating.tidiness_rating, value_rating: @rating.value_rating } }
+  # patch rating_url(@rating),
+  #       params: { rating: { communication_rating: @rating.communication_rating, overall_rating: @rating.overall_rating,
+  #                           professionalism_rating: @rating.professionalism_rating, quality_rating: @rating.quality_rating,
+  #                           review: @rating.review, tidiness_rating: @rating.tidiness_rating, value_rating: @rating.value_rating } }
   #   assert_redirected_to rating_url(@rating)
   # end
 end

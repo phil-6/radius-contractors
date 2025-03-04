@@ -48,7 +48,7 @@ class ContractorTest < ActiveSupport::TestCase
   end
 
   test "should be able to get a contractors average rating given a user" do
-    assert_equal 9.0, @contractor.average_rating(users(:two))
+    assert_in_delta(9.0, @contractor.average_rating(users(:two)))
     assert_nil @contractor.average_rating(users(:four))
   end
 end

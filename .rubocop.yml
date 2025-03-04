@@ -1,8 +1,65 @@
 # Omakase Ruby styling for Rails
 inherit_gem: { rubocop-rails-omakase: rubocop.yml }
 
-# Overwrite or add rules to create your own house style
-#
-# # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
-# Layout/SpaceInsideArrayLiteralBrackets:
-#   Enabled: false
+plugins:
+  - rubocop-minitest
+
+AllCops:
+  SuggestExtensions: false
+  Exclude:
+    - "data/**/*"
+    - 'node_modules/**/*'
+    - 'tmp/**/*'
+    - 'config/**/*'
+    - 'db/migrate/*'
+    - 'db/schema*'
+    - 'db/seeds.rb'
+    - '.git/**/*'
+  NewCops: enable
+
+Bundler:
+  Enabled: true
+Gemspec:
+  Enabled: true
+Layout:
+  Enabled: true
+Lint:
+  Enabled: true
+Metrics:
+  Enabled: true
+Naming:
+  Enabled: true
+Performance:
+  Enabled: true
+  Exclude:
+    - "test/**/*"
+Rails:
+  Enabled: true
+Security:
+  Enabled: true
+Style:
+  Enabled: true
+
+Layout/LineLength:
+  Max: 140
+Layout/SpaceInsideArrayLiteralBrackets:
+  EnforcedStyle: compact
+Metrics/AbcSize:
+  Max: 25
+Metrics/MethodLength:
+  AllowedMethods: [ 'create', 'update' ]
+  CountAsOne: [ 'array', 'hash', 'method_call' ]
+Minitest/EmptyLineBeforeAssertionMethods:
+  Enabled: False
+Minitest/MultipleAssertions:
+  Max: 10
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+Rails/I18nLocaleTexts:
+  Enabled: False
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+Style/Documentation:
+  Enabled: False
+Style/FrozenStringLiteralComment:
+  Enabled: False

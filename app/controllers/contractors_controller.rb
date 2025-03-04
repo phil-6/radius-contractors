@@ -6,8 +6,7 @@ class ContractorsController < ApplicationController
     @contractors = current_user.viewable_contractors
     # @trades = @contractors.map(&:trades).flatten.uniq # Neater but less efficient
     @trades = Trade.where(id: @contractors.joins(:contractor_trades).select(:trade_id))
-    @contractors = @contractors.joins(:contractor_trades).where(contractor_trades: { trade_id: params[:trade_id] }) if params[:trade_id].present?
-    # debugger
+    @contractors = @contractors.joins(:contractor_trades).where(contractor_trades: { trade_id: params[:trade_id] }) if params[:trade_id].present? # rubocop:disable Layout/LineLength
     @contractors = @contractors.search(params[:search]) if params[:search].present?
   end
 
@@ -28,7 +27,8 @@ class ContractorsController < ApplicationController
 
   def create
     @contractor = Contractor.where("number = ? OR email = ?", contractor_params[:number], contractor_params[:email]).first_or_initialize
-    redirect_to @contractor, info: "We found an existing contractor that matched some of the details you entered. You can add a job for this contractor below." and return if @contractor.persisted?
+    info_text = "We found an existing contractor that matched some of the details you entered. You can add a job for this contractor below."
+    redirect_to @contractor, info: info_text and return if @contractor.persisted?
 
     @contractor.assign_attributes(contractor_params.merge(added_by: current_user))
     respond_to do |format|
@@ -71,6 +71,6 @@ class ContractorsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def contractor_params
-    params.expect(contractor: [ :name, :number, :email, :town, trade_ids: [] ])
+    params.expect(contractor: [ :name, :number, :email, :town, { trade_ids: [] } ])
   end
 end

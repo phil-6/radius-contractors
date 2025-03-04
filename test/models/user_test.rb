@@ -2,35 +2,38 @@ require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
   test "should be able to create a user" do
-    user = User.new(email: "test@example.com", first_name: "name", last_name: "surname", password: "password", confirmed_at: Time.now)
+    user = User.new(email: "test@example.com", first_name: "name", last_name: "surname", password: "password", confirmed_at: Time.current)
     assert user.save!
   end
 
   test "should not be able to create a user without an email" do
-    assert_not User.new(first_name: "name", last_name: "surname", password: "password", confirmed_at: Time.now).save
+    assert_not User.new(first_name: "name", last_name: "surname", password: "password", confirmed_at: Time.current).save
   end
 
   test "should not be able to create a user without a firstname and lastname" do
-    assert_not User.new(email: "test@example.com", password: "password", confirmed_at: Time.now).save
-    assert_not User.new(email: "test@example.com", first_name: "name", password: "password", confirmed_at: Time.now).save
-    assert_not User.new(email: "test@example.com", last_name: "surname", password: "password", confirmed_at: Time.now).save
+    assert_not User.new(email: "test@example.com", password: "password", confirmed_at: Time.current).save
+    assert_not User.new(email: "test@example.com", first_name: "name", password: "password", confirmed_at: Time.current).save
+    assert_not User.new(email: "test@example.com", last_name: "surname", password: "password", confirmed_at: Time.current).save
   end
 
   test "should not be able to create a user without a password" do
-    assert_not User.new(email: "test@example.com", first_name: "name", last_name: "surname", confirmed_at: Time.now).save
+    assert_not User.new(email: "test@example.com", first_name: "name", last_name: "surname", confirmed_at: Time.current).save
   end
 
   test "should not be able to create a user with a duplicate email" do
-    User.create!(email: "test@example.com", first_name: "name", last_name: "surname", password: "password", confirmed_at: Time.now)
-    assert_not User.new(email: "test@example.com", first_name: "name", last_name: "surname", password: "password", confirmed_at: Time.now).save
+    User.create!(email: "test@example.com", first_name: "name", last_name: "surname", password: "password", confirmed_at: Time.current)
+    assert_not User.new(email: "test@example.com", first_name: "name", last_name: "surname", password: "password",
+                        confirmed_at: Time.current).save
   end
 
   test "should not be able to create a user with an invalid email" do
-    assert_not User.new(email: "testexample.com", first_name: "name", last_name: "surname", password: "password", confirmed_at: Time.now).save
+    assert_not User.new(email: "testexample.com", first_name: "name", last_name: "surname", password: "password",
+                        confirmed_at: Time.current).save
   end
 
   test "should not be able to create a user with a password that is too short" do
-    assert_not User.new(email: "test@example.com", first_name: "name", last_name: "surname", password: "pass", confirmed_at: Time.now).save
+    assert_not User.new(email: "test@example.com", first_name: "name", last_name: "surname", password: "pass",
+                        confirmed_at: Time.current).save
   end
 
   test "should be able to get connected users" do
@@ -46,9 +49,9 @@ class UserTest < ActiveSupport::TestCase
 
   test "should be able to check if connected with another user" do
     user = users(:one)
-    user2 = users(:two)
-    assert user.connected_with?(user2)
-    assert user2.connected_with?(user)
+    user_two = users(:two)
+    assert user.connected_with?(user_two)
+    assert user_two.connected_with?(user)
     assert_not user.connected_with?(users(:four))
   end
 
@@ -100,7 +103,7 @@ class UserTest < ActiveSupport::TestCase
     rated_by_connections = users(:two).rated_contractors + users(:three).rated_contractors
     added = user.added_contractors
     used = user.used_contractors
-    rated  = user.rated_contractors
+    rated = user.rated_contractors
     expected_viewable_count = (rated_by_connections + added + used + rated).uniq.size
     assert_equal expected_viewable_count, user.viewable_contractors.size
 
@@ -108,7 +111,7 @@ class UserTest < ActiveSupport::TestCase
     rated_by_connections = users(:one).rated_contractors + users(:three).rated_contractors
     added = user.added_contractors
     used = user.used_contractors
-    rated  = user.rated_contractors
+    rated = user.rated_contractors
     expected_viewable_count = (rated_by_connections + added + used + rated).uniq.size
     assert_equal expected_viewable_count, user.viewable_contractors.size
   end

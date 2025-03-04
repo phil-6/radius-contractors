@@ -19,9 +19,9 @@ class Connection < ApplicationRecord
 
   def order_users
     errors.add(:base, "A connection must have two users") and return if user_a_id.nil? || user_b_id.nil?
-    if user_a_id > user_b_id
-      self.user_a_id, self.user_b_id = user_b_id, user_a_id
-    end
+    return unless user_a_id > user_b_id
+
+    self.user_a_id, self.user_b_id = user_b_id, user_a_id
   end
 
   def not_self_referential

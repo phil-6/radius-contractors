@@ -1,14 +1,30 @@
 <% content_for :title, "Contractors" %>
 
-<header class="container">
+<header class="container" id="contractors-header">
   <h1 class="page-title brand">Contractors in your Radius</h1>
   <div class="text-center mb-2">
     <%= link_to "New contractor", new_contractor_path, class: "btn btn-primary" %>
   </div>
+
+  <div class="trade-filters">
+    <h5>Filter by Trade</h5>
+    <div class="filter-buttons">
+      <%= link_to "Clear Filter", contractors_path,
+                  class: "trade-filter btn btn-#{params[:trade_id].blank? ? "secondary" : "primary"}" %>
+      <% @trades.each do |trade| %>
+        <%= link_to trade.name, contractors_path(trade_id: trade.id),
+                    class: "trade-filter btn btn-#{params[:trade_id] == trade.id.to_s ? "secondary" : "primary"}" %>
+      <% end %>
+    </div>
+  </div>
 </header>
 
 <main class="container" id="contractors">
-  <% @contractors.each do |contractor| %>
-    <%= render contractor %>
+  <% if @contractors.present? %>
+    <% @contractors.each do |contractor| %>
+      <%= render contractor %>
+    <% end %>
+  <% else %>
+    <h1>No Contractors Found</h1>
   <% end %>
 </main>

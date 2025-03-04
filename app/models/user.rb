@@ -62,6 +62,8 @@ class User < ApplicationRecord
 
   def viewable_contractors
     Contractor.where(id: added_contractors.select(:id))
+              .or(Contractor.where(id: used_contractors.select(:id)))
+              .or(Contractor.where(id: rated_contractors.select(:id)))
               .or(Contractor.where(id: contractors_rated_by_connections.select(:id)))
               .distinct
   end

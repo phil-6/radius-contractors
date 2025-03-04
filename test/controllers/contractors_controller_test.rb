@@ -9,6 +9,17 @@ class ContractorsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get contractors_url
     assert_response :success
+    assert_equal 6, (assigns(:contractors).size)
+  end
+
+  test "should be able to filter contractors" do
+    get contractors_url, params: { trade_id: trades(:builder).id }
+    assert_response :success
+    assert_equal 5, (assigns(:contractors).size)
+
+    get contractors_url, params: { trade_id: trades(:electrician).id }
+    assert_response :success
+    assert_equal 1, (assigns(:contractors).size)
   end
 
   test "should get new" do

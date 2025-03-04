@@ -21,3 +21,36 @@ rating_two:
   quality_rating: 9.0
   tidiness_rating: 9.0
   professionalism_rating: 9.0
+
+rating_u_two_c_three:
+  user: two
+  contractor: c_builder_3
+  review: "Test Three"
+  overall_rating: 9.0
+  value_rating: 8.0
+  communication_rating: 8.0
+  quality_rating: 6.0
+  tidiness_rating: 6.0
+  professionalism_rating: 2.0
+
+rating_u_two_c_four:
+  user: two
+  contractor: c_builder_4
+  review: "Test Four"
+  overall_rating: 9.0
+  value_rating: 8.0
+  communication_rating: 8.0
+  quality_rating: 6.0
+  tidiness_rating: 6.0
+  professionalism_rating: 2.0
+
+rating_u_two_c_five:
+  user: two
+  contractor: c_builder_5
+  review: "Test Five"
+  overall_rating: 9.0
+  value_rating: 8.0
+  communication_rating: 8.0
+  quality_rating: 6.0
+  tidiness_rating: 6.0
+  professionalism_rating: 2.0

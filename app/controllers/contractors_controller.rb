@@ -4,6 +4,9 @@ class ContractorsController < ApplicationController
 
   def index
     @contractors = current_user.viewable_contractors
+    # @trades = @contractors.map(&:trades).flatten.uniq # Neater but less efficient
+    @trades = Trade.where(id: @contractors.joins(:contractor_trades).select(:trade_id))
+    @contractors = @contractors.joins(:contractor_trades).where(contractor_trades: { trade_id: params[:trade_id] }) if params[:trade_id].present?
   end
 
   def show

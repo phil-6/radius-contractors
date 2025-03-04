@@ -53,7 +53,8 @@ Very Rough List of things to do:
 - ~~Add a contractor~~ ✅
 - ~~Allow trades to be added and updated with contractor~~ ✅
 - ~~Handle adding existing contractors that are not visible to users due to separation~~ ✅
-- Contractors index: add pagination and filtering
+- ~~Contractors index: add filtering~~ ✅
+- Contractors index: add pagination
 - ~~Add a job~~ ✅
 - ~~Add a rating~~ ✅
 - ~~Find a new contractor - view contractors connections have rated~~ ✅

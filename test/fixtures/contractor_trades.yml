@@ -1,5 +1,3 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 builder_plumber:
   contractor: c_builder
   trade: plumber
@@ -16,8 +14,24 @@ builder_kitchen_fitter:
   contractor: c_builder
   trade: kitchen_fitter
 
-builder_builder:
+c_builder_builder:
   contractor: c_builder
+  trade: builder
+
+c_builder_2_builder:
+  contractor: c_builder_2
+  trade: builder
+
+c_builder_3_builder:
+  contractor: c_builder_3
+  trade: builder
+
+c_builder_4_builder:
+  contractor: c_builder_4
+  trade: builder
+
+c_builder_5_builder:
+  contractor: c_builder_5
   trade: builder
 
 builder_tiler:

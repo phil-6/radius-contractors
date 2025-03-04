@@ -51,3 +51,33 @@ new_roof:
   end_date: 2024-10-01
   cost: 10000
   state: completed
+
+job_u_two_c_three:
+  user: two
+  contractor: c_builder_3
+  description: test job
+  town: Swansea
+  start_date: 2024-05-01
+  end_date: 2024-10-01
+  cost: 100
+  state: completed
+
+job_u_two_c_four:
+  user: two
+  contractor: c_builder_4
+  description: test job 2
+  town: Swansea
+  start_date: 2024-05-01
+  end_date: 2024-10-01
+  cost: 100
+  state: completed
+
+job_u_two_c_five:
+  user: two
+  contractor: c_builder_5
+  description: test job 3
+  town: Swansea
+  start_date: 2024-05-01
+  end_date: 2024-10-01
+  cost: 100
+  state: completed

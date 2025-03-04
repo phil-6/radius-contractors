@@ -1,6 +1,16 @@
 require "test_helper"
 
 class ConnectionTest < ActiveSupport::TestCase
+  test "fixtures are valid" do
+    assert users(:one).connected_with?(users(:two))
+    assert users(:two).connected_with?(users(:one))
+    assert users(:one).connected_with?(users(:three))
+    assert users(:three).connected_with?(users(:one))
+    assert users(:two).connected_with?(users(:three))
+    assert users(:three).connected_with?(users(:two))
+    assert_not users(:one).connected_with?(users(:four))
+  end
+
   test "should not save connection without user" do
     connection = Connection.new
     assert_not connection.save, "Saved the connection without a user"

@@ -37,7 +37,7 @@ a.home-link {
           max-width: 500px;
           padding: 2rem;
           background: $dark-bg-grad;
-          border: 1px solid $primary-darker;
+          border: 1px solid $primary-dark;
           border-radius: 0.5rem;
         }
         &__content {
@@ -48,42 +48,6 @@ a.home-link {
           }
         }
       }
-    }
-  }
-}
-
-// Color Source: https://paletton.com/#uid=63s0u0kgPTP4O+jbuXClnOypAGD
-.btn {
-  font-weight: 700;
-  &-builder, &-connection, &-rating {
-    color: $theme-dark;
-    transition: all 0.3s ease-in-out;
-  }
-
-  &-builder {
-    background-color: #818EED;
-    //background: linear-gradient(to bottom right, #818EED 0%, #AAB3F7 100%);
-
-    &:hover {
-      background-color: #3F50CC;
-    }
-  }
-
-  &-connection {
-    background-color: #71EFA8;
-    //background: linear-gradient(to bottom right, #71EFA8 0%, #9FF7C5 100%);
-
-    &:hover {
-      background-color: #2AD072;
-    }
-  }
-
-  &-rating {
-    background-color: #FFC179;
-    //background: linear-gradient(to bottom right, #FFC179 0%, #FFD5A4 100%);
-
-    &:hover {
-      background-color: #FFA033;
     }
   }
 }

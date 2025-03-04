@@ -8,7 +8,7 @@
 
   <div class="trade-filters">
     <h3>Filter by Trade</h3>
-    <div class="filter-buttons">
+    <div class="filter-buttons trades">
       <%= link_to "Clear Filter", contractors_path(search: params[:search]),
                   class: "trade-filter btn btn-#{params[:trade_id].blank? ? "secondary" : "primary"}" %>
       <% @trades.each do |trade| %>

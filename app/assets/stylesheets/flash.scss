@@ -47,16 +47,16 @@
     /* Flash types */
 
     &:is([type="info"], [type="notice"]) {
-      background: $primary-lightest;
-      box-shadow: 0 0.1rem 0.25rem $primary-darker;
-      color: $primary-darker;
+      background: $primary-light;
+      box-shadow: 0 0.1rem 0.25rem $primary-dark;
+      color: $primary-dark;
 
       .flash__icon {
-        fill: $primary-darker;
+        fill: $primary-dark;
       }
 
       .flash__close-btn {
-        fill: $primary-darker;
+        fill: $primary-dark;
       }
     }
 

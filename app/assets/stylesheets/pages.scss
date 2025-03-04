@@ -4,14 +4,14 @@
 
   .page-subtitle {
     text-align: center;
-    color: $primary;
+    color: $brand;
   }
 }
 
 .page-title.brand {
   font-weight: 700;
   text-align: center;
-  color: $primary;
+  color: $brand;
 
   a {
     text-decoration: none;
@@ -65,7 +65,7 @@ aside.main-page {
       transition: background 0.3s ease;
 
       &:hover {
-        background-color: #FFDD00;
+        background-color: $secondary;
       }
     }
 

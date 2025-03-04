@@ -1,0 +1,65 @@
+// Color Source: https://paletton.com/#uid=63s0u0kgPTP4O+jbuXClnOypAGD
+.btn {
+  font-weight: 700;
+  &-builder, &-connection, &-rating {
+    color: $theme-dark;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &-builder {
+    background-color: #818EED;
+    //background: linear-gradient(to bottom right, #818EED 0%, #AAB3F7 100%);
+
+    &:hover {
+      background-color: #3F50CC;
+    }
+  }
+
+  &-connection {
+    background-color: #71EFA8;
+    //background: linear-gradient(to bottom right, #71EFA8 0%, #9FF7C5 100%);
+
+    &:hover {
+      background-color: #2AD072;
+    }
+  }
+
+  &-rating {
+    background-color: #FFC179;
+    //background: linear-gradient(to bottom right, #FFC179 0%, #FFD5A4 100%);
+
+    &:hover {
+      background-color: #FFA033;
+    }
+  }
+}
+
+// Bootstrap Mixins. Default:
+/*.btn-primary {
+  @include button-variant(
+                  $color, //background colour
+                  darken($color, 7.5%), // border colour
+                  darken($color, 10%), // font colour
+                  lighten($color,5%), // hover background colour
+                  $brand), // hover border colour
+                  darken($color,30%)); // hover font colour
+}*/
+.btn-primary {
+  @include button-variant(
+                  $primary,
+                  $primary,
+                  $ink-dark,
+                  $primary-light,
+                  $primary-light,
+                  $ink-dark);
+}
+
+.btn-secondary {
+  @include button-variant(
+                  $secondary,
+                  $secondary,
+                  $ink-dark,
+                  $secondary-light,
+                  $secondary-light,
+                  $ink-dark);
+}

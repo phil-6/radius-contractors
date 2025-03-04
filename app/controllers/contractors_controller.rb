@@ -13,7 +13,6 @@ class ContractorsController < ApplicationController
   def show
     @user_is_customer = @contractor.customers.include? current_user
     @user_jobs = current_user.jobs.where(contractor_id: @contractor.id)
-    @user_rating = current_user.ratings.find_by(contractor_id: @contractor.id)
     @viewable_ratings = @contractor.viewable_ratings(current_user)
   end
 

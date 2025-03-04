@@ -53,8 +53,10 @@ Very Rough List of things to do:
 - ~~Add a contractor~~ ✅
 - ~~Allow trades to be added and updated with contractor~~ ✅
 - ~~Handle adding existing contractors that are not visible to users due to separation~~ ✅
-- ~~Contractors index: add filtering~~ ✅
-- Contractors index: add pagination
+- Contractors index: 
+  - ~~add filtering~~ ✅
+  - add pagination
+  - ~~add search~~ ✅
 - ~~Add a job~~ ✅
 - ~~Add a rating~~ ✅
 - ~~Find a new contractor - view contractors connections have rated~~ ✅
@@ -70,12 +72,14 @@ Very Rough List of things to do:
   - Navigation Burger Menu for quick access links from anywhere
   - ~~Increase size of secondary buttons on user account forms~~ ✅
   - ~~Improve forms for mobile~~ ✅
+  - ~~Improve rating readability with colours~~ ✅
 - Improve styling
   - ~~Contractor's index to smaller cards~~ ✅
   - ~~increase size of buttons on sign up page~~ ✅
   - add about page and move some info
-- On connection index, show number of connections for each user
-- On connection index, show number of connections outside current user's network
+- Connection Index:
+  - show number of connections for each user 
+  - show number of connections outside current user's network
 - User Profile Page
   - Show User's Connections
   - Show User's Contractors

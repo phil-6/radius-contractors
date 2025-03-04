@@ -37,6 +37,20 @@
       .contractor-details {
         p {
           margin-bottom: 0.5rem;
+          &.contractor-rating {
+            &.bad-rating {
+              color: $danger;
+            }
+            &.average-rating {
+              color: $warning;
+            }
+            &.good-rating {
+              color: $success;
+            }
+            &.excellent-rating {
+              color: $secondary;
+            }
+          }
         }
       }
     }
@@ -102,13 +116,38 @@
   //}
 }
 
-#own-rating {
-  .card-footer {
-    display: none;
-  }
-}
-
 .rating-card {
+  &.own-rating {
+    border-width: 3px;
+  }
+
+  .card-header {
+    &.bad-rating {
+      background: $danger-bg-grad;
+    }
+    &.average-rating {
+      background: $warning-bg-grad;
+    }
+    &.good-rating {
+      background: $success-bg-grad;
+    }
+    &.excellent-rating {
+      background: $primary-bg-grad;
+      color: $ink-dark;
+    }
+    .overall-rating {
+      p.main {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0;
+      }
+
+      p.small {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
   .card-body p.sub-rating {
     margin-bottom: 0.2rem;
   }

@@ -1,19 +1,19 @@
 <div class="col">
-  <div id="<%= dom_id rating %>" class="card h-100 rating-card">
-    <div class="card-header h-100">
+  <div id="<%= dom_id rating %>" class="card h-100 rating-card <%= "own-rating" if rating.user == current_user %>">
+    <div class="card-header h-100 <%= rating.rating_quality %>-rating">
 
       <% if rating.user == current_user %>
         <div class="controls">
-          <%= link_to edit_contractor_rating_path(rating.contractor, rating), class: "icon-link link-primary" do %>
+          <%= link_to edit_contractor_rating_path(rating.contractor, rating), class: "btn btn-secondary" do %>
             <i class="fa-solid fa-pencil"></i>
           <% end %>
         </div>
       <% end %>
 
-      <p class="lead">
-        <strong>Overall rating:</strong>
-        <%= rating.overall_rating %>
-      </p>
+      <div class="overall-rating">
+        <p class="main">Overall rating: <%= rating.overall_rating %></p>
+        <p class="small">from  <%= pluralize(rating.from_number_of_jobs, "job") %></p>
+      </div>
 
       <p>
         <strong>Review:</strong>

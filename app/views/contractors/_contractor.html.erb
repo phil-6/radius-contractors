@@ -20,7 +20,7 @@
     </div>
     <div class="row contractor-details">
       <div class="col">
-        <p>
+        <p class="contractor-rating <%= contractor.rating_quality(current_user) %>-rating">
           <i class="fa-solid fa-star-half-stroke"></i>&nbsp;
           <% if contractor.viewable_ratings(current_user).present? %>
             Rated <%= contractor.average_rating(current_user) %> from

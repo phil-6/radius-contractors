@@ -18,21 +18,18 @@
       <% end %>
 
       <p>
-        <strong>Description:</strong>
+        <strong title="Job Description"><i class="fa-solid fa-paint-roller"></i></strong>
         <%= job.description %>
       </p>
 
       <p>
-        <strong>State:</strong>
+        <strong title="Job State"><i class="fa-solid fa-clipboard-question"></i></strong>
         <%= job.state.humanize %>
       </p>
 
       <p>
-        <strong>From:</strong>
-        <%= job.start_date %>
-        <br>
-        <strong>To:</strong>
-        <%= job.end_date %>
+        <strong><i class="fa-solid fa-calendar-days"></i></strong>
+        <%= job.start_date.to_fs(:rfc822) %> - <%= job.end_date.to_fs(:rfc822) %>
       </p>
 
       <% if job.review.present? %>

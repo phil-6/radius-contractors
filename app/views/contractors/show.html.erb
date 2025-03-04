@@ -1,14 +1,8 @@
 <main id="contractor">
   <div class="container">
     <%= render @contractor %>
+    <hr>
   </div>
-
-  <% if @user_rating.present? %>
-    <div class="container" id="own-rating">
-      <h2>Your Rating</h2>
-      <%= render @user_rating %>
-    </div>
-  <% end %>
 
   <% if @user_jobs.present? %>
     <div class="container">
@@ -18,6 +12,7 @@
           <%= render job %>
         <% end %>
       </div>
+      <hr>
     </div>
   <% end %>
 

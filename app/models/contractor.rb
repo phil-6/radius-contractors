@@ -43,6 +43,21 @@ class Contractor < ApplicationRecord
     viewable_ratings(user).average(:overall_rating)
   end
 
+  def rating_quality(user) # rubocop:disable Metrics/MethodLength
+    case average_rating(user)
+    when 0..5
+      "bad"
+    when 5..7.5
+      "average"
+    when 7.5..8
+      "good"
+    when 9..10
+      "excellent"
+    else
+      "unknown"
+    end
+  end
+
   private
 
   def normalize_blank_values

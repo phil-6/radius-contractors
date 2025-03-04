@@ -57,7 +57,7 @@ $success: #128812;
 $success-light: #69C06A;
 $success-lightest: #E6F7E6;
 $success-dark: #006600;
-$success-bg-grad: linear-gradient(to bottom right, $success 0%, $success-light 100%);
+$success-bg-grad: linear-gradient(to bottom right, $success 0%, $success-dark 100%);
 
 $body-bg-dark: $theme-dark;
 $body-bg-dark-transparent: #071e2cbb;

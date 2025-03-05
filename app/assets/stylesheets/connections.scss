@@ -16,5 +16,22 @@ header.connections-header {
   .connection.card {
     background: $light-primary-bg-grad;
     color: $ink-dark;
+
+    .stats {
+      display: flex;
+      gap: 0.2rem;
+      justify-content: center;
+
+      p.stat {
+        margin: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+      .card-body {
+        padding: 0.5rem;
+      }
+    }
   }
 }

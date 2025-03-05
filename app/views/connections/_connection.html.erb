@@ -9,19 +9,22 @@
                     turbo_confirm: "Are you sure you want to delete your connection with #{other_user.first_name}?"
                   }, class: "icon-link link-danger" do %>
         <i class="fa-solid fa-trash"></i>
-      <% end%>
+      <% end %>
     </div>
     <h3><%= other_user.full_name %></h3>
     <p class="mb-1">
       <i class="fa-solid fa-location-dot"></i>&nbsp;<%= other_user.town.humanize %>
     </p>
-    <p class="mb-0">
-      <%= pluralize(other_user.jobs.size, "job")%> by
-      <%= pluralize(other_user.used_contractors.size, "contractor") %>
-    </p>
-    <p class="mb-0">
-      <%= pluralize(other_user.ratings.size, "rating")%> for
-      <%= pluralize(other_user.rated_contractors.size, "contractor") %>
-    </p>
+    <div class="stats">
+      <p class="stat">
+        <%= pluralize(other_user.jobs.size, "job") %> |&nbsp;
+      </p>
+      <p class="stat">
+        <%= pluralize(other_user.ratings.size, "rating") %> |&nbsp;
+      </p>
+      <p class="stat">
+        <%= pluralize(other_user.connections.size, "connection") %>
+      </p>
+    </div>
   </div>
 </div>

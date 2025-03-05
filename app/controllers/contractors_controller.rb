@@ -70,6 +70,6 @@ class ContractorsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def contractor_params
-    params.expect(contractor: [ :name, :number, :email, :town, { trade_ids: [] } ])
+    params.expect(contractor: [ :name, :company_name, :number, :email, :town, { trade_ids: [] } ])
   end
 end

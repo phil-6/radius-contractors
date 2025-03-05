@@ -1,0 +1,88 @@
+<div class="getting-started">
+  <div class="container">
+
+    <h2>Getting Started</h2>
+    <p>To get useful recommendations, connect with at least one friend.</p>
+    <div class="row getting-started-checklist">
+      <div class="">
+        <ol>
+          <li class="<%= "complete" if current_user %>">
+            <span class="list-item-number">
+              <i class="fa-solid fa-<%= current_user ? "check" : "right-long" %>"></i>
+              Step 1:
+            </span>
+            Sign Up & Log In
+          </li>
+          <li class="<%= "complete" if current_user && !current_user&.connections&.size&.zero? %>">
+            <%#= "✅ " if current_user && !current_user&.connections&.size&.zero? %>
+            <span class="list-item-number">
+              <i class="fa-solid fa-<%= current_user && !current_user&.connections&.size&.zero? ? "check" : "right-long" %>"></i>
+              Step 2:
+            </span>
+            Invite a friend and make a connection
+          </li>
+          <li>
+            <span class="list-item-number">
+              <i class="fa-solid fa-right-long"></i>
+              Step 3:
+            </span>
+            Add a builder you've used, the job they did and give them a rating
+          </li>
+        </ol>
+      </div>
+
+      <div class="whats-next">
+        <h3>What's Next?</h3>
+        <% unless current_user %>
+          <h5>Sign Up and Log In</h5>
+          <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+          <%= link_to "Log In", new_user_session_path, class: "btn btn-lg btn-primary" %>
+        <% else %>
+
+          <% if current_user.connections.size.zero? %>
+            <div class="row">
+              <div class="col-12 col-sm-7">
+                <h5><i class="fa-solid fa-right-long text-secondary"></i> Invite a Friend</h5>
+                <p>Copy your connection link and send it to a friend. You'll get an email when they've connected with you!</p>
+              </div>
+              <div class="col-12 col-sm-4 button-container">
+                <%= render partial: "shared/copy_connection_link_button" %>
+                <p>or click the link someone has sent you.</p>
+              </div>
+            </div>
+            <%= render partial: "pages/getting_started/add_a_builder" %>
+            <%= render partial: 'pages/getting_started/job_but_no_ratings' %>
+          <% else %>
+            <% if current_user.ratings.size.zero? %>
+              <div class="row">
+                <div class="col-12 col-sm-7">
+                  <p>Great! You've made some connections. <i class="text-success fa-solid fa-people-arrows"></i></p>
+                </div>
+                <div class="col-12 col-sm-4 button-container">
+                  <%= link_to "View Connections", connections_path, class: "btn btn-sm btn-connection" %>
+                </div>
+              </div>
+              <%= render partial: "pages/getting_started/add_a_builder" %>
+
+              <% unless current_user.viewable_contractors.size.zero? %>
+                <div class="row">
+                  <div class="col-12 col-sm-7">
+                    <p>It looks as though your connections have already added some builders. You can add a job and a rating if you've
+                      used one of those tradies.</p>
+                  </div>
+                  <div class="col-12 col-sm-4 button-container">
+                    <%= link_to "Show builders", contractors_path, class: "btn btn-sm btn-builder" %>
+                  </div>
+                </div>
+                <%= render partial: 'pages/getting_started/job_but_no_ratings' %>
+              <% end %>
+
+            <% end %>
+          <% end %>
+
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>

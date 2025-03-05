@@ -1,20 +1,42 @@
 .main-page {
-  max-width: 800px;
   margin-top: 1.5rem;
+
+  .container, &.container {
+    max-width: 800px;
+  }
+
+  .getting-started {
+    //background-color: $primary-lightest;
+  }
+}
+
+header.main-page {
+  margin: 4rem auto;
+
+  .page-title.brand {
+    font-weight: 800;
+    font-size: calc(1rem + 1.5vw);
+  }
 
   .page-subtitle {
     text-align: center;
     color: $brand;
+    font-size: calc(1.4rem + 1.5vw);
   }
-}
 
-.page-title.brand {
-  font-weight: 700;
-  text-align: center;
-  color: $brand;
+  p.challenge {
+    font-size: 1.2rem;
+    font-weight: 300;
 
-  a {
-    text-decoration: none;
+    strong {
+      font-weight: 500;
+    }
+  }
+
+  p.different {
+    font-size: 1.35rem;
+    font-weight: 500;
+    text-align: center;
   }
 }
 
@@ -26,17 +48,59 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
   }
 }
 
-main.main-page .getting-started-checklist {
-  .col {
-    min-width: 400px;
+main.main-page .getting-started {
+  .getting-started-checklist {
+    .col {
+      min-width: 400px;
+    }
+
+    ol {
+      padding-left: 0;
+
+      li {
+        font-weight: 600;
+        line-height: 2;
+        list-style: none;
+
+        &.complete {
+          i {
+            color: $success;
+          }
+        }
+
+        &:not(.complete) {
+          i {
+            color: $secondary;
+          }
+        }
+
+        //.list-item-number:not(.complete) {
+        //  font-weight: 800;
+        //  font-size: 1.2rem;
+        //}
+      }
+    }
   }
 
-  li {
-    font-weight: 600;
-    line-height: 2;
+  .whats-next {
+    .row {
+      margin: 0.5rem 0;
+
+      p, h5 {
+        margin-bottom: 0;
+      }
+
+      .button-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+    }
   }
 }
 

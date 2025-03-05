@@ -1,0 +1,10 @@
+<% if !current_user.jobs.size.zero? && current_user.ratings.size.zero? %>
+  <div class="row">
+    <div class="col-12 col-sm-7">
+      <p>It looks as though you've added a job, but not rated that builder.</p>
+    </div>
+    <div class="col-12 col-sm-4 button-container">
+      <%= link_to "Add a rating", new_contractor_rating_path(current_user.jobs.first.contractor), class: "btn btn-sm btn-rating" %>
+    </div>
+  </div>
+<% end %>

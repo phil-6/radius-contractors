@@ -47,9 +47,9 @@
     /* Flash types */
 
     &:is([type="info"], [type="notice"]) {
-      background: $primary-light;
+      background: $primary-lightest;
       box-shadow: 0 0.1rem 0.25rem $primary-dark;
-      color: $primary-dark;
+      color: $primary-darkest;
 
       .flash__icon {
         fill: $primary-dark;

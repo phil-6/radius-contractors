@@ -11,6 +11,16 @@ a.home-link {
   margin: 0.5rem;
 }
 
+.page-title.brand {
+  font-weight: 700;
+  text-align: center;
+  color: $brand;
+
+  a {
+    text-decoration: none;
+  }
+}
+
 #confirm {
   &.modal {
     &--active {

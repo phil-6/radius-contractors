@@ -1,138 +1,36 @@
 <header class="container main-page">
   <h1 class="page-title brand">Radius Contractors</h1>
   <h2 class="page-subtitle">Find builders recommended by people you trust</h2>
-  <p class="lead">
-    It's really challenging to find reliable builders.
-  </p>
-  <p class="lead">
-    Check-a-trade and MyBuilder are commercial behemoths, focused on their bottom line
-    rather than providing a good service to homeowners.
-  </p>
-  <p class="lead">
-    We take a different approach, the builders you can see here are only those that have been reviewed by people you
-    have connected with.
-  </p>
+  <p class="challenge"><strong>It's really challenging to find reliable builders.</strong> Big platforms like Check-a-trade and MyBuilder
+    prioritize profits over homeowners.</p>
+  <p class="different">We’re different. You only see builders rated by people you know.</p>
   <hr>
 </header>
 
-<main class="container main-page">
+<main class="main-page">
   <% if current_user && !current_user.ratings.size.zero? %>
-    <h2>Welcome Back <%= current_user.first_name %></h2>
-    <p>What would you like to do today?</p>
-    <div class="row g-2 front-page-buttons">
-      <div class="col-4"><%= link_to "Add a contractor", new_contractor_path, class: "btn btn-builder" %></div>
-      <div class="col-4"><%= link_to "Add a new connection", new_connection_path, class: "btn btn-connection" %></div>
-      <!--      <div class="col-4"><%#= link_to "Add a rating", new_job_path, class: "btn btn-rating" %></div>-->
-      <div class="col-4"><%= link_to "View contractors", contractors_path, class: "btn btn-builder" %></div>
-      <div class="col-4"><%= link_to "View your connections", connections_path, class: "btn btn-connection" %></div>
-      <div class="col-4"><%= link_to "Edit your account", edit_user_registration_path, class: "btn btn-primary" %></div>
-      <div class="col-4"><%= link_to root_path, class: "btn btn-rating" do %>View your profile <br>(coming soon)
-        <% end %></div>
+    <div class="welcome-back container">
+      <h2>Welcome Back <%= current_user.first_name %></h2>
+      <p>What would you like to do today?</p>
+      <div class="row g-2 front-page-buttons">
+        <div class="col-4"><%= link_to "View contractors", contractors_path, class: "btn btn-builder" %></div>
+        <div class="col-4"><%= link_to "View your connections", connections_path, class: "btn btn-connection" %></div>
+        <div class="col-4"><%= link_to "Add a new contractor", new_contractor_path, class: "btn btn-builder" %></div>
+        <div class="col-4"><%= link_to "Add a new connection", new_connection_path, class: "btn btn-connection" %></div>
+        <div class="col-4"><%= link_to "Edit your account", edit_user_registration_path, class: "btn btn-primary" %></div>
+        <div class="col-4">
+          <%= link_to root_path, class: "btn btn-rating" do %>
+            View your profile <br><span class="small">(coming soon)</span>
+          <% end %>
+        </div>
+      </div>
     </div>
   <% else %>
-    <h2>Getting Started</h2>
-    <p>For this app to be useful, you need to sign up with at least one other friend, so you can both see each other's recommended
-      builders.</p>
-    <p>Sign up using the link below, then grab your personalised link to invite your friends.</p>
-    <p>Once you've signed up, you can add builders you've used, the jobs they've worked or quoted for and give them a rating. When you
-      friends sign up and do the same thing, you'll be able to see the builders they have rated.</p>
-    <p>It requires a bit of community effort, but it's that simple!</p>
-    <p>If you're a builder, do good work and get recommended! If you have any issues then you can reach out
-      <a href="mailto:contractors@purpleriver.dev">here</a>.</p>
-
-    <div class="row getting-started-checklist">
-      <div class="col">
-        <h3>Your Checklist</h3>
-        <ol>
-          <li>
-            Sign Up and Log In<%= " ✅" if current_user %>
-          </li>
-          <li>
-            Invite a friend and make a connection<%= " ✅" if current_user && !current_user&.connections&.size&.zero? %>
-          </li>
-          <li>
-            Add a builder you've used, the job they did and give them a rating
-          </li>
-        </ol>
-      </div>
-      <div class="col">
-        <h3>What's Next?</h3>
-        <% unless current_user %>
-          <h5>Sign Up and Log In</h5>
-          <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-lg btn-primary" %>
-          <%= link_to "Log In", new_user_session_path, class: "btn btn-lg btn-primary" %>
-        <% else %>
-          <% if current_user.connections.size.zero? %>
-            <h5>Invite a Friend</h5>
-            <p class="mb-0">Copy your connection link using the button below and send it to a friend.</p>
-            <p>You'll get an email when they've connected with you!</p>
-            <%= render partial: "shared/copy_connection_link_button" %>
-          <% else %>
-            <% if current_user.ratings.size.zero? %>
-              <h5>Add a builder, a job and a rating.</h5>
-              <%= link_to "Add a builder", new_contractor_path, class: "btn btn-builder" %>
-              <% unless current_user.viewable_contractors.size.zero? %>
-                <p class="mt-2 mb-1">It looks as though your connections have already added some builders, you can add a job and a rating if
-                  you've used one of those tradies.</p>
-                <div class="col-4">
-                  <%= link_to "Show builders", contractors_path, class: "btn btn-builder" %>
-                </div>
-                <% if !current_user.jobs.size.zero? && current_user.ratings.size.zero? %>
-                  <p>It looks as though you've added a job, but not rated that builder.</p>
-                  <%= link_to "Add a rating", new_contractor_rating_path(current_user.jobs.first.contractor), class: "btn btn-rating" %>
-                <% end %>
-              <% end %>
-            <% end %>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
+    <%= render partial: 'getting_started' %>
   <% end %>
 </main>
 
-<aside class="container main-page" id="about">
-  <hr>
-  <details>
-    <summary>What's this all about?</summary>
-    <h3>What's this all about?</h3>
-    <p>Radius Contractors is a community-driven platform for finding reliable builders.</p>
-    <p>Instead of being able to see reviews from anyone, you can only see reviews from people you know. This means that you can trust
-      the reviews you see, as they're from people you trust.</p>
-    <p>It's a bit like asking your friends for a recommendation, but on a larger scale.</p>
-    <p>It's free to use, <a href="https://github.com/phil-6/radius-contractors">open source</a>, with no advertising and limited tracking
-      and will stay that way for as long as it can.</p>
-    <p>The current costs are around £15 per month, if you want to contribute to the running you can buy me a coffee.</p>
-    <%= render partial: 'pages/bmc_button' %>
-    <p class="lead">The project is still a work in progress, so if you have any feedback, find any bugs, or want to be kept up to date with
-      updates then please <a href="mailto:contractors@purpleriver.dev">let me know.</a></p>
-    <ul>What's in the plan:
-      <li>Connect with another user using their link ✅</li>
-      <li>View your connections ✅</li>
-      <li>Remove connections ✅</li>
-      <li>Email user when someone connects with them ✅</li>
-      <li>Allow trades to be added when creating a contractor ✅</li>
-      <li>User Profile Page
-        <ul>
-          <li>Show Your Connections</li>
-          <li>Show Your Contractors</li>
-        </ul>
-      </li>
-      <li>Improve UI in various places
-        <ul>
-          <li>Increase size of secondary buttons on account forms ✅</li>
-          <li>Navigation: Burger Menu for quick access links from anywhere</li>
-          <li>Improve getting started process</li>
-          <li>Improve rating readability with colours  ✅</li>
-        </ul>
-      </li>
-      <li>Allow contractors to be filtered by trades. ✅</li>
-      <li>Allow contractors to be searched. ✅</li>
-      <li>Show contractors and reviews from 2nd order connections (Friends of friends).</li>
-      <li>Allow connections to your partners - which see the same things you do.</li>
-      <li>Allow photos to be added to jobs.</li>
-    </ul>
-  </details>
-</aside>
+<%= render partial: 'about_aside' %>
 
 <% if current_user %>
   <div class="bottom-0 start-0 m-5">

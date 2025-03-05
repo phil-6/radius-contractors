@@ -34,10 +34,6 @@
   }
 }
 
-.background-bad {
-  background: linear-gradient(to bottom right, $danger 0%, $danger-light 100%);
-}
-
 // Bootstrap Mixins. Default:
 /*.btn-primary {
   @include button-variant(

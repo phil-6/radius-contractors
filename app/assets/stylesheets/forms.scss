@@ -18,6 +18,19 @@ form {
   padding: calc(1.5rem * 0.5) 0;
   margin-right: auto;
   margin-left: auto;
+
+  .back-link-container {
+    margin-top: 1rem;
+    width: fit-content;
+  }
+
+  details {
+    margin-top: 3rem;
+
+    .button-container {
+      padding: 1rem 0;
+    }
+  }
 }
 
 .form-card {
@@ -196,6 +209,7 @@ main.new-connection {
         }
       }
     }
+
     .field_with_errors .form-label {
       color: var(--danger);
       background-color: var(--theme-dark);
@@ -234,6 +248,7 @@ main.new-connection {
   .field_with_errors {
     width: 100%;
     margin-right: 4rem;
+
     .form-input {
       //padding: 1rem -2rem 1rem 2rem;
       border: 1px solid var(--danger-dark);

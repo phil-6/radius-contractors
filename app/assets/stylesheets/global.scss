@@ -54,12 +54,17 @@ p {
   font-weight: 300;
 }
 
+.text-warning {
+  color: $warning;
+}
+
 .mb-0 {
   margin-bottom: 0 !important;
 }
 
-a.home-link {
+.home-link-container {
   margin: 0.5rem;
+  width: fit-content;
 }
 
 a {

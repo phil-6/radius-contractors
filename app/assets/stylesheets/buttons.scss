@@ -5,6 +5,7 @@
   color: $ink-dark;
   cursor: pointer;
   display: inline-block;
+  font-size: 1rem;
   font-weight: 700;
   padding: 0.4rem 0.75rem;
   line-height: 1.5;
@@ -53,11 +54,12 @@
   &-success {
     background-color: $success;
     border-color: $success;
-    color: $ink-dark;
+    color: $ink-light;
 
     &:hover {
       background-color: $success-dark;
       border-color: $success-dark;
+      color: $ink-light;
     }
   }
 

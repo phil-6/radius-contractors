@@ -1,8 +1,7 @@
 html, body {
-  background: $theme-dark-bg-grad;
-  background-attachment: fixed;
+  background: $theme-dark-bg-grad fixed;
   color: $ink-light;
-  font-family: $font !important;
+  font-family: $font;
   margin: 0;
   height: 100vh;
   width: 100vw;
@@ -21,15 +20,26 @@ h6, h5, h4, h3, h2, h1 {
   line-height: 1.2;
 }
 
+h1 {
+  font-size: calc(1.375rem + 1.5vw);
+
+  &.page-title.brand :hover {
+    text-decoration: none;
+  }
+}
+
 h2 {
   font-size: calc(1.325rem + 0.9vw);
 }
+
 h3 {
   font-size: calc(1.3rem + 0.6vw);
 }
+
 h4 {
   font-size: calc(1.275rem + 0.3vw);
 }
+
 h5 {
   font-size: 1.25rem;
 }
@@ -55,6 +65,7 @@ a.home-link {
 a {
   color: $primary-light;
   text-decoration: none;
+
   &:hover {
     color: $primary;
     text-decoration: underline;

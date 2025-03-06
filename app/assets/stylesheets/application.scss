@@ -1,8 +1,8 @@
 @import 'bootstrap_overrides_theme';
-@import 'bootstrap/scss/bootstrap';
-@import 'bootstrap-icons/font/bootstrap-icons';
-@import 'theme_mixins';
+//@import 'bootstrap/scss/bootstrap';
 @import 'global';
+@import 'buttons';
+@import 'modal';
 @import 'pages';
 @import 'flash';
 @import 'forms';

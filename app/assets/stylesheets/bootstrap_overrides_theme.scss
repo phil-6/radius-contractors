@@ -19,9 +19,6 @@
 }
 
 $font: 'Montserrat', sans-serif;
-html, body {
-  font-family: $font !important;
-}
 
 @counter-style wrench {
   system: cyclic;
@@ -31,6 +28,8 @@ html, body {
 
 $brand: #49b1e3;
 $theme-dark: #071e2c;
+$theme-dark-bg: #060A1E;
+$theme-dark-bg-grad: linear-gradient(to bottom right, $theme-dark 25%, $theme-dark-bg 100%);
 $ink-dark: #05171f;
 $ink-light: #dcf0f9;
 
@@ -64,4 +63,3 @@ $body-bg-dark-transparent: #071e2cbb;
 //$body-bg-dark: #10072c;
 $dark-bg-grad: linear-gradient(to bottom right, #0e3c58 0%, #0d2f3f 100%);
 $light-primary-bg-grad: linear-gradient(to top right, $primary-light 0%, $primary 100%);
-

@@ -1,9 +1,11 @@
 .main-page {
-  margin-top: 1.5rem;
+  //margin-top: 1.5rem;
+  margin: 1.5rem auto auto;
+  max-width: 800px;
 
-  .container, &.container {
-    max-width: 800px;
-  }
+  //.container, &.container {
+  //  max-width: 800px;
+  //}
 
   .getting-started {
     //background-color: $primary-lightest;
@@ -11,17 +13,22 @@
 }
 
 header.main-page {
-  margin: 4rem auto;
+  margin-top: 4rem;
 
   .page-title.brand {
     font-weight: 800;
     font-size: calc(1rem + 1.5vw);
+    margin-bottom: 0.5rem;
+    margin-top: 0;
   }
 
   .page-subtitle {
     text-align: center;
     color: $brand;
     font-size: calc(1.4rem + 1.5vw);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
   }
 
   p.challenge {
@@ -105,6 +112,10 @@ main.main-page .getting-started {
 }
 
 aside.main-page {
+  ul {
+    list-style: wrench;
+  }
+
   .bmc-btn-container {
     display: flex;
     justify-content: center;
@@ -154,9 +165,5 @@ aside.main-page {
       width: 100%;
       flex-shrink: 0;
     }
-  }
-
-  ul {
-    list-style: wrench;
   }
 }

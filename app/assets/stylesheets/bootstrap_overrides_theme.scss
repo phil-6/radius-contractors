@@ -35,6 +35,7 @@ $font: 'Montserrat', sans-serif;
   --ink-light: #dcf0f9;
   --theme-light-gray: #8f95a3;
   --theme-mid-gray: #737b8c;
+  --theme-mid-gray-translucent: #737b8c46;
 
   --primary: var(--brand);
   --primary-dark: #239CD6;
@@ -67,6 +68,7 @@ $font: 'Montserrat', sans-serif;
   --dark-bg-grad: linear-gradient(to bottom right, #0e3c58 0%, #0d2f3f 100%);
   --light-primary-bg-grad: linear-gradient(to top right, var(--primary-light) 0%, var(--primary) 100%);
   --form-input-border-radius: 0.5rem;
+  --card-border-radius: 1rem;
 }
 
 $brand: var(--brand);

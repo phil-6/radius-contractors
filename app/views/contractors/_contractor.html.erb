@@ -6,7 +6,8 @@
   <% unless action_name == "show" %>
     <%= link_to contractor, class: "" do %>
       <div class="card-header">
-        <h3><%= contractor.name %> <br/> <%= contractor.company_name %></h3>
+        <h3 class="name"><%= contractor.name %></h3>
+        <h3 class="company"><%= contractor.company_name %></h3>
       </div>
     <% end %>
   <% end %>

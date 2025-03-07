@@ -54,8 +54,18 @@ p {
   font-weight: 300;
 }
 
+.small {
+  font-size: 80%;
+}
+
 .text-warning {
   color: $warning;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .mb-0 {

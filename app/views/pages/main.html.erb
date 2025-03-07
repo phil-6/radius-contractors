@@ -12,17 +12,16 @@
     <div class="welcome-back">
       <h2>Welcome Back <%= current_user.first_name %></h2>
       <p>What would you like to do today?</p>
-      <div class="row g-2 front-page-buttons">
-        <div class="col-4"><%= link_to "View contractors", contractors_path, class: "btn btn-builder" %></div>
-        <div class="col-4"><%= link_to "View your connections", connections_path, class: "btn btn-connection" %></div>
-        <div class="col-4"><%= link_to "Add a new contractor", new_contractor_path, class: "btn btn-builder" %></div>
-        <div class="col-4"><%= link_to "Add a new connection", new_connection_path, class: "btn btn-connection" %></div>
-        <div class="col-4"><%= link_to "Edit your account", edit_user_registration_path, class: "btn btn-primary" %></div>
-        <div class="col-4">
-          <%= link_to root_path, class: "btn btn-rating" do %>
-            View your profile <br><span class="small">(coming soon)</span>
-          <% end %>
-        </div>
+      <div class="row front-page-buttons">
+        <%= link_to "View contractors", contractors_path, class: "btn btn-builder" %>
+        <%= link_to "View your connections", connections_path, class: "btn btn-connection" %>
+        <%= link_to "Add a new contractor", new_contractor_path, class: "btn btn-builder" %>
+        <%= link_to "Add a new connection", new_connection_path, class: "btn btn-connection" %>
+        <%= link_to "Edit your account", edit_user_registration_path, class: "btn btn-primary" %>
+
+        <%= link_to root_path, class: "btn btn-rating" do %>
+          View your profile <br><span class="small">(coming soon)</span>
+        <% end %>
       </div>
     </div>
   <% else %>

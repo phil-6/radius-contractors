@@ -12,99 +12,61 @@
   <% end %>
 
   <div class="row">
-    <div class="col-12 col-md-8">
-      <div class="form-floating">
-        <%= form.textarea :review, placeholder: "Review", class: "form-control" %>
-        <%= form.label :review, class: "form-label" %>
-      </div>
+    <div class="field">
+      <%= form.textarea :review, placeholder: "Review", class: "form-input" %>
+      <%= form.label :review, class: "form-label floating-label" %>
     </div>
-    <div class="col-12 col-md-4">
+    <div>
       <p>What do you think about <%= @contractor.name %>?</p>
     </div>
   </div>
 
   <div class="row form-range-row">
-    <div class="col-12 col-md-2">
-      <%= form.label :value_rating, "Value", class: "form-label" %>
-    </div>
-    <div class="col-10 col-md-8">
-      <%= form.range_field :value_rating, in: 0..10, step: 1, class: "form-range",
-                           data: { rating_form_target: "valueRatingField",
-                                   action: "change->rating-form#changeRating" } %>
-    </div>
-    <div class="col-2">
-      <p class="rating-display" data-rating-form-target="valueRatingDisplay"></p>
-    </div>
+    <%= form.label :value_rating, "Value", class: "form-label" %>
+    <%= form.range_field :value_rating, in: 0..10, step: 1, class: "form-range",
+                         data: { rating_form_target: "valueRatingField",
+                                 action: "change->rating-form#changeRating" } %>
+    <p class="rating-display" data-rating-form-target="valueRatingDisplay"></p>
   </div>
 
   <div class="row form-range-row">
-    <div class="col-md-2">
-      <%= form.label :quality_rating, "Quality", class: "form-label" %>
-    </div>
-    <div class="col-10 col-md-8">
-      <%= form.range_field :quality_rating, in: 0..10, step: 1, class: "form-range",
-                           data: { rating_form_target: "qualityRatingField",
-                                   action: "change->rating-form#changeRating" } %>
-    </div>
-    <div class="col-2">
-      <p class="rating-display" data-rating-form-target="qualityRatingDisplay"></p>
-    </div>
+    <%= form.label :quality_rating, "Quality", class: "form-label" %>
+    <%= form.range_field :quality_rating, in: 0..10, step: 1, class: "form-range",
+                         data: { rating_form_target: "qualityRatingField",
+                                 action: "change->rating-form#changeRating" } %>
+    <p class="rating-display" data-rating-form-target="qualityRatingDisplay"></p>
   </div>
 
   <div class="row form-range-row">
-    <div class="col-md-2">
-      <%= form.label :tidiness_rating, "Tidiness", class: "form-label" %>
-    </div>
-    <div class="col-10 col-md-8">
-      <%= form.range_field :tidiness_rating, in: 0..10, step: 1, class: "form-range",
-                           data: { rating_form_target: "tidinessRatingField",
-                                   action: "change->rating-form#changeRating" } %>
-    </div>
-    <div class="col-2">
-      <p class="rating-display" data-rating-form-target="tidinessRatingDisplay"></p>
-    </div>
+    <%= form.label :tidiness_rating, "Tidiness", class: "form-label" %>
+    <%= form.range_field :tidiness_rating, in: 0..10, step: 1, class: "form-range",
+                         data: { rating_form_target: "tidinessRatingField",
+                                 action: "change->rating-form#changeRating" } %>
+    <p class="rating-display" data-rating-form-target="tidinessRatingDisplay"></p>
   </div>
 
   <div class="row form-range-row">
-    <div class="col-md-2">
-      <%= form.label :communication_rating, "Communication", class: "form-label" %>
-    </div>
-    <div class="col-10 col-md-8">
-      <%= form.range_field :communication_rating, in: 0..10, step: 1, class: "form-range",
-                           data: { rating_form_target: "communicationRatingField",
-                                   action: "change->rating-form#changeRating" } %>
-    </div>
-    <div class="col-2">
-      <p class="rating-display" data-rating-form-target="communicationRatingDisplay"></p>
-    </div>
+    <%= form.label :communication_rating, "Communication", class: "form-label" %>
+    <%= form.range_field :communication_rating, in: 0..10, step: 1, class: "form-range",
+                         data: { rating_form_target: "communicationRatingField",
+                                 action: "change->rating-form#changeRating" } %>
+    <p class="rating-display" data-rating-form-target="communicationRatingDisplay"></p>
   </div>
 
   <div class="row form-range-row">
-    <div class="col-md-2">
-      <%= form.label :professionalism_rating, "Professionalism", class: "form-label" %>
-    </div>
-    <div class="col-10 col-md-8">
-      <%= form.range_field :professionalism_rating, in: 0..10, step: 1, class: "form-range",
-                           data: { rating_form_target: "professionalismRatingField",
-                                   action: "change->rating-form#changeRating" } %>
-    </div>
-    <div class="col-2">
-      <p class="rating-display" data-rating-form-target="professionalismRatingDisplay"></p>
-    </div>
+    <%= form.label :professionalism_rating, "Professionalism", class: "form-label" %>
+    <%= form.range_field :professionalism_rating, in: 0..10, step: 1, class: "form-range",
+                         data: { rating_form_target: "professionalismRatingField",
+                                 action: "change->rating-form#changeRating" } %>
+    <p class="rating-display" data-rating-form-target="professionalismRatingDisplay"></p>
   </div>
 
   <div class="row form-range-row">
-    <div class="col-md-2">
-      <%= form.label :overall_rating, class: "form-label" %>
-    </div>
-    <div class="col-10 col-md-8">
-      <%= form.range_field :overall_rating, in: 0..10, step: 1, class: "form-range",
-                           data: { rating_form_target: "overallRatingField",
-                                   action: "change->rating-form#changeRating" } %>
-    </div>
-    <div class="col-2">
-      <p class="rating-display" data-rating-form-target="overallRatingDisplay"></p>
-    </div>
+    <%= form.label :overall_rating, class: "form-label" %>
+    <%= form.range_field :overall_rating, in: 0..10, step: 1, class: "form-range",
+                         data: { rating_form_target: "overallRatingField",
+                                 action: "change->rating-form#changeRating" } %>
+    <p class="rating-display" data-rating-form-target="overallRatingDisplay"></p>
   </div>
 
   <div>

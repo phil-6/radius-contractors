@@ -1,4 +1,13 @@
 #contractors-header {
+  margin-bottom: 2rem;
+
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
+
   .filter-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -9,6 +18,56 @@
       padding: 0.1rem 0.2rem;
       font-size: 0.8rem;
       min-width: 85px;
+    }
+  }
+
+  .search {
+    margin-top: 1rem;
+
+    form {
+      gap: 0.2rem;
+
+      .label {
+      }
+
+      .field {
+        width: 100%;
+      }
+
+      .actions {
+        width: 100%;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        gap: 0.2rem;
+
+        .btn {
+          height: fit-content;
+
+          &.btn-success {
+            order: 1;
+          }
+        }
+      }
+    }
+
+    @media (min-width: 768px) {
+      form {
+        display: flex;
+
+        .label {
+          flex: 1 1 10%;
+        }
+
+        .field {
+          flex: 1 1 50%;
+        }
+
+        .actions {
+          flex: 1 1 20%;
+          align-self: center;
+        }
+      }
     }
   }
 }
@@ -37,16 +96,20 @@
       .contractor-details {
         p {
           margin-bottom: 0.5rem;
+
           &.contractor-rating {
             &.bad-rating {
               color: $danger;
             }
+
             &.average-rating {
               color: $warning-light;
             }
+
             &.good-rating {
               color: $success-light;
             }
+
             &.excellent-rating {
               color: $secondary;
             }
@@ -125,17 +188,21 @@
     &.bad-rating {
       background: $danger-bg-grad;
     }
+
     &.average-rating {
       background: $warning-bg-grad;
     }
+
     &.good-rating {
       background: $success-bg-grad;
     }
+
     &.excellent-rating {
       background: $primary-bg-grad;
       background-image: url("symbol-scatter-haikei.svg");
       color: $ink-dark;
     }
+
     .overall-rating {
       p.main {
         font-size: 1.5rem;

@@ -13,6 +13,30 @@ main {
   margin-top: 1.5rem;
 }
 
+header, main, aside {
+  margin: 0 auto;
+  // Small devices (landscape phones, 576px and up)
+  @media (min-width: 576px) {
+    max-width: 540px;
+  }
+  // Medium devices (tablets, 768px and up)
+  @media (min-width: 768px) {
+    max-width: 720px;
+  }
+  // Large devices (desktops, 992px and up)
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+  // X-Large devices (large desktops, 1200px and up)
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
+  // XX-Large devices (larger desktops, 1400px and up)
+  @media (min-width: 1400px) {
+    max-width: 1320px;
+  }
+}
+
 h6, h5, h4, h3, h2, h1 {
   margin-top: 0;
   margin-bottom: 0.5rem;
@@ -99,10 +123,6 @@ hr {
   font-weight: 700;
   text-align: center;
   color: $brand;
-
-  //a {
-  //  text-decoration: none;
-  //}
 }
 
 #confirm {

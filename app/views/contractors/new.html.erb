@@ -1,13 +1,10 @@
 <% content_for :title, "New contractor" %>
-<main class="container">
+<main class="contractor-form">
   <div class="card form-card">
     <h1>Add a new contractor</h1>
-
     <%= render "form", contractor: @contractor %>
   </div>
-
   <hr>
-
   <div>
     <%= link_to "Back to contractors", contractors_path %>
   </div>

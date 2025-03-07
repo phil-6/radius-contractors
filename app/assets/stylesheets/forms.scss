@@ -4,7 +4,7 @@ form {
   }
 }
 
-.account-form {
+.account-form, .contractor-form {
   @media (min-width: 576px) {
     max-width: 540px;
   }
@@ -77,6 +77,10 @@ form {
       @media (max-width: 768px) {
         max-width: 100%;
         flex: 1 0 auto;
+      }
+
+      &.center {
+        margin: 0 auto;
       }
     }
   }
@@ -200,31 +204,24 @@ main.new-connection {
       // Label when input is present
       &:target, &:not(:placeholder-shown), &:-webkit-autofill:hover {
         & ~ .form-label {
-          background-color: var(--theme-dark);
-          border: 1px solid var(--theme-mid-gray);
-          border-radius: 2rem;
-          font-size: 0.875rem;
-          padding: 0 0.5rem;
-          transform: scale(0.9) translateY(-2rem);
+          font-size: 0.8rem;
+          color: var(--theme-light-gray);
+          transform: translateY(-1rem) translateX(-0.5rem);
         }
       }
     }
 
     .field_with_errors .form-label {
       color: var(--danger);
-      background-color: var(--theme-dark);
-      border: 1px solid var(--theme-mid-gray);
-      border-radius: 2rem;
-      font-size: 0.875rem;
-      padding: 0 0.5rem;
-      transform: scale(0.9) translateY(-2rem);
+      font-size: 0.8rem;
+      transform: translateY(-1rem) translateX(-0.5rem);
     }
   }
 
   .form-input {
     background-color: var(--theme-dark);
     border: 1px solid var(--theme-mid-gray);
-    border-radius: 0.5rem;
+    border-radius: var(--form-input-border-radius);
     color: var(--ink-light);
     font-size: 1.2rem;
     line-height: 1.5rem;
@@ -256,16 +253,25 @@ main.new-connection {
   }
 }
 
-
 /* Slim Select */
 .ss-main {
-  background-color: var(--bs-body-bg) !important;
-  border: var(--bs-border-width) solid var(--bs-border-color) !important;
-  border-radius: var(--bs-border-radius);
+  background-color: var(--body-bg-dark) !important;
+  border: 1px solid var(--theme-mid-gray) !important;
+  border-radius: var(--form-input-border-radius);
+  min-height: 3.5rem !important;
+  height: unset !important;
+
+  .ss-placeholder {
+    color: var(--ink-light) !important;
+  }
+
+  .ss-arrow path {
+    stroke: var(--ink-light) !important;
+  }
 
   .ss-multi-selected {
     min-height: calc(1.5em + 0.75rem + 2px);
-    border-radius: 0.5rem;
+    border-radius: var(--form-input-border-radius);
 
     .ss-add {
       margin: 13px 12px 0 5px;
@@ -277,10 +283,10 @@ main.new-connection {
   }
 
   .ss-values .ss-value {
-    background-color: var(--bs-primary) !important;
+    background-color: var(--primary) !important;
 
     .ss-value-text {
-      color: $ink-dark !important;
+      color: var(--ink-dark) !important;
       font-weight: 600 !important;
     }
 
@@ -300,14 +306,14 @@ main.new-connection {
 
 .ss-content {
   &.ss-open-below {
-    background-color: var(--bs-body-bg) !important;
+    background-color: var(--body-bg-dark) !important;
 
     .ss-list .ss-option {
-      color: var(--bs-body-color) !important;
+      color: var(--ink-light) !important;
 
       &:hover, &.ss-selected, &.ss-highlighted {
-        background-color: var(--bs-primary) !important;
-        color: $ink-dark !important;
+        background-color: var(--primary) !important;
+        color: var(--ink-dark) !important;
       }
 
       &.ss-selected {
@@ -317,6 +323,6 @@ main.new-connection {
   }
 
   .ss-search input {
-    color: $ink-dark !important;
+    color: var(--ink-dark) !important;
   }
 }

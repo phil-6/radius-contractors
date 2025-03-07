@@ -12,55 +12,49 @@
   <% end %>
 
   <div class="row">
-    <div class="col-12 col-md-8">
-      <div class="form-floating">
-        <%= form.textarea :description, placeholder: "Job Description", class: "form-control", required: true %>
-        <%= form.label :description, class: "form-label" %>
-      </div>
+    <div class="field">
+        <%= form.textarea :description, placeholder: "Job Description", class: "form-input", required: true %>
+        <%= form.label :description, class: "form-label floating-label" %>
     </div>
-    <div class="col-12 col-md-4">
+    <div class="field">
       <p>What was the work that <%= @contractor.name %> did?</p>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-12 col-md-8">
-      <div class="form-floating">
+    <div class="field">
         <%= form.select :state, options_for_select(["Quote", "Planned", "In Progress", "Complete"]),
-                        { prompt: "Select State" }, { class: "form-select", required: true } %>
-        <%= form.label :state, class: "form-label" %>
-      </div>
+                        { prompt: "Select State" }, { class: "form-select form-input", required: true } %>
+        <%= form.label :state, class: "form-label floating-label" %>
     </div>
-    <div class="col-12 col-md-4">
+    <div class="field">
       <p>What state is the job in? E.G. "Quote", "Planned", "In Progress", "Complete"</p>
     </div>
   </div>
 
   <div class="row mb-2">
-    <div class="col-6 col-md-4">
+    <div class="field">
       <%= form.label :start_date, class: "form-label" %>
-      <%= form.date_field :start_date, class: "form_control" %>
+      <%= form.date_field :start_date, class: "form-input date-input" %>
     </div>
 
-    <div class="col-6 col-md-4">
+    <div class="field">
       <%= form.label :end_date, class: "form-label" %>
-      <%= form.date_field :end_date, class: "form_control" %>
+      <%= form.date_field :end_date, class: "form-input date-input" %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-12 col-md-8">
-      <div class="form-floating">
-        <%= form.textarea :review, placeholder: "Review", class: "form-control" %>
-        <%= form.label :review, class: "form-label" %>
+    <div class="field">
+        <%= form.textarea :review, placeholder: "Review", class: "form-input" %>
+        <%= form.label :review, class: "form-label floating-label" %>
       </div>
-    </div>
-    <div class="col-12 col-md-4">
+    <div class="field">
       <p>What did you think of the work that <%= @contractor.name %> did?</p>
     </div>
   </div>
 
-  <div>
+  <div class="actions">
     <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

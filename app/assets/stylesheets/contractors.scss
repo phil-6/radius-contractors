@@ -80,6 +80,11 @@
 }
 
 .contractor.card {
+  .card-header {
+    overflow: auto;
+    scrollbar-width: thin;
+  }
+
   .trades .btn-sm {
     font-size: 0.8rem;
     margin: 0.1rem;
@@ -95,7 +100,6 @@
 
 #contractors, #contractor {
   .card {
-    margin-bottom: 1rem;
     border: 1px solid var(--theme-mid-gray-translucent);
     border-radius: var(--card-border-radius);
 
@@ -110,8 +114,7 @@
     .card-header {
       padding: 0.5rem 1rem;
       height: 5rem;
-      overflow: auto;
-      scrollbar-width: thin;
+
 
       h3 {
         font-weight: 700;
@@ -156,6 +159,18 @@
           margin-bottom: 0.5rem;
         }
       }
+
+      .flex {
+        display: flex;
+
+        .me-auto {
+          margin-right: auto;
+        }
+
+        .align-self-end {
+          align-self: flex-end;
+        }
+      }
     }
   }
 
@@ -173,64 +188,74 @@
   }
 }
 
-.card .controls {
-  padding: 0.4rem;
-  position: absolute;
-  right: 0;
-  top: 0;
-
-  .icon-link {
-    padding: 0.1rem;
-    text-decoration: none;
+section.jobs {
+  .row {
+    .card {
+      margin: 0;
+      @media (max-width: 768px) {
+        flex-grow: 1;
+      }
+    }
   }
-
-  //form {
-  //  display: inline-block;
-  //  button {
-  //    border: none;
-  //    background: none;
-  //  }
-  //}
 }
 
-.rating-card {
-  &.own-rating {
-    border-width: 3px;
-  }
+section.ratings {
+  flex-wrap: wrap;
 
-  .card-header {
-    &.bad-rating {
-      background: $danger-bg-grad;
+  .rating-card {
+    flex: 1;
+    @media (max-width: 768px) {
+      flex: 1 0 100%;
     }
 
-    &.average-rating {
-      background: $warning-bg-grad;
+    &.own-rating {
+      border-width: 3px;
     }
 
-    &.good-rating {
-      background: $success-bg-grad;
-    }
+    .card-header {
+      height: 100% !important;
+      max-height: 180px;
 
-    &.excellent-rating {
-      background: $primary-bg-grad;
-      background-image: url("symbol-scatter-haikei.svg");
-      color: $ink-dark;
-    }
-
-    .overall-rating {
-      p.main {
-        font-size: 1.5rem;
-        font-weight: 700;
-        margin-bottom: 0;
+      &.bad-rating {
+        background: $danger-bg-grad;
       }
 
-      p.small {
-        font-size: 0.8rem;
+      &.average-rating {
+        background: $warning-bg-grad;
+      }
+
+      &.good-rating {
+        background: $success-bg-grad;
+      }
+
+      &.excellent-rating {
+        background: $primary-bg-grad;
+        background-image: url("symbol-scatter-haikei.svg");
+        color: $ink-dark;
+      }
+
+      .overall-rating {
+        p.main {
+          font-size: 1.5rem;
+          font-weight: 700;
+          margin-bottom: 0;
+        }
+
+        p.small {
+          font-size: 0.8rem;
+        }
+      }
+
+      .review-text {
+        height: 7rem;
+        max-height: 100%;
+        overflow: auto;
+        scrollbar-width: thin;
       }
     }
-  }
 
-  .card-body p.sub-rating {
-    margin-bottom: 0.2rem;
+    .card-body p.sub-rating {
+      margin-bottom: 0.2rem;
+    }
   }
 }

@@ -14,7 +14,9 @@
   <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
   <%= favicon_link_tag asset_path('favicon/favicon.ico') %>
-  <%= favicon_link_tag asset_path('favicon/favicon-192x192.png') %>
+  <%= favicon_link_tag asset_path('favicon/android-chrome-192x192.png') %>
+  <%= favicon_link_tag asset_path('favicon/android-chrome-512x512.png') %>
+  <%= favicon_link_tag asset_path('favicon/Favicon_light@72x.png') %>
   <%# Includes all stylesheet files in app/assets/stylesheets %>
   <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
   <%= javascript_importmap_tags %>

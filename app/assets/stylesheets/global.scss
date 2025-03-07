@@ -1,7 +1,7 @@
 html, body {
   background: $theme-dark-bg-grad fixed;
   color: $ink-light;
-  font-family: $font;
+  font-family: var(--font), 'Montserrat', serif;
   margin: 0;
   height: 100vh;
   width: 100vw;
@@ -144,6 +144,7 @@ hr {
 
 .card {
   position: relative;
+  border-radius: var(--card-border-radius);
 
   .card-body, .card-header {
     &.rounded-top-corners {

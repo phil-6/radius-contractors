@@ -2,6 +2,7 @@ header.connections-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: 2rem;
 
   button.btn {
     margin: 0 auto;
@@ -11,11 +12,22 @@ header.connections-header {
 #connections {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.5rem;
 
   .connection.card {
     background: $light-primary-bg-grad;
     color: $ink-dark;
+    flex: 1 1 100%;
+    padding: 0.5rem;
+
+    @media (min-width: 768px) {
+      flex: 0 1 29%;
+      padding: 1rem;
+    }
+
+    .top-corner-controls {
+      margin-bottom: -1rem;
+    }
 
     .stats {
       display: flex;

@@ -1,8 +1,8 @@
 <% other_user = connection.other_user(current_user) %>
 
-<div class="card columns connection" id="<%= dom_id connection %>">
-  <div class="card-body">
-    <div class="controls">
+<div class="card connection" id="<%= dom_id connection %>">
+  <div class="card-body rounded-corners">
+    <div class="top-corner-controls">
       <%= link_to connection_path(connection),
                   data: {
                     turbo_method: :delete,

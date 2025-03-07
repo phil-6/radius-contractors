@@ -1,6 +1,6 @@
 form {
   input {
-    font-family: $font; // Not sure why it's needed but font defaults to arial if not here
+    font-family: var(--font), 'Montserrat', serif; // Not sure why it's needed but font defaults to arial if not here
   }
 }
 

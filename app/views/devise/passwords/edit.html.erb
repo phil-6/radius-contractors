@@ -1,29 +1,25 @@
-<main class="container account-form">
+<main class="account-form">
   <h1 class="page-title brand"><a href="/">Radius Contractors</a></h1>
   <div class="card form-card">
-    <div class="mx-md-5">
+    <div class="card-body">
       <h2>Change your password</h2>
 
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
         <%= f.hidden_field :reset_password_token %>
 
-        <div class="row g-3">
-          <div class="col-sm-12 col-md">
-            <div class="form-floating">
-              <%= f.password_field :password, placeholder: "password", autocomplete: "new-password", class: "form-control" %>
-              <%= f.label :password, class: "form-label" %>
-              <% if @minimum_password_length %>
-                <em>(<%= @minimum_password_length %> characters minimum)</em>
-              <% end %>
-            </div>
+        <div class="form-section row">
+          <div class="field">
+            <%= f.password_field :password, placeholder: "password", autocomplete: "new-password", class: "form-input" %>
+            <%= f.label :password, class: "form-label floating-label" %>
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
           </div>
 
-          <div class="col-sm-12 col-md">
-            <div class="form-floating">
-              <%= f.password_field :password_confirmation, placeholder: "password confirmation", autocomplete: "new-password", class: "form-control" %>
-              <%= f.label :password_confirmation, class: "form-label" %>
-            </div>
+          <div class="field">
+            <%= f.password_field :password_confirmation, placeholder: "password confirmation", autocomplete: "new-password", class: "form-input" %>
+            <%= f.label :password_confirmation, class: "form-label floating-label" %>
           </div>
         </div>
 

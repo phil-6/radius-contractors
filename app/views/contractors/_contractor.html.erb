@@ -1,16 +1,17 @@
 <% if action_name == "show" %>
-  <h1 class="page-title brand"><%= contractor.name %> - <%= contractor.company_name %></h1>
+  <h1 class="page-title brand"><%= contractor.name %> <%= " - " + contractor.company_name if contractor.company_name%></h1>
 <% end %>
 
 <div class="contractor card<%= " columns" if action_name == "index" %>" id="<%= dom_id contractor %>">
   <% unless action_name == "show" %>
     <%= link_to contractor, class: "" do %>
       <div class="card-header">
-        <h3><%= contractor.name %> <br/> <%= contractor.company_name %></h3>
+        <h3 class="name"><%= contractor.name %></h3>
+        <h3 class="company"><%= contractor.company_name %></h3>
       </div>
     <% end %>
   <% end %>
-  <div class="card-body">
+  <div class="card-body<%= " rounded-top-corners" if action_name == "show" %>">
     <div class="row">
       <div class="trades">
         <% contractor.trades.each do |trade| %>
@@ -39,19 +40,13 @@
           <% end %>
         </p>
 
-        <p>
-          <i class="fa-solid fa-phone"></i>&nbsp;<%= contractor.number %>
-        </p>
+        <p><i class="fa-solid fa-phone"></i>&nbsp;<%= contractor.number %></p>
 
         <% if contractor.email.present? %>
-          <p>
-            <i class="fa-solid fa-envelope"></i>&nbsp;<%= contractor.email %>
-          </p>
+          <p><i class="fa-solid fa-envelope"></i>&nbsp;<%= contractor.email %></p>
         <% end %>
 
-        <p>
-          <i class="fa-solid fa-location-dot"></i>&nbsp;<%= contractor.town %>
-        </p>
+        <p><i class="fa-solid fa-location-dot"></i>&nbsp;<%= contractor.town %></p>
 
         <p>
           Added by:
@@ -73,7 +68,7 @@
     <% if controller_name == "contractors" && action_name == "index" %>
       <%= link_to "See more details", contractor %>
     <% else %>
-      <div class="d-flex">
+      <div class="flex">
         <div class="me-auto">
           <% if @user_is_customer %>
             <% if @user_rating.present? %>

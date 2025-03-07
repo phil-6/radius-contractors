@@ -12,58 +12,47 @@
   <% end %>
 
   <div class="row">
-    <div class="col-md col-sm-12">
-      <div class="form-floating">
-        <%= form.text_field :name, placeholder: "E.G. Bob Plumber", class: "form-control", required: true %>
-        <%= form.label :name, class: "form-label" %>
-      </div>
+    <div class="field">
+      <%= form.text_field :name, placeholder: "E.G. Bob Plumber", class: "form-input", required: true %>
+      <%= form.label :name, class: "form-label floating-label" %>
     </div>
-    <div class="col-md col-sm-12">
-      <div class="form-floating">
-        <%= form.text_field :company_name, placeholder: "Bob's Plumber LTD", class: "form-control" %>
-        <%= form.label :company_name, class: "form-label" %>
-      </div>
+    <div class="field">
+      <%= form.text_field :company_name, placeholder: "Bob's Plumber LTD", class: "form-input" %>
+      <%= form.label :company_name, class: "form-label floating-label" %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md col-sm-12">
-      <div class="form-floating">
-        <%= form.text_field :number, placeholder: "07696234890", class: "form-control", required: true %>
-        <%= form.label :number, class: "form-label" %>
-      </div>
+    <div class="field">
+      <%= form.text_field :number, placeholder: "07696234890", class: "form-input", required: true %>
+      <%= form.label :number, class: "form-label floating-label" %>
     </div>
-    <div class="col-md col-sm-12">
-      <div class="form-floating">
-        <%= form.email_field :email, placeholder: "bob@plumbing.job", class: "form-control" %>
-        <%= form.label :email, class: "form-label" %>
-      </div>
+    <div class="field">
+      <%= form.email_field :email, placeholder: "bob@plumbing.job", class: "form-input" %>
+      <%= form.label :email, class: "form-label floating-label" %>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="field center">
+      <%= form.text_field :town, placeholder: "Swansea", class: "form-input", required: true %>
+      <%= form.label :town, class: "form-label floating-label" %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-6 col-sm-12 mx-auto">
-      <div class="form-floating">
-        <%= form.text_field :town, placeholder: "Swansea", class: "form-control", required: true %>
-        <%= form.label :town, class: "form-label" %>
-      </div>
+    <div class="field center slim-select">
+      <%= form.collection_select :trade_ids, @trades, :id, :name,
+                                 {},
+                                 { multiple: true, class: "form-input",
+                                   data: { controller: "slim-select",
+                                           slim_select_placeholder: "Select Trades" } } %>
+      <%= form.label :trade_ids, "Trades", class: "form-label floating-label" %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-md-6 col-sm-12 mx-auto">
-      <div class="form-floating">
-          <%= form.collection_select :trade_ids, @trades, :id, :name,
-                                                      {},
-                                                      { multiple: true, class: "form-control",
-                                                        data: { controller: "slim-select",
-                                                                slim_select_placeholder: "Select Trades" } } %>
-          <%= form.label :trade_ids, "Trades", class: "form-label" %>
-      </div>
-    </div>
-  </div>
-
-  <div>
+  <div class="actions">
     <%= form.submit class: "btn btn-success" %>
   </div>
 <% end %>

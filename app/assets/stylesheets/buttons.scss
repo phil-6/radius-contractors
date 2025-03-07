@@ -1,0 +1,119 @@
+// Color Source: https://paletton.com/#uid=63s0u0kgPTP4O+jbuXClnOypAGD
+.btn {
+  border: 1px solid transparent;
+  border-radius: 0.6rem;
+  color: $ink-dark;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.4rem 0.75rem;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 4px 6px 4px rgba(0, 0, 0, 0.2);
+    color: $ink-dark;
+    text-decoration: none;
+  }
+
+  &.btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+  }
+
+  &.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  &-primary {
+    background-color: $primary;
+    border-color: $primary;
+    color: $ink-dark;
+
+    &:hover {
+      background-color: $primary-dark;
+      border-color: $primary-dark;
+    }
+  }
+
+  &-secondary {
+    background-color: $secondary;
+    border-color: $secondary;
+    color: $ink-dark;
+
+    &:hover {
+      background-color: $secondary-light;
+      border-color: $secondary-light;
+    }
+  }
+
+  &-success {
+    background-color: $success;
+    border-color: $success;
+    color: $ink-light;
+
+    &:hover {
+      background-color: $success-dark;
+      border-color: $success-dark;
+      color: $ink-light;
+    }
+  }
+
+  &-warning {
+    background-color: $warning;
+    border-color: $warning;
+    color: $ink-dark;
+
+    &:hover {
+      background-color: $warning-dark;
+      border-color: $warning-dark;
+    }
+  }
+
+  &-danger {
+    background-color: $danger;
+    border-color: $danger;
+    color: $ink-light;
+
+    &:hover {
+      background-color: $danger-dark;
+      border-color: $danger-dark;
+    }
+  }
+
+  &-builder, &-connection, &-rating {
+    color: $theme-dark;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &-builder {
+    background-color: #818EED;
+    //background: linear-gradient(to bottom right, #818EED 0%, #AAB3F7 100%);
+
+    &:hover {
+      background-color: #3F50CC;
+    }
+  }
+
+  &-connection {
+    background-color: #71EFA8;
+    //background: linear-gradient(to bottom right, #71EFA8 0%, #9FF7C5 100%);
+
+    &:hover {
+      background-color: #2AD072;
+    }
+  }
+
+  &-rating {
+    background-color: #FFC179;
+    //background: linear-gradient(to bottom right, #FFC179 0%, #FFD5A4 100%);
+
+    &:hover {
+      background-color: #FFA033;
+    }
+  }
+}

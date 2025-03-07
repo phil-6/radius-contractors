@@ -1,8 +1,8 @@
 <% content_for :title, "Contractors" %>
 
-<header class="container" id="contractors-header">
+<header id="contractors-header">
   <h1 class="page-title brand">Contractors in your Radius</h1>
-  <div class="text-center mb-2">
+  <div class="btn-container">
     <%= link_to "New contractor", new_contractor_path, class: "btn btn-primary" %>
   </div>
 
@@ -19,27 +19,27 @@
   </div>
 
   <div class="search">
-    <h3 class="mb-0 mb-sm-auto mt-1 mt-sm-auto">Search</h3>
+    <h3>Search</h3>
     <%= form_with url: contractors_path, method: :get, class: "row" do |form| %>
-      <div class="col-sm-4">
+      <div class="label">
         <%= form.label :search, "By name, company name, number or email", class: "col-form-label" %>
       </div>
-      <div class="col-sm-6">
+      <div class="field">
         <%= form.search_field :search, placeholder: "Search by name, number or email",
-                              class: "form-control",
+                              class: "form-input",
                               value: params[:search].present? ? params[:search] : "" %>
         <%= form.hidden_field :trade_id, value: params[:trade_id] if params[:trade_id].present? %>
       </div>
 
-      <div class="col-sm-2 pt-1 pt-sm-0">
+      <div class="actions">
         <%= form.submit "Search", class: "btn btn-success" %>
-        <%= link_to "Clear Search", contractors_path(trade_id: params[:trade_id]), class: "btn btn-sm btn-warning mt-1" if params[:search].present?  %>
+        <%= link_to "Clear Search", contractors_path(trade_id: params[:trade_id]), class: "btn btn-sm btn-warning" if params[:search].present? %>
       </div>
     <% end %>
   </div>
 </header>
 
-<main class="container" id="contractors">
+<main id="contractors">
   <% if @contractors.present? %>
     <% @contractors.each do |contractor| %>
       <%= render contractor %>

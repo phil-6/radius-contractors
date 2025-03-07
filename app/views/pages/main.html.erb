@@ -1,4 +1,4 @@
-<header class="container main-page">
+<header class="main-page">
   <h1 class="page-title brand">Radius Contractors</h1>
   <h2 class="page-subtitle">Find builders recommended by people you trust</h2>
   <p class="challenge"><strong>It's really challenging to find reliable builders.</strong> Big platforms like Check-a-trade and MyBuilder
@@ -9,20 +9,19 @@
 
 <main class="main-page">
   <% if current_user && !current_user.ratings.size.zero? %>
-    <div class="welcome-back container">
+    <div class="welcome-back">
       <h2>Welcome Back <%= current_user.first_name %></h2>
       <p>What would you like to do today?</p>
-      <div class="row g-2 front-page-buttons">
-        <div class="col-4"><%= link_to "View contractors", contractors_path, class: "btn btn-builder" %></div>
-        <div class="col-4"><%= link_to "View your connections", connections_path, class: "btn btn-connection" %></div>
-        <div class="col-4"><%= link_to "Add a new contractor", new_contractor_path, class: "btn btn-builder" %></div>
-        <div class="col-4"><%= link_to "Add a new connection", new_connection_path, class: "btn btn-connection" %></div>
-        <div class="col-4"><%= link_to "Edit your account", edit_user_registration_path, class: "btn btn-primary" %></div>
-        <div class="col-4">
-          <%= link_to root_path, class: "btn btn-rating" do %>
-            View your profile <br><span class="small">(coming soon)</span>
-          <% end %>
-        </div>
+      <div class="row front-page-buttons">
+        <%= link_to "View contractors", contractors_path, class: "btn btn-builder" %>
+        <%= link_to "View your connections", connections_path, class: "btn btn-connection" %>
+        <%= link_to "Add a new contractor", new_contractor_path, class: "btn btn-builder" %>
+        <%= link_to "Add a new connection", new_connection_path, class: "btn btn-connection" %>
+        <%= link_to "Edit your account", edit_user_registration_path, class: "btn btn-primary" %>
+
+        <%= link_to root_path, class: "btn btn-rating" do %>
+          View your profile <br><span class="small">(coming soon)</span>
+        <% end %>
       </div>
     </div>
   <% else %>
@@ -33,7 +32,7 @@
 <%= render partial: 'about_aside' %>
 
 <% if current_user %>
-  <div class="bottom-0 start-0 m-5">
+  <div class="sign-out">
     <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
   </div>
 <% end %>

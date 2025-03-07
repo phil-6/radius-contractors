@@ -1,56 +1,55 @@
-<div class="col">
-  <div id="<%= dom_id rating %>" class="card h-100 rating-card <%= "own-rating" if rating.user == current_user %>">
-    <div class="card-header h-100 <%= rating.rating_quality %>-rating">
+<div id="<%= dom_id rating %>" class="card rating-card <%= "own-rating" if rating.user == current_user %>">
+  <div class="card-header <%= rating.rating_quality %>-rating rounded-top-corners">
 
-      <% if rating.user == current_user %>
-        <div class="controls">
-          <%= link_to edit_contractor_rating_path(rating.contractor, rating), class: "btn btn-secondary" do %>
-            <i class="fa-solid fa-pencil"></i>
-          <% end %>
-        </div>
-      <% end %>
-
-      <div class="overall-rating">
-        <p class="main">Overall rating: <%= rating.overall_rating %></p>
-        <p class="small">from  <%= pluralize(rating.from_number_of_jobs, "job") %></p>
+    <% if rating.user == current_user %>
+      <div class="top-corner-controls">
+        <%= link_to edit_contractor_rating_path(rating.contractor, rating), class: "btn btn-secondary" do %>
+          <i class="fa-solid fa-pencil"></i>
+        <% end %>
       </div>
+    <% end %>
 
-      <p>
-        <strong>Review:</strong>
-        <%= rating.review %>
-      </p>
+    <div class="overall-rating">
+      <p class="main">Overall rating: <%= rating.overall_rating %></p>
+      <p class="small">from  <%= pluralize(rating.from_number_of_jobs, "job") %></p>
     </div>
 
-    <div class="card-body">
-      <p class="sub-rating">
-        <strong>Value:</strong>
-        <%= rating.value_rating %>
-      </p>
+    <p class="review-text">
+      <strong>Review:</strong>
+      <%= rating.review %>
+    </p>
+  </div>
 
-      <p class="sub-rating">
-        <strong>Communication:</strong>
-        <%= rating.communication_rating %>
-      </p>
+  <div class="card-body">
+    <p class="sub-rating">
+      <strong>Value:</strong>
+      <%= rating.value_rating %>
+    </p>
 
-      <p class="sub-rating">
-        <strong>Quality:</strong>
-        <%= rating.quality_rating %>
-      </p>
+    <p class="sub-rating">
+      <strong>Communication:</strong>
+      <%= rating.communication_rating %>
+    </p>
 
-      <p class="sub-rating">
-        <strong>Tidiness:</strong>
-        <%= rating.tidiness_rating %>
-      </p>
+    <p class="sub-rating">
+      <strong>Quality:</strong>
+      <%= rating.quality_rating %>
+    </p>
 
-      <p class="sub-rating">
-        <strong>Professionalism:</strong>
-        <%= rating.professionalism_rating %>
-      </p>
-    </div>
-    <div class="card-footer">
-      <p>
-        Rated by: <%= rating.user.first_name %>, <%= time_ago_in_words(rating.updated_at) %> ago
-      </p>
-    </div>
+    <p class="sub-rating">
+      <strong>Tidiness:</strong>
+      <%= rating.tidiness_rating %>
+    </p>
+
+    <p class="sub-rating">
+      <strong>Professionalism:</strong>
+      <%= rating.professionalism_rating %>
+    </p>
+  </div>
+  <div class="card-footer">
+    <p>
+      Rated by: <%= rating.user.first_name %>, <%= time_ago_in_words(rating.updated_at) %> ago
+    </p>
   </div>
 </div>
+

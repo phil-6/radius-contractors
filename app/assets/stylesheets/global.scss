@@ -1,23 +1,178 @@
 html, body {
+  background: $theme-dark-bg-grad fixed;
+  color: $ink-light;
+  font-family: $font;
+  margin: 0;
   height: 100vh;
   width: 100vw;
+  scrollbar-color: $primary-darkest $theme-dark;
+  overflow-x: hidden;
 }
 
 main {
   margin-top: 1.5rem;
 }
 
-a.home-link {
+header, main, aside {
+  max-width: 100vw;
+  margin: 0 auto;
+  padding: 0.5rem;
+
+  hr {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+
+  // Small devices (landscape phones, 576px and up)
+  @media (min-width: 576px) {
+    max-width: 540px;
+    padding: 0;
+  }
+  // Medium devices (tablets, 768px and up)
+  @media (min-width: 768px) {
+    max-width: 720px;
+  }
+  // Large devices (desktops, 992px and up)
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+  // X-Large devices (large desktops, 1200px and up)
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
+  // XX-Large devices (larger desktops, 1400px and up)
+  @media (min-width: 1400px) {
+    max-width: 1320px;
+  }
+}
+
+h6, h5, h4, h3, h2, h1 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: calc(1.375rem + 1.5vw);
+
+  &.page-title.brand :hover {
+    text-decoration: none;
+  }
+}
+
+h2 {
+  font-size: calc(1.325rem + 0.9vw);
+}
+
+h3 {
+  font-size: calc(1.3rem + 0.6vw);
+}
+
+h4 {
+  font-size: calc(1.275rem + 0.3vw);
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+.small {
+  font-size: 80%;
+}
+
+.text-warning {
+  color: var(--warning);
+}
+
+.link-danger {
+  color: var(--danger);
+
+  &:hover {
+    color: var(--danger-dark);
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.home-link-container {
   margin: 0.5rem;
+  width: fit-content;
+}
+
+a {
+  color: $primary-light;
+  text-decoration: none;
+
+  &:hover {
+    color: $primary;
+    text-decoration: underline;
+  }
+}
+
+hr {
+  margin: 1rem 0;
+  color: #dee2e6;
+  border: 0;
+  border-top: 1px solid;
+  opacity: 0.25;
 }
 
 .page-title.brand {
   font-weight: 700;
   text-align: center;
   color: $brand;
+}
 
-  a {
-    text-decoration: none;
+.card {
+  position: relative;
+
+  .card-body, .card-header {
+    &.rounded-top-corners {
+      border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
+    }
+
+    &.rounded-corners {
+      border-radius: var(--card-border-radius);
+    }
+  }
+
+  .top-corner-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.2rem;
+
+    .icon-link {
+      padding: 0.1rem;
+      text-decoration: none;
+      margin-top: -0.5rem;
+
+      &:last-of-type {
+        margin-right: -0.5rem;
+      }
+    }
+
+    &:has(.btn) {
+      margin-bottom: -2rem;
+    }
   }
 }
 
@@ -25,6 +180,7 @@ a.home-link {
   &.modal {
     &--active {
       display: block;
+
       .modal {
         &__backdrop {
           display: flex;
@@ -39,6 +195,7 @@ a.home-link {
           overflow-y: auto;
           background-color: $body-bg-dark-transparent;
         }
+
         &__dialog {
           margin-right: auto;
           margin-left: auto;
@@ -50,6 +207,7 @@ a.home-link {
           border: 1px solid $primary-dark;
           border-radius: 0.5rem;
         }
+
         &__content {
           .modal-actions {
             display: flex;

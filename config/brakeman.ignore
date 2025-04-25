@@ -1,0 +1,28 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "a9df39938bfbe6bb7ea1e88cda6d185f7424690a264d6b46f3b4ea5697b5c833",
+      "check_name": "SQL",
+      "message": "Possible SQL injection",
+      "file": "app/models/user.rb",
+      "line": 83,
+      "link": "https://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "User.joins(\"INNER JOIN (SELECT user_a_id AS user_id FROM connections\\n    WHERE user_b_id IN (#{connected_users.pluck(:id).join(\",\")})\\n    UNION SELECT user_b_id AS user_id FROM connections\\n    WHERE user_a_id IN (#{connected_users.pluck(:id).join(\",\")}))\\n    AS user_connections ON users.id = user_connections.user_id\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "User",
+        "method": "second_degree_connections"
+      },
+      "user_input": "connected_users.pluck(:id).join(\",\")",
+      "confidence": "Medium",
+      "cwe_id": [
+        89
+      ],
+      "note": ""
+    }
+  ],
+  "brakeman_version": "7.0.2"
+}

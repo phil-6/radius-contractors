@@ -167,8 +167,7 @@ form {
 }
 
 main.new-connection {
-  height: 100%;
-  margin: 0;
+  height: calc(100vh - 4rem);
 
   .new-connection-container {
     display: flex;

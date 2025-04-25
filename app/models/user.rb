@@ -84,8 +84,8 @@ class User < ApplicationRecord
     UNION SELECT user_b_id AS user_id FROM connections
     WHERE user_a_id IN (#{direct_ids.join(',')}))
     AS user_connections ON users.id = user_connections.user_id")
-                        .where.not(id: direct_ids + [ id ])
-                        .distinct
+        .where.not(id: direct_ids + [ id ])
+        .distinct
   end
 
   def contractors_rated_by_second_degree_connections

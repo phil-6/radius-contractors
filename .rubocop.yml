@@ -46,6 +46,9 @@ Layout/SpaceInsideArrayLiteralBrackets:
   EnforcedStyle: compact
 Metrics/AbcSize:
   Max: 25
+Metrics/ClassLength:
+  Exclude:
+    - "test/models/user_test.rb"
 Metrics/MethodLength:
   AllowedMethods: [ 'create', 'update' ]
   CountAsOne: [ 'array', 'hash', 'method_call' ]

@@ -128,7 +128,7 @@ class UserTest < ActiveSupport::TestCase
     expected_viewable_count = (rated_by_connections + added + used + rated).uniq.size
     assert_equal expected_viewable_count, user.viewable_contractors.size
   end
-  
+
   test "should be able to get second degree connections" do
     user = users(:one)
     assert_equal 1, user.second_degree_connections.size

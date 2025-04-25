@@ -81,3 +81,23 @@ job_u_two_c_five:
   end_date: 2024-10-01
   cost: 100
   state: completed
+
+job_u_sec_one_builder_sec_one:
+  user: second_degree_user_one
+  contractor: c_second_degree_builder_one
+  description: test job
+  town: Swansea
+  start_date: 2024-05-01
+  end_date: 2024-10-01
+  cost: 100
+  state: completed
+
+job_u_sec_one_builder_sec_two:
+  user: second_degree_user_one
+  contractor: c_second_degree_builder_two
+  description: test job
+  town: Swansea
+  start_date: 2024-05-01
+  end_date: 2024-10-01
+  cost: 100
+  state: completed

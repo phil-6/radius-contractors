@@ -40,3 +40,17 @@ c_electrician:
   email: electrician@zappy.email
   town: Swansea
   added_by: one
+
+c_second_degree_builder_one:
+  name: c_second_degree_builder_one
+  number: "07211000211"
+  email: second_one@builder.email
+  town: Swansea
+  added_by: second_degree_user_one
+
+c_second_degree_builder_two:
+  name: c_second_degree_builder_one
+  number: "07211020211"
+  email: second_two@builder.email
+  town: Swansea
+  added_by: second_degree_user_one

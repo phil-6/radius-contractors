@@ -17,6 +17,7 @@ suz = User.create!(email: "s-k-t@hotmail.co.uk", first_name: "Suzanne", last_nam
 bryony = User.create!(email: "bryonyredfearn@gmail.com", first_name: "Bryony", last_name: "Redfearn", password: "test1234", password_confirmation: "test1234", town: "Swansea", confirmed_at: Time.current)
 holly = User.create!(email: "HollyRedfearn@gmail.com", first_name: "Holly", last_name: "Redfearn", password: "test1234", password_confirmation: "test1234", town: "Swansea", confirmed_at: Time.current)
 unconnected_test = User.create!(email: "unconnected@purplriver.dev", first_name: "Unconnected", last_name: "Test", password: "test1234", password_confirmation: "test1234", town: "Swansea", confirmed_at: Time.current)
+second_degree_to_phil = User.create!(email: "second_test@test.com", first_name: "Second Degree", last_name: "Test", password: "test1234", password_confirmation: "test1234", town: "Swansea", confirmed_at: Time.current)
 
 calum.create_connection_with(phil)
 tom.create_connection_with(phil)
@@ -45,6 +46,7 @@ bryony.create_connection_with(jon)
 holly.create_connection_with(jon)
 bryony.create_connection_with(suz)
 holly.create_connection_with(ciaran)
+second_degree_to_phil.create_connection_with(tom)
 
 trade_names = [
   "Plumber", "Gas Safe Plumber (Boilers)", "Electrician", "Carpenter", "Joiner", "Plasterer", "Decorator", "Painter", "Builder", "Gardener",
@@ -59,9 +61,11 @@ c_abbas = calum.added_contractors.create!(name: "Abbas", company_name: "RAM Plas
 c_james = phil.added_contractors.create!(name: "James", company_name: "Supreme Plastering", number: "07760102335", town: "Swansea")
 c_chris = phil.added_contractors.create!(name: "Chris Walters", company_name: "Chris Walters Plumbing & Heating", number: "07846214934", town: "Swansea", email: "Chriswaltersplumbing@gmail.com")
 c_lee = holly.added_contractors.create!(name: "Lee Williams", number: "07891814000", email: "leewilliams11@hotmail.com", town: "Swansea")
+c_second_deg = second_degree_to_phil.added_contractors.create!(name: "Second Degree Test", number: "07892824000", email: "second_deg@test.com", town: "Swansea")
 
 [ "Plumber", "Plasterer", "Bathroom Fitter", "Kitchen Fitter", "Builder", "Tiler" ].each do |trade_name|
   c_shaun.trades << Trade.find_by(name: trade_name)
+  c_second_deg.trades << Trade.find_by(name: trade_name)
 end
 c_paul.trades << Trade.find_by(name: "Electrician")
 c_abbas.trades << Trade.find_by(name: "Plasterer")
@@ -99,6 +103,9 @@ phil.jobs.create!(contractor: c_chris, description: "Plumbing", town: "Swansea",
 holly.jobs.create!(contractor: c_lee, description: "Carried out first fit of a new bathroom - running pipes and waste for concealed shower, sink and toilet, then removing old radiator, moving pipework and attaching new radiator",
                    town: "Swansea", start_date: Date.new(2024, 2, 1), end_date: Date.new(2024, 2, 10),
                    cost: 850, state: "completed")
+second_degree_to_phil.jobs.create!(contractor: c_second_deg, description: "Plumbing", town: "Swansea",
+                                    start_date: Date.new(2023, 2, 1), end_date: Date.new(2023, 2, 10),
+                                    cost: 500, state: "completed")
 
 phil.ratings.create!(contractor: c_shaun, overall_rating: 9, review: "Shaun was fantastic, would highly recommend")
 phil.ratings.create!(contractor: c_paul, overall_rating: 9, review: "Paul was great, would use again")
@@ -108,6 +115,7 @@ phil.ratings.create!(contractor: c_james, overall_rating: 8, review: "James was 
 bryony.ratings.create!(contractor: c_james, overall_rating: 3, review: "Had some difficulty with the awkward bits, wouldn't use again")
 phil.ratings.create!(contractor: c_chris, overall_rating: 9, review: "Chris' price was great and work was exceptional. Be prepared to book well in advance as he is in demand!")
 holly.ratings.create!(contractor: c_lee, overall_rating: 9, review: "Really nice to work with and did a very neat job, will be using for all our other plumbing")
+second_degree_to_phil.ratings.create!(contractor: c_second_deg, overall_rating: 9, review: "Second Degree Test was great, would use again")
 
 c_geoff = phil.added_contractors.create!(name: "Geoff Flynn", company_name: "Efficient Gas Services", number: "07528 558638", email: "geoff@efficientgasswansea.co.uk", town: "Swansea")
 c_geoff.trades << Trade.find_by(name: "Gas Safe Plumber (Boilers)")

@@ -8,5 +8,6 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name town])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[first_name last_name town second_degree_connections_enabled])
   end
 end

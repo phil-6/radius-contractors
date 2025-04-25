@@ -9,7 +9,7 @@ class ContractorsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get contractors_url
     assert_response :success
-    assert_equal 6, assigns(:contractors).size
+    assert_equal 8, assigns(:contractors).size
   end
 
   test "should be able to filter contractors" do
@@ -25,7 +25,7 @@ class ContractorsControllerTest < ActionDispatch::IntegrationTest
   test "should be able to search for contractors" do
     get contractors_url, params: { search: "builder" }
     assert_response :success
-    assert_equal 5, assigns(:contractors).size
+    assert_equal 7, assigns(:contractors).size
 
     get contractors_url, params: { search: "electrician" }
     assert_equal 1, assigns(:contractors).size

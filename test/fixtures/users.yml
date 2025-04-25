@@ -37,3 +37,13 @@ five:
   town: "test_town"
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= DateTime.current %>
+
+second_degree_user_one:
+  # connected to user one through user three
+  email: "second_degree_user_one@test.email"
+  first_name: "second_degree_user_one"
+  last_name: "test_user"
+  town: "test_town"
+  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
+  confirmed_at: <%= DateTime.current %>
+

@@ -24,11 +24,11 @@ class Contractor < ApplicationRecord
                   }
 
   def viewable_jobs(user)
-    jobs.where(user_id: user.connected_user_ids_and_self)
+    jobs.where(user_id: user.network_ids_and_self)
   end
 
   def viewable_customers(user)
-    customers.where(id: user.connected_user_ids_and_self)
+    customers.where(id: user.network_ids_and_self)
   end
 
   def jobs_for_customer(user)
@@ -36,7 +36,7 @@ class Contractor < ApplicationRecord
   end
 
   def viewable_ratings(user)
-    ratings.where(user_id: user.connected_user_ids_and_self)
+    ratings.where(user_id: user.network_ids_and_self)
   end
 
   def average_rating(user)

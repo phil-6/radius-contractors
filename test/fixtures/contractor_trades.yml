@@ -41,3 +41,19 @@ builder_tiler:
 electrician_electrician:
   contractor: c_electrician
   trade: electrician
+
+second_degree_builder_one_plumber:
+  contractor: c_second_degree_builder_one
+  trade: plumber
+
+second_degree_builder_one_plasterer:
+  contractor: c_second_degree_builder_one
+  trade: plasterer
+
+second_degree_builder_two_plumber:
+  contractor: c_second_degree_builder_two
+  trade: plumber
+
+second_degree_builder_two_plasterer:
+  contractor: c_second_degree_builder_two
+  trade: plasterer

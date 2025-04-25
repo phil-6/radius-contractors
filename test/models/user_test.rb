@@ -40,11 +40,14 @@ class UserTest < ActiveSupport::TestCase
     user = users(:one)
     assert_equal 2, user.connections.size
     assert_equal 2, user.connected_users.size
+    assert_equal 0, users(:four).connections.size
   end
 
   test "should be able to get an array of connected user IDs and self" do
     user = users(:one)
-    assert_equal [ users(:two).id, users(:three).id, user.id ].sort, user.connected_user_ids_and_self.sort
+    assert_equal [ users(:two).id, users(:three).id, users(:second_degree_user_one).id, user.id ].sort, user.network_ids_and_self.sort
+    user.update!(second_degree_connections_enabled: false)
+    assert_equal [ users(:two).id, users(:three).id, user.id ].sort, user.network_ids_and_self.sort
   end
 
   test "should be able to check if connected with another user" do
@@ -101,18 +104,58 @@ class UserTest < ActiveSupport::TestCase
   test "should be able to see contractors that user has added or have been rated by connections" do
     user = users(:one)
     rated_by_connections = users(:two).rated_contractors + users(:three).rated_contractors
+    rated_by_second_degree_connections = users(:second_degree_user_one).rated_contractors
     added = user.added_contractors
     used = user.used_contractors
     rated = user.rated_contractors
-    expected_viewable_count = (rated_by_connections + added + used + rated).uniq.size
+    expected_viewable_count = (rated_by_connections + added + used + rated + rated_by_second_degree_connections).uniq.size
     assert_equal expected_viewable_count, user.viewable_contractors.size
 
     user = users(:two)
     rated_by_connections = users(:one).rated_contractors + users(:three).rated_contractors
+    rated_by_second_degree_connections = users(:second_degree_user_one).rated_contractors
+    added = user.added_contractors
+    used = user.used_contractors
+    rated = user.rated_contractors
+    expected_viewable_count = (rated_by_connections + added + used + rated + rated_by_second_degree_connections).uniq.size
+    assert_equal expected_viewable_count, user.viewable_contractors.size
+
+    user = users(:three)
+    rated_by_connections = users(:one).rated_contractors + users(:two).rated_contractors + users(:second_degree_user_one).rated_contractors
     added = user.added_contractors
     used = user.used_contractors
     rated = user.rated_contractors
     expected_viewable_count = (rated_by_connections + added + used + rated).uniq.size
     assert_equal expected_viewable_count, user.viewable_contractors.size
+  end
+  
+  test "should be able to get second degree connections" do
+    user = users(:one)
+    assert_equal 1, user.second_degree_connections.size
+    assert_includes user.second_degree_connections, users(:second_degree_user_one)
+  end
+
+  test "should be able to get contractors rated by second degree connections" do
+    user = users(:one)
+    assert_equal 2, user.contractors_rated_by_second_degree_connections.size
+    assert_includes user.contractors_rated_by_second_degree_connections, contractors(:c_second_degree_builder_one)
+  end
+
+  test "viewable contractors should include contractors rated by second degree connections" do
+    user = users(:one)
+    assert users(:one).second_degree_connections_enabled
+    assert_includes user.viewable_contractors, contractors(:c_second_degree_builder_one)
+  end
+
+  test "viewable contractors should not include contractors rated by second degree connections if second degree connections is false" do
+    user = users(:one)
+    user.update!(second_degree_connections_enabled: false)
+    assert_not user.second_degree_connections_enabled
+    assert_not_includes user.viewable_contractors, contractors(:c_second_degree_builder_one)
+  end
+
+  test "should be able to see the number of second degree connections through another user" do
+    assert_equal 0, users(:one).second_degree_connections_through(users(:two)).size
+    assert_equal 1, users(:one).second_degree_connections_through(users(:three)).size
   end
 end

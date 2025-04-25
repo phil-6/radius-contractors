@@ -26,5 +26,12 @@
         <%= pluralize(other_user.connections.size, "connection") %>
       </p>
     </div>
+    <% if current_user.second_degree_connections_through(other_user).any? %>
+      <div class="stats">
+        <p class="stat">
+          <%= pluralize(current_user.second_degree_connections_through(other_user).size, "second degree connection")%>
+        </p>
+      </div>
+    <% end %>
   </div>
 </div>

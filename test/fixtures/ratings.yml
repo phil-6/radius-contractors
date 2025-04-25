@@ -54,3 +54,26 @@ rating_u_two_c_five:
   quality_rating: 6.0
   tidiness_rating: 6.0
   professionalism_rating: 2.0
+
+rating_u_sec_one_c_sec_one:
+  user: second_degree_user_one
+  contractor: c_second_degree_builder_one
+  review: "Test Sec One"
+  overall_rating: 9.0
+  value_rating: 8.0
+  communication_rating: 8.0
+  quality_rating: 6.0
+  tidiness_rating: 6.0
+  professionalism_rating: 2.0
+
+rating_u_sec_one_c_sec_two:
+  user: second_degree_user_one
+  contractor: c_second_degree_builder_two
+  review: "Test Sec Two"
+  overall_rating: 9.0
+  value_rating: 8.0
+  communication_rating: 8.0
+  quality_rating: 6.0
+  tidiness_rating: 6.0
+  professionalism_rating: 2.0
+

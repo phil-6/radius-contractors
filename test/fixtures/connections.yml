@@ -9,3 +9,8 @@ two:
 three:
   user_a: three
   user_b: one
+
+second_degree_connection_one:
+  # connected to user one through user three
+  user_a: three
+  user_b: second_degree_user_one

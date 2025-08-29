@@ -30,7 +30,10 @@ class ContractorsController < ApplicationController
     info_text = "We found an existing contractor that matched some of the details you entered. You can add a job for this contractor below."
     redirect_to @contractor, info: info_text and return if @contractor.persisted?
 
-    @contractor.assign_attributes(contractor_params.merge(added_by: current_user))
+    # TODO: Support partners
+    # added_by = current_user&.partner || current_user
+    added_by = current_user
+    @contractor.assign_attributes(contractor_params.merge(added_by:))
     respond_to do |format|
       if @contractor.save
         format.html { redirect_to @contractor, notice: "Contractor was successfully created." }

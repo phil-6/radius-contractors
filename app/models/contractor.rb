@@ -1,5 +1,6 @@
 class Contractor < ApplicationRecord
   include PgSearch::Model
+
   belongs_to :added_by, class_name: "User"
   belongs_to :updated_by, class_name: "User", optional: true
   has_many :contractor_trades, dependent: :destroy

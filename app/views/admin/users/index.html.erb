@@ -1,4 +1,4 @@
-<table class="table table-dark table-hover table-sm">
+<table class="admin-table">
   <thead>
   <tr>
     <th scope="col">ID</th>
@@ -17,7 +17,7 @@
   <tbody>
   <% @users.each do |user| %>
     <tr>
-      <th scope="row"><%= user.id %></th>
+      <th scope="row"><%= link_to user.id, admin_user_path(user.id) %></th>
       <td><%= user.full_name %></td>
       <td><%= user.town %></td>
       <td><%= user.sign_in_count %></td>

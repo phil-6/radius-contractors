@@ -47,3 +47,12 @@ second_degree_user_one:
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= DateTime.current %>
 
+admin:
+  email: "admin@test.com"
+  first_name: "admin"
+  last_name: "test_user"
+  town: "test_town"
+  admin: true
+  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
+  confirmed_at: <%= DateTime.current %>
+

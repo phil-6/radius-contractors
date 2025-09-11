@@ -21,7 +21,11 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    get "users" => "admin#users"
-    get "contractors" => "admin#contractors"
+    resources :users, only: %i[ index show ] do
+      member do
+        post :reset_password
+      end
+    end
+    resources :contractors, only: %i[ index ]
   end
 end

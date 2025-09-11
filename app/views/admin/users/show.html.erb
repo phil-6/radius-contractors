@@ -1,0 +1,21 @@
+<main>
+  <h2><%= @user.full_name %></h2>
+  <p> <%= @user.email %> </p>
+
+  <% if @user.unconfirmed_email %>
+    <p>(Unconfirmed Change to: <%= @user.unconfirmed_email %>) <i class="fa-solid fa-exclamation text-warning"></i></p>
+  <% end %>
+
+  <% if @user.reset_password_sent_at && 1.hour.ago < @user.reset_password_sent_at %>
+    <p class="text-success">Password reset email sent <%= time_ago_in_words @user.reset_password_sent_at %></p>
+  <% else %>
+    <%= button_to "Send password reset email",
+                  reset_password_admin_user_path(@user),
+                  method: :post,
+                  data: { confirm: "Send password reset email to #{@user.email}?" },
+                  class: "btn btn-warning" %>
+    <% if @user.reset_password_sent_at %>
+      <p>Password Last Reset At: <%= @user.reset_password_sent_at %></p>
+    <% end %>
+  <% end %>
+</main>

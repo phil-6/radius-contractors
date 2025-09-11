@@ -1,0 +1,18 @@
+table {
+  &.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+
+    th, td {
+      border: 0 solid var(--theme-mid-gray-translucent);
+      border-bottom-width: 2px;
+      padding: 0.75rem;
+      text-align: left;
+    }
+
+    th {
+      font-weight: bold;
+    }
+  }
+}

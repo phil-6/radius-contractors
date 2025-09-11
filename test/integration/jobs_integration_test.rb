@@ -1,6 +1,6 @@
 require "test_helper"
 
-class JobsControllerTest < ActionDispatch::IntegrationTest
+class JobsIntegrationTest < ActionDispatch::IntegrationTest
   setup do
     @job = jobs(:one)
     @contractor = @job.contractor

@@ -1,6 +1,6 @@
 require "test_helper"
 
-class RatingsControllerTest < ActionDispatch::IntegrationTest
+class RatingsIntegrationTest < ActionDispatch::IntegrationTest
   setup do
     @rating = ratings(:rating_one)
     @contractor = @rating.contractor

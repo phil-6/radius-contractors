@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ConnectionsControllerTest < ActionDispatch::IntegrationTest
+class ConnectionsIntegrationTest < ActionDispatch::IntegrationTest
   setup do
     @connection = connections(:one)
     sign_in users(:one)

@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ContractorsControllerTest < ActionDispatch::IntegrationTest
+class ContractorsIntegrationTest < ActionDispatch::IntegrationTest
   setup do
     @contractor = contractors(:c_builder)
     sign_in users(:one)
